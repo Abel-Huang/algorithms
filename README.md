@@ -1,2 +1,2 @@
-# Abel_Lib
-Just for Abel's interest
+# Algorithm practice
+Based on Algorithm(4th) in Java.
