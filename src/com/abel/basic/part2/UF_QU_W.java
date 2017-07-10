@@ -1,4 +1,4 @@
-package com.abel.cp1.part2;
+package com.abel.basic.part2;
 
 import java.util.Scanner;
 

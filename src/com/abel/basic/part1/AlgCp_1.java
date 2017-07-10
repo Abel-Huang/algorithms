@@ -1,6 +1,4 @@
-package com.abel.cp1.part1;
-
-import java.util.Arrays;
+package com.abel.basic.part1;
 
 /**
  * Created by huangjianjin on 2016/12/12.

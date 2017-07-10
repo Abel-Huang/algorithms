@@ -1,8 +1,8 @@
-package com.abel.cp1.part3;
+package com.abel.basic.part3;
 
 /**
  * Created by huangjinajin on 2016/12/25.
- * This is a fixed capacity stack witch could only store string.
+ * This is a fixed capacity stack witch could only store com.abel.string.
  */
 public class FixedCapacityStackOfStrings {
     private String[] a;

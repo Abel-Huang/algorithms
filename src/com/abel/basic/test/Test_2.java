@@ -1,10 +1,4 @@
-package com.abel.cp1.test;
-
-import com.abel.cp1.part3.Bag;
-import com.abel.cp1.part3.LinkedStack;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.abel.basic.test;
 
 /**
  * Created by huangjianjin on 2017/1/11.

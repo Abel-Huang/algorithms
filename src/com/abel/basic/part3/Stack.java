@@ -1,14 +1,14 @@
-package com.abel.cp1.part3;
+package com.abel.basic.part3;
 
 import java.util.Iterator;
 
 /**
  * Created by huangjianjin on 2016/12/25.
  */
-public class Queue<Item> implements Iterable<Item>{
+public class Stack<Item> implements Iterable<Item>{
     private Item[] a=(Item[])new Object[1];
     private int N=0;
-    public Queue(){}
+    public Stack(){}
 
     private void resize(int max){
         Item[] temp=(Item[])new Object[max];
@@ -22,29 +22,31 @@ public class Queue<Item> implements Iterable<Item>{
         return N==0;
     }
 
-    public void enqueue(Item item){
+    public void push(Item item){
         if(N==a.length){
             resize(2*a.length);
         }
         a[N++]=item;
     }
 
-    public Item dequeue(){
-        Item item=a[0];
-        for(int i=0;i<N-1;i++){
-            a[i]=a[i+1];
-        }
-        a[N-1]=null;
-        --N;
+    public Item pop(){
+        Item item=a[--N];
+        a[N]=null;
         if(N>0&&N==a.length/4){
             resize(a.length/2);
         }
         return item;
     }
 
+    public Item peek(){
+        Item item=a[N-1];
+        return item;
+    }
+
     public int size(){
         return N;
     }
+
 
     public Iterator<Item> iterator() {
         return new Itr();
@@ -62,4 +64,4 @@ public class Queue<Item> implements Iterable<Item>{
         }
         public void remove(){}
     }
-}
+ }

@@ -1,10 +1,7 @@
-package com.abel.cp1.test;
+package com.abel.basic.test;
 
-import com.abel.cp1.part3.*;
-import com.abel.cp1.part3.LinkedList;
-import com.abel.cp1.part3.Stack;
-
-import java.util.*;
+import com.abel.basic.part3.*;
+import com.abel.basic.part3.LinkedList;
 
 
 /**
