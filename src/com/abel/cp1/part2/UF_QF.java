@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 /**
  * Created by huangjinajin on 2017/1/19.
+ * quick-findËã·¨
+ * P140
  */
-public class UF {
+public class UF_QF {
     private int count;
     private int[] id;
-    public UF(int N){
+    public UF_QF(int N){
         count=N;
         id=new int[N];
         for (int i=0;i<N;i++){
@@ -45,7 +47,7 @@ public class UF {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        UF uf=new UF(N);
+        UF_QF uf=new UF_QF(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){
