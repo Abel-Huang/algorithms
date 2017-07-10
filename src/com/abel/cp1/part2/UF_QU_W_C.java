@@ -3,16 +3,16 @@ package com.abel.cp1.part2;
 import java.util.Scanner;
 
 /**
- * Created by huangjinajin on 2017/7/10.
- * 加权的quick-union算法
- * 通过增加一个数组记录每个component的大小，总是将小的加到大的上面
- * p144
+ * Created by huangjinajin on 2017/7/11.
+ * 使用路径压缩的加权quick-union算法
+ *  ????find()函数是这么写的么？
+ * p147
  */
-public class UF_QU_W {
+public class UF_QU_W_C {
     private int count;
     private int[] id;
     private int[] sz;
-    public UF_QU_W(int N){
+    public UF_QU_W_C(int N){
         count=N;
         id=new int[N];
         sz=new int[N];
@@ -34,9 +34,21 @@ public class UF_QU_W {
      * @return the new value
      */
     public int find(int p){
-        while(p!=id[p])
+        int root=p;
+        // 找到根节点
+        while(root!=id[root]){
+            root=id[root];
+        }
+        /**
+         * 在将p指向根节点的过程中将所
+         * 有中间的点也都指向root节点
+         */
+        while(p!=root){
+            int x=p;
+            id[x]=root;
             p=id[p];
-        return p;
+        }
+        return root;
     }
 
     /**
@@ -71,7 +83,7 @@ public class UF_QU_W {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        UF_QU_W uf=new UF_QU_W(N);
+        UF_QU_W_C uf=new UF_QU_W_C(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){

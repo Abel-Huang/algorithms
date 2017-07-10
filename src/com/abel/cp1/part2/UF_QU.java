@@ -3,7 +3,7 @@ package com.abel.cp1.part2;
 import java.util.Scanner;
 
 /**
- * Created by huangjianjin on 2017/7/10.
+ * Created by huangjinajin on 2017/7/10.
  * quick-unionËã·¨
  * p141
  */
