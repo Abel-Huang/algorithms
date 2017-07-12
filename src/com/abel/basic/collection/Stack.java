@@ -1,4 +1,4 @@
-package com.abel.basic.part3;
+package com.abel.basic.collection;
 
 import java.util.Iterator;
 

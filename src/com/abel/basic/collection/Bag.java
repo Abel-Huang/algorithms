@@ -1,12 +1,11 @@
-package com.abel.basic.part3;
-
+package com.abel.basic.collection;
 
 import java.util.Iterator;
 
 /**
- * Created by huangjianjin on 2016/12/27.
+ * Created by huangjianjin on 2016/12/25.
  */
-public class LinkedStack<Item> implements Iterable<Item>{
+public class Bag<Item> implements Iterable<Item>{
     private Node first;
     private int N;
     private class Node{
@@ -14,31 +13,20 @@ public class LinkedStack<Item> implements Iterable<Item>{
         Node next;
     }
 
-    public LinkedStack(){}
+    public Bag(){}
 
     public boolean isEmpty(){
         return N==0;
     }
 
-    public void push(Item item){
-       Node oldfirst=first;
+    public void add(Item item){
+        Node oldfirst=first;
         first=new Node();
         first.item=item;
         first.next=oldfirst;
         N++;
     }
 
-    public Item pop(){
-        Item item=first.item;
-        first=first.next;
-        N--;
-        return item;
-    }
-
-    public Item peek(){
-        Item item=first.item;
-        return item;
-    }
     public int size(){
         return N;
     }

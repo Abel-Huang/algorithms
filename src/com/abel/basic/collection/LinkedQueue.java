@@ -1,30 +1,44 @@
-package com.abel.basic.part3;
+package com.abel.basic.collection;
 
 import java.util.Iterator;
 
 /**
- * Created by huangjianjin on 2016/12/25.
+ * Created by huangjianjin on 2017/1/10.
  */
-public class Bag<Item> implements Iterable<Item>{
+public class LinkedQueue<Item> implements Iterable<Item> {
     private Node first;
+    private Node last;
     private int N;
     private class Node{
         Item item;
         Node next;
     }
 
-    public Bag(){}
+    public LinkedQueue(){}
 
     public boolean isEmpty(){
         return N==0;
     }
 
-    public void add(Item item){
-        Node oldfirst=first;
-        first=new Node();
-        first.item=item;
-        first.next=oldfirst;
+    public void enqueue(Item item){
+        Node oldLast=last;
+        last=new Node();
+        last.item=item;
+        last.next=null;
+        if (isEmpty())
+            first=last;
+        else
+            oldLast.next=last;
         N++;
+    }
+
+    public Item dequeue(){
+        Item item=first.item;
+        first=first.next;
+        if (isEmpty())
+            last=null;
+        N--;
+        return item;
     }
 
     public int size(){

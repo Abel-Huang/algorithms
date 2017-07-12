@@ -1,4 +1,4 @@
-package com.abel.basic.part1;
+package com.abel.basic.other;
 
 /**
  * Created by huangjianjin on 2016/12/12.

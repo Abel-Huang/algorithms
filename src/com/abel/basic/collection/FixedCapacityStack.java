@@ -1,4 +1,4 @@
-package com.abel.basic.part3;
+package com.abel.basic.collection;
 
 /**
  * Created by huangjianjin on 2016/12/25.
