@@ -1,53 +1,59 @@
-package com.abel.basic.part2;
+package com.abel.basic.unifind;
 
 import java.util.Scanner;
 
 /**
- * Created by huangjinajin on 2017/1/19.
- * quick-find算法
- * P140
+ * Created by huangjinajin on 2017/7/10.
+ * 加权的quick-union算法
+ * 通过增加一个数组记录每个component的大小，总是将小的加到大的上面
+ * p144
  */
-public class UF_QF {
-    private int count;
-    private int[] id;
-    public UF_QF(int N){
+public class QUW_UnionFind extends Basic_UnionFind {
+    private int[] sz;
+    public QUW_UnionFind(int N){
         count=N;
         id=new int[N];
-        for (int i=0;i<N;i++){
+        sz=new int[N];
+        for(int i=0;i<N;i++){
             id[i]=i;
+            sz[i]=1;
         }
     }
 
-    public int  find(int q){
-        return id[q];
+    /**
+     * @param p the old value
+     * @return the new value
+     */
+    public int find(int p){
+        while(p!=id[p])
+            p=id[p];
+        return p;
     }
 
+    /**
+     * @param p
+     * @param q
+     */
     public void union(int p, int q){
         int pID=find(p);
         int qID=find(q);
-        if (pID==qID)
+        if(pID==qID)
             return;
-        for(int i=0;i<id.length;i++){
-            if (find(i)==pID){
-                id[i]=qID;
-            }
+        if (sz[pID]>sz[qID]){
+            id[qID]=pID;
+            sz[pID]+=sz[qID];
+        }else{
+            id[pID]=qID;
+            sz[qID]+=sz[pID];
         }
         count--;
-    }
-
-    public int count(){
-        return count;
-    }
-
-    public boolean connected(int p, int q){
-        return find(p)==find(q);
     }
 
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        UF_QF uf=new UF_QF(N);
+        QUW_UnionFind uf=new QUW_UnionFind(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){

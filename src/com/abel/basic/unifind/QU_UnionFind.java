@@ -1,4 +1,4 @@
-package com.abel.basic.part2;
+package com.abel.basic.unifind;
 
 import java.util.Scanner;
 
@@ -7,10 +7,8 @@ import java.util.Scanner;
  * quick-unionÀ„∑®
  * p141
  */
-public class UF_QU {
-    private int count;
-    private int[] id;
-    public UF_QU(int N){
+public class QU_UnionFind extends Basic_UnionFind {
+    public QU_UnionFind(int N){
         count=N;
         id=new int[N];
         for (int i=0;i<N;i++){
@@ -33,19 +31,11 @@ public class UF_QU {
         count--;
     }
 
-    public int count(){
-        return count;
-    }
-
-    public boolean connected(int p, int q){
-        return find(p)==find(q);
-    }
-
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        UF_QU uf=new UF_QU(N);
+        QU_UnionFind uf=new QU_UnionFind(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){

@@ -1,4 +1,4 @@
-package com.abel.basic.part2;
+package com.abel.basic.unifind;
 
 import java.util.Scanner;
 
@@ -8,11 +8,9 @@ import java.util.Scanner;
  *  ????find()函数是这么写的么？
  * p147
  */
-public class UF_QU_W_C {
-    private int count;
-    private int[] id;
+public class QUWC_UnionFind extends Basic_UnionFind {
     private int[] sz;
-    public UF_QU_W_C(int N){
+    public QUWC_UnionFind(int N){
         count=N;
         id=new int[N];
         sz=new int[N];
@@ -20,13 +18,6 @@ public class UF_QU_W_C {
             id[i]=i;
             sz[i]=1;
         }
-    }
-
-    /**
-     * @return the number of component
-     */
-    public int count(){
-        return this.count;
     }
 
     /**
@@ -54,15 +45,6 @@ public class UF_QU_W_C {
     /**
      * @param p
      * @param q
-     * @return is the same value
-     */
-    public boolean connected(int p, int q){
-        return find(p)==find(q);
-    }
-
-    /**
-     * @param p
-     * @param q
      */
     public void union(int p, int q){
         int pID=find(p);
@@ -83,7 +65,7 @@ public class UF_QU_W_C {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        UF_QU_W_C uf=new UF_QU_W_C(N);
+        QUWC_UnionFind uf=new QUWC_UnionFind(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){
