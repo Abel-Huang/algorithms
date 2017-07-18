@@ -14,6 +14,13 @@ public class InsertionSort extends BasicSort{
         }
     }
 
+    public void sort(Comparable[] a, int low, int high) {
+        for (int i=low+1;i<=high;i++){
+            for(int j=i;j>0&&less(a[j],a[j-1]);j--){
+                exchange(a, j,j-1);
+            }
+        }
+    }
     public static void main(String args[]){
 //        Integer[] a={2,3,4,5,6,1,10,9,8,12,2,1};
 //        SelectionSort selection=new SelectionSort();
