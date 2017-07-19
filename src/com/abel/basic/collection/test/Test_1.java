@@ -1,7 +1,6 @@
-package com.abel.basic.test;
+package com.abel.basic.collection.test;
 
-import com.abel.basic.part3.*;
-import com.abel.basic.part3.LinkedList;
+import com.abel.basic.collection.LinkedList;
 
 
 /**

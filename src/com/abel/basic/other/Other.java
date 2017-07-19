@@ -3,7 +3,7 @@ package com.abel.basic.other;
 /**
  * Created by huangjianjin on 2016/12/12.
  */
-public class AlgCp_1 {
+public class Other {
     // method of successive division for greatest common divisor
     public static int gcd(int p,int q){
         //Integer

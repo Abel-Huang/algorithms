@@ -1,4 +1,7 @@
-package com.abel.sort;
+package com.abel.sort.quick;
+
+import com.abel.sort.BasicSort;
+import com.abel.sort.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,32 +10,16 @@ import java.util.Collections;
  * Created by huangjinajin on 2017/7/18.
  */
 public class QuickSort extends BasicSort {
-    private final int TRANS_ARG=5;
     @Override
     public void sort(Comparable[] a) {
         Collections.shuffle(Arrays.asList(a));
         sort(a, 0, a.length - 1);
     }
 
-    public void sortBetter(Comparable[] a) {
-        Collections.shuffle(Arrays.asList(a));
-        sortBetter(a, 0, a.length - 1);
-    }
 
-    public void sort(Comparable []a, int low, int high){
+    private void sort(Comparable []a, int low, int high){
         if (low>=high)
             return;
-        int p=partition(a, low, high);
-        sort(a, low, p-1);
-        sort(a, p+1, high);
-    }
-
-    public void sortBetter(Comparable []a, int low, int high){
-        if (high<=low+TRANS_ARG){
-            new InsertionSort().sort(a, low, high);
-            return;
-        }
-
         int p=partition(a, low, high);
         sort(a, low, p-1);
         sort(a, p+1, high);
@@ -64,10 +51,9 @@ public class QuickSort extends BasicSort {
 //        if(selection.isSorted(a))
 //            selection.show(a);
 //        String[] a={"as","bc","de","zz","jk","hk","hk","hj"};
-        QuickSort quick=new QuickSort();
-        quick.sortBetter(a);
+        MoreQuickSort quick=new MoreQuickSort();
+        quick.sort(a);
         if(quick.isSorted(a))
             quick.show(a);
-
     }
 }

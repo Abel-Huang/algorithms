@@ -1,4 +1,4 @@
-package com.abel.basic.test;
+package com.abel.basic.collection.test;
 
 /**
  * Created by huangjianjin on 2017/1/11.
