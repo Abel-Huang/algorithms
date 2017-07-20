@@ -21,12 +21,4 @@ public class ShellSort extends BasicSort {
             }
         }
     }
-
-    public static void main(String args[]){
-        Integer[] a={2,3,4,5,6,1,10,9,8,12,2,1};
-        SelectionSort selection=new SelectionSort();
-        selection.sort(a);
-        if(selection.isSorted(a))
-            selection.show(a);
-    }
 }

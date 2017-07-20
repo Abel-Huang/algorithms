@@ -30,7 +30,6 @@ public class InsertionSort extends BasicSort{
         String[] a={"as","bc","de","zz","jk","hk","hk","hj"};
         InsertionSort insertion=new InsertionSort();
         insertion.sort(a);
-        System.out.print(a.length);
 //        if(insertion.isSorted(a))
         insertion.show(a);
 

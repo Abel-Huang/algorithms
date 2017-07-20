@@ -42,11 +42,4 @@ public class MergeSortTB extends BasicSort {
             else
                 a[k]=extra[i++];
     }
-    public static void main(String args[]){
-        String[] a={"as","bc","de","zz","jk","hk","hk","hj"};
-        MergeSortBT merge=new MergeSortBT();
-        merge.sort(a);
-        if(merge.isSorted(a))
-            merge.show(a);
-    }
 }

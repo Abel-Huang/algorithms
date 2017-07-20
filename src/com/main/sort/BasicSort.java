@@ -1,5 +1,7 @@
 package com.main.sort;
 
+import com.main.basic.util.StdIO;
+
 /**
  * Created by huangjinajin on 2017/7/12.
  * A basic abstract class for sort
@@ -18,10 +20,7 @@ public abstract class BasicSort {
     }
 
     public void show(Comparable [] a){
-        for (Comparable c:a){
-            System.out.print(c + " ");
-        }
-        System.out.println();
+        StdIO.println(a);
     }
 
     public boolean isSorted(Comparable [] a){

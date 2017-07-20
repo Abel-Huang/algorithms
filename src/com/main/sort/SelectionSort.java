@@ -17,17 +17,4 @@ public class SelectionSort extends BasicSort {
             exchange(a,index, i);
         }
     }
-    public static void main(String args[]){
-//        Integer[] a={2,3,4,5,6,1,10,9,8,12,2,1};
-//        SelectionSort selection=new SelectionSort();
-//        selection.sort(a);
-//        if(selection.isSorted(a))
-//            selection.show(a);
-        String[] a={"as","bc","de","zz","jk","hk","hk","hj"};
-        InsertionSort insertion=new InsertionSort();
-        insertion.sort(a);
-        System.out.print(a.length);
-//        if(insertion.isSorted(a))
-        insertion.show(a);
-    }
 }
