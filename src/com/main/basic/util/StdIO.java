@@ -15,6 +15,27 @@ public class StdIO {
 
     /**
      * @param a
+     */
+    public static void print(Comparable a){
+        println(a + "");
+    }
+
+    /**
+     * @param i
+     */
+    public static void print(int i){
+        print(i+" ");
+    }
+
+    /**
+     * @param d
+     */
+    public static void print(double d){
+        print(d+" ");
+    }
+
+    /**
+     * @param a
      * Array output without wrap
      */
     public static void print(Comparable[] a){
@@ -22,6 +43,10 @@ public class StdIO {
             if (i==a.length-1){
                 System.out.println(a[i]);
                 return;
+            }
+            if (i%10 == 9){
+                println(a[i]);
+                continue;
             }
             System.out.print(a[i]+" ");
         }
@@ -33,6 +58,27 @@ public class StdIO {
      */
     public static void println(String s){
         System.out.println(s);
+    }
+
+    /**
+     * @param a
+     */
+    public static void println(Comparable a){
+        println(a + "");
+    }
+
+    /**
+     * @param d
+     */
+    public static void println(double d){
+        println(d + "");
+    }
+
+    /**
+     * @param i
+     */
+    public static void println(int i){
+        println(i + "");
     }
 
     /**
