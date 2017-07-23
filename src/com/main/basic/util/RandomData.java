@@ -98,15 +98,63 @@ public class RandomData {
     }
 
     /**
-     * 生成不超过指定长度的随机字符串
+     * 生成不超过指定长度 length 的随机字符串数组
      * @param seed
      * @param length
      * @param size
-     * @return
+     * @return String[]
      */
-    public static  String[] randStringArrray(long seed, int length, int size){
-        Random random=new Random();
-        return null;
+    public static  String[] randStrArray(long seed, int length, int size){
+        Random random=new Random(seed);
+        String [] strItems = ConstantData.STRING_ITEM;
+        String [] randStr = new String[size];
+        int N= strItems.length;
+        int index;
+        for (int i=0; i<size; i++){
+            StringBuilder item= new StringBuilder();
+            for (int j=0; j<length; j++){
+                index = random.nextInt(N);
+                item.append(strItems[index]);
+            }
+            randStr[i] = item.toString();
+        }
+        return randStr;
     }
 
+    /**
+     * @param length
+     * @param size
+     * @return String[]
+     */
+    public static String [] randStrArray(int length, int size){
+        long seed=System.currentTimeMillis();
+        return randStrArray(seed, length, size);
+    }
+
+    /**
+     * @param seed
+     * @param size
+     * @return Character []
+     */
+    public static Character [] randCharArray(long seed, int size){
+        Random random =new Random(seed);
+        String [] strItems = ConstantData.STRING_ITEM;
+        Character [] randChar = new Character[size];
+        int N= strItems.length;
+        int index;
+        for (int i=0; i<size; i++) {
+            index = random.nextInt(N);
+            randChar[i] = strItems[index].charAt(0);
+        }
+        return randChar;
+    }
+
+    /**
+     * @param size
+     * @return Character []
+     */
+    public static Character [] randCharArray(int size){
+        long seed = System.currentTimeMillis();
+        return randCharArray(seed, size);
+    }
 }
