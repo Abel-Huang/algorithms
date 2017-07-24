@@ -35,6 +35,12 @@ public class StdIO {
     }
 
     /**
+     * @param c
+     */
+    public static void print(char c) {
+        print(c+"");
+    }
+    /**
      * @param a
      * Array output without wrap
      */
@@ -81,6 +87,12 @@ public class StdIO {
         println(i + "");
     }
 
+    /**
+     * @param c
+     */
+    public static void println(char c){
+        println(c+"");
+    }
     /**
      * @param a
      *Array output and each item newline

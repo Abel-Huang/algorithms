@@ -1,4 +1,4 @@
-package com.main.basic.util;
+package com.main.basic.data;
 
 /**
  * Created by huangjinajin on 2017/7/22.

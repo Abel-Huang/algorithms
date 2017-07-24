@@ -1,4 +1,4 @@
-package com.main.sort.quick;
+package com.main.sort;
 
 /**
  * Created by huangjianjin on 2017/7/20.

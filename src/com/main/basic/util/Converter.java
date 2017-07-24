@@ -52,4 +52,28 @@ public class Converter {
         }
         return doubleArray;
     }
+
+    /**
+     * @param charArray
+     * @return Character []
+     */
+    public static Character [] parseCharacterArray(char [] charArray){
+        Character [] characterArray = new Character[charArray.length];
+        for (int i=0; i<charArray.length; i++){
+            characterArray[i] = charArray[i];
+        }
+        return characterArray;
+    }
+
+    /**
+     * @param characterArray
+     * @return char []
+     */
+    public static char [] paeseCharArray(char [] characterArray){
+        char [] charArray = new char[characterArray.length];
+        for (int i=0; i<characterArray.length; i++){
+            charArray[i] = characterArray[i];
+        }
+        return charArray;
+    }
 }
