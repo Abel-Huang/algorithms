@@ -2,7 +2,8 @@ package com.main.basic.data;
 
 /**
  * Created by huangjinajin on 2017/7/24.
- * 用于构造测试对象的类型
+ * 用于排序测试对象的类型，并以此构造相应的排序对象，
+ * 每一个对应一个排序类
  */
 public enum EnumSort {
     INSERT_SORT,

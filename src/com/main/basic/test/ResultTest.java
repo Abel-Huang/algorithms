@@ -1,5 +1,6 @@
 package com.main.basic.test;
 
+import com.main.basic.data.ConstantData;
 import com.main.basic.data.EnumSort;
 import com.main.basic.data.EnumType;
 import com.main.basic.util.*;
@@ -17,11 +18,20 @@ import com.main.sort.quick.QuickSort;
  * 用于测试结果，包括结果正确性以及程序耗时
  */
 public class ResultTest{
-    private void testInfo(Class objClass){
-//        StdIO.println(objClass.);
+    /**
+     * @param obj
+     */
+    private void testInfo(Object obj){
+        StdIO.println("Test class: "+obj.getClass().getSimpleName());
     }
 
-    public void testSort(int range, int size, EnumType et,  EnumSort es){
+    /**
+     * @param range
+     * @param size the size of array
+     * @param et   the type of data
+     * @param es   the class of sort
+     */
+    public void testSort(int range, int size, EnumType et,  EnumSort es) throws TestException{
         Comparable [] a;
         switch (et){
             case INTEGER_TYPE:
@@ -72,12 +82,14 @@ public class ResultTest{
         if(sort == null){
             return;
         }
+        testInfo(a);
         Timer timer = new Timer();
         sort.sort(a);
-        StdIO.print("Test: "+a.getClass().getSimpleName());
         StdIO.println("Runtime: " + timer.timeGoesBy());
         if(sort.isSorted(a))
             sort.show(a);
+        else
+            throw new TestException(ConstantData.SORT_ERROR_MSG);
     }
 
     private void testUtil(){
