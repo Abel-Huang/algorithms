@@ -9,7 +9,7 @@ public class ShellSort extends BasicSort {
     public void sort(Comparable[] a) {
         int h=1;
         int len=a.length;
-        while(h<len){
+        while(h<len/3){
             h=3*h+1;
         }
         while(h>=1){
@@ -17,8 +17,8 @@ public class ShellSort extends BasicSort {
                 for(int j=i; j>=h&&less(a[j], a[j-h]);j-=h){
                     exchange(a, j, j-h);
                 }
-                h/=3;
             }
+            h/=3;
         }
     }
 }

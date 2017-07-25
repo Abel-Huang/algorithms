@@ -20,7 +20,7 @@ public abstract class BasicSort {
     }
 
     public void show(Comparable [] a){
-        StdIO.println(a);
+        StdIO.print(a);
     }
 
     public boolean isSorted(Comparable [] a){
