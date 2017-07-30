@@ -39,7 +39,4 @@ public class MoreQuickSort extends BasicSort {
         sort(a, low, left-1);
         sort(a, right+1, high);
     }
-
-
-
 }
