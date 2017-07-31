@@ -1,8 +1,5 @@
 package com.main.sort.priority.heap;
 
-
-import com.main.basic.util.StdIO;
-
 /**
  * Created by huangjinajin on 2017/7/30.
  */
@@ -14,6 +11,18 @@ public class MaxPriorityQueue <K extends Comparable<K>>{
         maxpq = (K[]) new Comparable[maxN+1];
     }
 
+    public MaxPriorityQueue(){
+        maxpq = (K[]) new Comparable[17];
+    }
+
+    private void resize(int max){
+        K[] temp=(K[])new Comparable[max];
+        for(int i=0;i<maxpq.length;i++){
+            temp[i]=maxpq[i];
+        }
+        maxpq=temp;
+    }
+
     public boolean isEmpty(){
         return N==0;
     }
@@ -23,6 +32,9 @@ public class MaxPriorityQueue <K extends Comparable<K>>{
     }
 
     public void insert(K k){
+        if (N == maxpq.length-1){
+            resize(2 * maxpq.length);
+        }
         maxpq[++N] = k;
         rise(N);
     }
@@ -32,6 +44,9 @@ public class MaxPriorityQueue <K extends Comparable<K>>{
         exchange(1, N--);
         maxpq[N+1] = null;
         sink(1);
+       if (N >0 && N == maxpq.length/4){
+           resize(maxpq.length/2);
+       }
         return max;
     }
 
