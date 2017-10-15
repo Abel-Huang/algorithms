@@ -10,6 +10,7 @@ import com.main.sort.SelectionSort;
 import com.main.sort.ShellSort;
 import com.main.sort.merge.MergeSortBT;
 import com.main.sort.merge.MergeSortTB;
+import com.main.sort.priority.heap.HeapSort;
 import com.main.sort.quick.MoreQuickSort;
 import com.main.sort.quick.QuickSort;
 
@@ -74,6 +75,9 @@ public class ResultTest{
             case QUICK_SORT_2:
                 sort=new MoreQuickSort();
                 break;
+            case HEAP_SORT:
+                sort=new HeapSort();
+                break;
             default:
                 sort=null;
                 break;
@@ -82,7 +86,7 @@ public class ResultTest{
         if(sort == null){
             return;
         }
-        testInfo(a);
+        testInfo(sort);
         Timer timer = new Timer();
         sort.sort(a);
         StdIO.println("Runtime: " + timer.timeGoesBy());

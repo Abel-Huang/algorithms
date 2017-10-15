@@ -2,9 +2,19 @@ package com.main.basic.util;
 
 /**
  * Created by huangjinajin on 2017/7/19.
- * 用于类型转换的工具,主要用于数值类型数组和其对应引用类型数组之间的转换
+ * Comparable 接口的工具类
  */
-public class Converter {
+public class Comparables {
+
+    /**
+     * @param dis
+     * @param src
+     */
+    public static void copy(Comparable [] dis, Comparable [] src){
+        for (int i=0; i<src.length; i++)
+            dis[i] = src[i];
+    }
+
     /**
      * @param integerArray
      * @return int []

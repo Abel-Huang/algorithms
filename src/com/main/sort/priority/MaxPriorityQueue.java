@@ -4,7 +4,7 @@ package com.main.sort.priority;
  * Created by huangjianjin on 2017/7/20.
  * 定义一个最大优先的优先队列
  */
-public class MaxPriorityQueue<K extends Comparable<K>> extends PriorityQueue {
+public class MaxPriorityQueue<K extends Comparable<K>> {
     public MaxPriorityQueue(){}
 
     public MaxPriorityQueue(int size){}

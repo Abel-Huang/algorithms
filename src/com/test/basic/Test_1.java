@@ -4,7 +4,7 @@ import com.main.basic.collection.LinkedList;
 
 
 /**
- * Created by huangjianjin on 2016/12/25.
+ * Created by huangjinajin on 2016/12/25.
  */
 public class Test_1 {
     public static void main(String []args) {

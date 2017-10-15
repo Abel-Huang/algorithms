@@ -12,5 +12,6 @@ public enum EnumSort {
     QUICK_SORT_1,
     QUICK_SORT_2,
     MERGE_SORT_1,
-    MERGE_SORT_2
+    MERGE_SORT_2,
+    HEAP_SORT
 }

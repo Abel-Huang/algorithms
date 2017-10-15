@@ -1,7 +1,10 @@
 package com.test.basic;
 
+import com.main.basic.util.StdIO;
+import com.main.sort.InsertionSort;
+
 /**
- * Created by huangjianjin on 2017/1/11.
+ * Created by huangjinajin on 2017/1/11.
  */
 public class Test_2 {
     private Node first;
@@ -11,7 +14,7 @@ public class Test_2 {
         Node next;
     }
     public static void main(String []args){
-
-
+        InsertionSort i =new InsertionSort();
+        StdIO.print(i.getClass().getSimpleName());
     }
 }

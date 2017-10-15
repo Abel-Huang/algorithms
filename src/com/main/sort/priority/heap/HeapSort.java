@@ -1,7 +1,6 @@
 package com.main.sort.priority.heap;
 
-import com.main.basic.util.RandomData;
-import com.main.basic.util.StdIO;
+
 import com.main.sort.BasicSort;
 
 /**
@@ -30,12 +29,5 @@ public class HeapSort extends BasicSort{
             exchange(a, k, j);
             k = j;
         }
-    }
-
-    public static void main(String args[]){
-        Integer []a =RandomData.randIntegerArray(10, 10);
-        StdIO.print(a);
-        new HeapSort().sort(a);
-        StdIO.print(a);
     }
 }
