@@ -1,4 +1,6 @@
 /out
 /.idea
 /*.iml
-/.gradle/.bat/gradlew/settings.gradle/
+/.gradle/gradlew/settings.gradle
+/gradlew.bat
+/gradle
