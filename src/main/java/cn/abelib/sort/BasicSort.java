@@ -1,6 +1,6 @@
 package cn.abelib.sort;
 
-import cn.abelib.basic.util.StdIO;
+import cn.abelib.util.StdIO;
 
 /**
  * Created by huangjinajin on 2017/7/12.
