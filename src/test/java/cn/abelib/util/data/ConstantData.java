@@ -1,4 +1,4 @@
-package util.data;
+package cn.abelib.util.data;
 
 /**
  * Created by huangjinajin on 2017/7/22.

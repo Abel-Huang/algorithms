@@ -1,14 +1,14 @@
-package test.sort;
+package cn.abelib.test.sort;
 
-import util.data.EnumType;
-import util.data.test.TestException;
-import util.data.EnumSort;
-import util.data.test.ResultTest;
+import cn.abelib.util.data.EnumType;
+import cn.abelib.util.data.test.TestException;
+import cn.abelib.util.data.EnumSort;
+import cn.abelib.util.data.test.ResultTest;
 import cn.abelib.util.StdIO;
 
 /**
  * Created by huangjinajin on 2017/7/19.
- * A basic util.data.test class for all Sort Alg
+ * A basic cn.abelib.util.data.test class for all Sort Alg
  */
 public class SortTest {
     public static void main(String [] args){

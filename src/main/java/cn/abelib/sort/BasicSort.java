@@ -3,7 +3,7 @@ package cn.abelib.sort;
 import cn.abelib.util.StdIO;
 
 /**
- * Created by huangjinajin on 2017/7/12.
+ * Created by abel-huang on 2017/7/12.
  * A basic abstract class for sort
  */
 public abstract class BasicSort {

@@ -1,6 +1,6 @@
 package cn.abelib.util;
 
-import util.data.ConstantData;
+import cn.abelib.util.data.ConstantData;
 
 import java.util.Random;
 

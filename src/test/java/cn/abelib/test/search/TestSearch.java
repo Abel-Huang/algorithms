@@ -1,4 +1,4 @@
-package test.search;
+package cn.abelib.test.search;
 
 import cn.abelib.util.StdIO;
 import cn.abelib.search.tree.BST;

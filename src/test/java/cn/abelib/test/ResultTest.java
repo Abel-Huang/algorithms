@@ -1,10 +1,11 @@
-package util.test;
+package cn.abelib.test;
 
-import util.data.ConstantData;
-import util.data.EnumType;
 import cn.abelib.util.RandomData;
 import cn.abelib.util.StdIO;
 import cn.abelib.util.Timer;
+import cn.abelib.util.data.ConstantData;
+import cn.abelib.util.data.EnumSort;
+import cn.abelib.util.data.EnumType;
 import cn.abelib.sort.BasicSort;
 import cn.abelib.sort.InsertionSort;
 import cn.abelib.sort.SelectionSort;
@@ -13,8 +14,6 @@ import cn.abelib.sort.merge.MergeSortTB;
 import cn.abelib.sort.priority.heap.HeapSort;
 import cn.abelib.sort.quick.MoreQuickSort;
 import cn.abelib.sort.quick.QuickSort;
-import util.data.EnumSort;
-import com.main.basic.util.*;
 import cn.abelib.sort.ShellSort;
 
 /**

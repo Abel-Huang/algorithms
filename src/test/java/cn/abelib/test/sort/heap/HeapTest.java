@@ -1,4 +1,4 @@
-package test.sort.heap;
+package cn.abelib.test.sort.heap;
 
 import cn.abelib.util.StdIO;
 import cn.abelib.sort.priority.heap.MinPriorityQueue;

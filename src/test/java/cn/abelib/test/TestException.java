@@ -1,4 +1,4 @@
-package util.test;
+package cn.abelib.test;
 
 /**
  * Created by huangjinajin on 2017/7/19.

@@ -1,4 +1,4 @@
-package test.basic.util;
+package cn.abelib.test.basic.util;
 
 import cn.abelib.util.RandomData;
 import cn.abelib.util.StdIO;

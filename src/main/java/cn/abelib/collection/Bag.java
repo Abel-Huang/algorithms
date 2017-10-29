@@ -3,7 +3,7 @@ package cn.abelib.collection;
 import java.util.Iterator;
 
 /**
- * Created by huangjianjin on 2016/12/25.
+ * Created by abel-huang on 2016/12/25.
  */
 public class Bag<Item> implements Iterable<Item>{
     private Node first;
@@ -20,10 +20,10 @@ public class Bag<Item> implements Iterable<Item>{
     }
 
     public void add(Item item){
-        Node oldfirst=first;
+        Node oldFirst=first;
         first=new Node();
         first.item=item;
-        first.next=oldfirst;
+        first.next=oldFirst;
         N++;
     }
 

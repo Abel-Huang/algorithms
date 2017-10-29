@@ -1,4 +1,4 @@
-package util.test;
+package cn.abelib.test;
 
 
 /**

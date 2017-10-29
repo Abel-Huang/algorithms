@@ -1,4 +1,4 @@
-package test.basic;
+package cn.abelib.test.basic;
 
 import cn.abelib.collection.LinkedList;
 

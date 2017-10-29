@@ -3,7 +3,7 @@ package cn.abelib.sort.merge;
 import cn.abelib.sort.BasicSort;
 
 /**
- * Created by huangjinajin on 2017/7/17.
+ * Created by abel-huang on 2017/7/17.
  * 自顶向下的归并排序
  */
 public class MergeSortTB extends BasicSort {

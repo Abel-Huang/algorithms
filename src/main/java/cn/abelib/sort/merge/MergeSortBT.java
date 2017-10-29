@@ -3,8 +3,8 @@ package cn.abelib.sort.merge;
 import cn.abelib.sort.BasicSort;
 
 /**
- * Created by huangjinajin on 2017/7/19.
- * �Ե����ϵĹ鲢����
+ * Created by abel-huang on 2017/7/19.
+ *
  */
 public class MergeSortBT extends BasicSort {
     protected Comparable [] extra;
