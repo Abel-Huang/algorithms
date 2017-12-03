@@ -4,7 +4,11 @@ package cn.abelib.collection;
 import java.util.Iterator;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2016/12/27.
+=======
+ * Created by huangjianjin on 2016/12/27.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class LinkedStack<Item> implements Iterable<Item>{
     private Node first;

@@ -1,8 +1,13 @@
 package cn.abelib.util;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/7/19.
  * Comparable
+=======
+ * Created by huangjinajin on 2017/7/19.
+ * Comparable �ӿڵĹ�����
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class Comparables {
 

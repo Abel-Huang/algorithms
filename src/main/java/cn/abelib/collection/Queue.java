@@ -3,7 +3,11 @@ package cn.abelib.collection;
 import java.util.Iterator;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2016/12/25.
+=======
+ * Created by huangjianjin on 2016/12/25.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class Queue<Item> implements Iterable<Item>{
     private Item[] a=(Item[])new Object[1];

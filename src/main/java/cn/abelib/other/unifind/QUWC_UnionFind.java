@@ -3,7 +3,13 @@ package cn.abelib.other.unifind;
 import java.util.Scanner;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/7/11.
+=======
+ * Created by huangjinajin on 2017/7/11.
+ * ʹ��·��ѹ���ļ�Ȩquick-union�㷨
+ *  ????find()��������ôд��ô��
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  * p147
  */
 public class QUWC_UnionFind extends Basic_UnionFind {

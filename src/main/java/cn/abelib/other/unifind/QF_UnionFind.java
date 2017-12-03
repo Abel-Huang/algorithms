@@ -3,7 +3,12 @@ package cn.abelib.other.unifind;
 import java.util.Scanner;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/1/19.
+=======
+ * Created by huangjinajin on 2017/1/19.
+ * quick-find�㷨
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  * P140
  */
 public class QF_UnionFind extends Basic_UnionFind {

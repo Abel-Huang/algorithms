@@ -7,7 +7,10 @@ import org.junit.Test;
 /**
  * create by abel-huang on 2017/10/30
  */
+<<<<<<< HEAD
 // The unit test for Bag
+=======
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
 public class BagTest {
     Bag bag = null;
 

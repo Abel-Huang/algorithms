@@ -5,7 +5,17 @@ import cn.abelib.util.data.ConstantData;
 import java.util.Random;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/7/22.
+=======
+ * Created by huangjinajin on 2017/7/22.
+ * �����������ڲ��Ե�������Լ��������
+ *
+ * ֵ��ע����Ƕ�������һ�����double�� �䷶Χ��[0,range)
+ * ����range�ǲ����������ȡֵ��Χ
+ *
+ * ���seed��ͬ��ô���ɵ������Ҳ��ͬ
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class RandomData {
     /**

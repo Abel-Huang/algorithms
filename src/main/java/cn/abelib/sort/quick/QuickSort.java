@@ -6,7 +6,11 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/7/18.
+=======
+ * Created by huangjinajin on 2017/7/18.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class QuickSort extends BasicSort {
     @Override

@@ -4,7 +4,11 @@ import cn.abelib.sort.BasicSort;
 
 /**
  * Created by abel-huang on 2017/7/17.
+<<<<<<< HEAD
  *
+=======
+ * 自顶向下的归并排序
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class MergeSortTB extends BasicSort {
     protected Comparable [] extra;

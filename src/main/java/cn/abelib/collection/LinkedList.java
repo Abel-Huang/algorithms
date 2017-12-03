@@ -3,7 +3,11 @@ package cn.abelib.collection;
 import java.util.Iterator;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/1/11.
+=======
+ * Created by huangjianjin on 2017/1/11.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  * This is a linked list
  */
 public class LinkedList<Item> implements Iterable<Item>{
@@ -44,7 +48,11 @@ public class LinkedList<Item> implements Iterable<Item>{
         return temp.item;
     }
 
+<<<<<<< HEAD
     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á²»ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Ð¹Â©ï¿½ï¿½ï¿½â£¿
+=======
+    //Õâ¸ö·½·¨»á²»»áÓÐÄÚ´æÐ¹Â©ÎÊÌâ£¿
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
     public Item delTail(){
         Item item=last.item;
         last=null;

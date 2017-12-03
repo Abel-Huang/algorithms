@@ -1,7 +1,11 @@
 package cn.abelib.sort.priority;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/7/20.
+=======
+ * Created by huangjinajin on 2017/7/20.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public abstract class PriorityQueue<K extends Comparable<K>> {
     public K[] pq;

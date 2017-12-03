@@ -3,7 +3,11 @@ package cn.abelib.collection;
 import java.util.Iterator;
 
 /**
+<<<<<<< HEAD
  * Created by abel-huang on 2017/1/10.
+=======
+ * Created by huangjianjin on 2017/1/10.
+>>>>>>> 245eb44931ba0001767e05c615c1e630842b2ec3
  */
 public class LinkedQueue<Item> implements Iterable<Item> {
     private Node first;
