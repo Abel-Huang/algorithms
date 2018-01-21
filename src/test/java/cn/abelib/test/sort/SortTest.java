@@ -1,9 +1,9 @@
 package cn.abelib.test.sort;
 
+import cn.abelib.test.ResultTest;
+import cn.abelib.test.TestException;
 import cn.abelib.util.data.EnumType;
-import cn.abelib.util.data.test.TestException;
 import cn.abelib.util.data.EnumSort;
-import cn.abelib.util.data.test.ResultTest;
 import cn.abelib.util.StdIO;
 
 /**
