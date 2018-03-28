@@ -1,7 +1,6 @@
 package cn.abelib.utils.collection;
 
 /**
-<<<<<<< HEAD
  * Created by abel-huang on 2016/12/25.
  * This is a fixed capacity stack witch could only store src.main.string.
  */

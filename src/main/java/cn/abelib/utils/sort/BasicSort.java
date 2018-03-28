@@ -4,7 +4,7 @@ import cn.abelib.common.StdIO;
 
 /**
  * Created by abel-huang on 2017/7/12.
- * A basic abstract class for sort
+ * A graph abstract class for sort
  */
 public abstract class BasicSort {
     public  abstract void sort(Comparable [] a);
