@@ -1,4 +1,4 @@
-package cn.abelib.utils.collection;
+package cn.abelib.utils.collection.map;
 
 
 /**
