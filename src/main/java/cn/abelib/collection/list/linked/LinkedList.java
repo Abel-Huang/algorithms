@@ -1,4 +1,4 @@
-package cn.abelib.collection.list;
+package cn.abelib.collection.list.linked;
 
 import java.util.Iterator;
 

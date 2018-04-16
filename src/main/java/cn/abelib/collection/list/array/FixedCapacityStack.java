@@ -1,4 +1,4 @@
-package cn.abelib.collection.list;
+package cn.abelib.collection.list.array;
 
 /**
  * Created by abel-huang on 2016/12/25.

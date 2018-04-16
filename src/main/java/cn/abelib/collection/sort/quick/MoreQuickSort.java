@@ -1,7 +1,7 @@
 package cn.abelib.collection.sort.quick;
 
-import cn.abelib.utils.sort.InsertionSort;
-import cn.abelib.utils.sort.BasicSort;
+import cn.abelib.collection.sort.BasicSort;
+import cn.abelib.collection.sort.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,8 +17,6 @@ public class MoreQuickSort extends BasicSort {
         sort(a, 0, a.length - 1);
     }
 
-    //   ���ڲ���С����ʽ���ò�����������������
-    //   ʹ�������з֣������ظ�Ԫ�ص������ٶ�
     private void sort(Comparable []a, int low, int high){
         if (high<=low+TRANS_ARG){
             new InsertionSort().sort(a, low, high);

@@ -1,6 +1,7 @@
 package cn.abelib.collection.sort.merge;
 
-import cn.abelib.utils.sort.BasicSort;
+
+import cn.abelib.collection.sort.BasicSort;
 
 /**
  * Created by abel-huang on 2017/7/17.

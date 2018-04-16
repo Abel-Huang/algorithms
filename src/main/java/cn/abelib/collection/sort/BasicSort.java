@@ -1,10 +1,11 @@
 package cn.abelib.collection.sort;
 
-import cn.abelib.common.StdIO;
+
+import cn.abelib.collection.util.StdIO;
 
 /**
  * Created by abel-huang on 2017/7/12.
- * A basic abstract class for sort
+ * A array abstract class for sort
  */
 public abstract class BasicSort {
     public  abstract void sort(Comparable [] a);

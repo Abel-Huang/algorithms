@@ -1,4 +1,4 @@
-package cn.abelib.collection.list;
+package cn.abelib.collection.list.linked;
 
 /**
  * Created by ${abel-huang} on 18/2/28.

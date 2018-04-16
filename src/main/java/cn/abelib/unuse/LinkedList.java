@@ -1,4 +1,4 @@
-package cn.abelib.collection.util;
+package cn.abelib.unuse;
 
 /**
  * Created by abel on 2017/1/24.

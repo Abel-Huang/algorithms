@@ -1,5 +1,7 @@
-package cn.abelib.collection.list;
+package cn.abelib.collection.util;
 
+
+import cn.abelib.commons.Constant;
 
 /**
  * Created by ${abel-huang} on 18/2/27.
