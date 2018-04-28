@@ -6,8 +6,9 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2016/12/25.
+ *  The unit algorithm for Stack
  */
-// The unit algorithm for Stack
+
 public class StackTest {
 
     @Before

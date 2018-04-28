@@ -6,8 +6,9 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2017/7/22.
+ * The unit algorithm for ArrayList
  */
-// The unit algorithm for ArrayList
+
 public class ArrayListTest {
 
     @Before

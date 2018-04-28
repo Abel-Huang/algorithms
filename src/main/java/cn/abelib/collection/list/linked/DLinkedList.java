@@ -2,9 +2,8 @@ package cn.abelib.collection.list.linked;
 
 /**
  * Created by ${abel-huang} on 18/2/28.
+ * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一, 部分参考了Java LinkedList
  */
-// 模仿Redis底层双向链表的实现，是Redis list的底层实现之一, 部分参考了Java LinkedList
-
 public class DLinkedList<T> {
     private Node<T> tail = new Node<>();
     private Node<T> head = new Node<>();

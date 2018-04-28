@@ -41,14 +41,14 @@ public class MinPriorityQueue  <K extends Comparable<K>>{
     }
 
     public K delMin(){
-        K max = minpq[1];
+        K min = minpq[1];
         exchange(1, N--);
         minpq[N+1] = null;
         sink(1);
         if (N >0 && N == minpq.length/4){
             resize(minpq.length/2);
         }
-        return max;
+        return min;
     }
 
     private boolean less(int i,int j){

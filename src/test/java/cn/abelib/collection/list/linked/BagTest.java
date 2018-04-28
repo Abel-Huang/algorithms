@@ -1,6 +1,5 @@
 package cn.abelib.collection.list.linked;
 
-import cn.abelib.collection.list.linked.Bag;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

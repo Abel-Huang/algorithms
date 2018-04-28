@@ -1,7 +1,6 @@
 package cn.abelib.collection.list.linked;
 
 
-import cn.abelib.collection.list.linked.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 

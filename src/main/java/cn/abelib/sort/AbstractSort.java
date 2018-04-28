@@ -1,6 +1,8 @@
 package cn.abelib.sort;
 
 
+import java.util.Arrays;
+
 /**
  * Created by abel-huang on 2017/7/12.
  * A array abstract class for sort
@@ -19,7 +21,7 @@ public abstract class AbstractSort {
     }
 
     public void show(Comparable [] a){
-        BasicSelectionSort.print(a);
+        Arrays.stream(a).forEach(System.out::println);
     }
 
     public boolean isSorted(Comparable [] a){

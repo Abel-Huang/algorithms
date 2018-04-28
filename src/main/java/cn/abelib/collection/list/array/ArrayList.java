@@ -1,7 +1,6 @@
 package cn.abelib.collection.list.array;
 
 
-import cn.abelib.collection.list.linked.LinkedList;
 import cn.abelib.commons.Constant;
 
 import java.util.Iterator;
