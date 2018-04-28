@@ -22,7 +22,7 @@ public class LinkedList<Item> implements Iterable<Item>{
     }
 
     public void add(Item item){
-        Node oldnow=last;
+        Node oldNow=last;
         last=new Node();
         last.item=item;
         last.next=null;
@@ -30,33 +30,46 @@ public class LinkedList<Item> implements Iterable<Item>{
             first=last;
         }
         else{
-            oldnow.next=last;
+            oldNow.next=last;
         }
         N++;
     }
 
     public Item get(int index){
+        if (index < 0 || index >= N){
+            throw new IndexOutOfBoundsException("Index out of bound");
+        }
         Node temp=first;
-        while (index>1){
+        while (index>0){
             temp=temp.next;
             index--;
         }
         return temp.item;
     }
 
+    /**
+     *  删除尾部元素
+     * @return
+     */
     public Item delTail(){
+        if (N < 1){
+            throw  new NullPointerException("No more Item in this list");
+        }
+        if (N == 1){
+            Item result = first.item;
+            first = null;
+            last = null;
+            N = 0;
+            return result;
+        }
         Item item=last.item;
-        last=null;
         Node temp=first;
-        while (temp!=null){
-            if (temp.next.next==null){
-                temp.next=temp.next.next;
-                last=temp;
-                N--;
-                break;
-            }
+        while (temp.next!=last){
            temp=temp.next;
         }
+        last = temp;
+        temp.next = null;
+        N--;
         return item;
     }
 
