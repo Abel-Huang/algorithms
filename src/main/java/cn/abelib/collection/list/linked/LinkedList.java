@@ -1,17 +1,19 @@
 package cn.abelib.collection.list.linked;
 
+import cn.abelib.collection.list.List;
+
 import java.util.Iterator;
 
 /**
  * Created by abel-huang on 2017/1/11.
  * This is a linked list
  */
-public class LinkedList<Item> implements Iterable<Item>{
+public class LinkedList<T> implements List<T> {
     private Node first;
     private Node last;
     private int N;
     private class Node{
-        Item item;
+        T item;
         Node next;
     }
 
@@ -21,7 +23,7 @@ public class LinkedList<Item> implements Iterable<Item>{
         return N==0;
     }
 
-    public void add(Item item){
+    public void add(T item){
         Node oldNow=last;
         last=new Node();
         last.item=item;
@@ -35,7 +37,7 @@ public class LinkedList<Item> implements Iterable<Item>{
         N++;
     }
 
-    public Item get(int index){
+    public T get(int index){
         if (index < 0 || index >= N){
             throw new IndexOutOfBoundsException("Index out of bound");
         }
@@ -51,18 +53,18 @@ public class LinkedList<Item> implements Iterable<Item>{
      *  删除尾部元素
      * @return
      */
-    public Item delTail(){
+    public T delTail(){
         if (N < 1){
             throw  new NullPointerException("No more Item in this list");
         }
         if (N == 1){
-            Item result = first.item;
+            T result = first.item;
             first = null;
             last = null;
             N = 0;
             return result;
         }
-        Item item=last.item;
+        T item=last.item;
         Node temp=first;
         while (temp.next!=last){
            temp=temp.next;
@@ -73,7 +75,7 @@ public class LinkedList<Item> implements Iterable<Item>{
         return item;
     }
 
-    public boolean find(Item item) {
+    public boolean find(T item) {
         boolean isFind=false;
         Node temp=first;
         while (temp!=null){
@@ -86,7 +88,7 @@ public class LinkedList<Item> implements Iterable<Item>{
         return isFind;
     }
 
-    public void remove(Item item) {
+    public void remove(T item) {
         if((last.item+"").equals(item+"")){
             delTail();
         }
@@ -111,13 +113,13 @@ public class LinkedList<Item> implements Iterable<Item>{
         }
     }
 
-    public Item delete(int index){
+    public T delete(int index){
         if(index==N){
             return delTail();
         }
         else if(index==1){
             Node temp=first;
-            Item item=last.item;
+            T item=last.item;
             first=temp.next;
             temp=null;
             N--;
@@ -132,7 +134,7 @@ public class LinkedList<Item> implements Iterable<Item>{
                 temp=temp.next;
                 index--;
             }
-            Item item=temp.next.item;
+            T item=temp.next.item;
             temp.next=temp.next.next;
             //first=temp;
             N--;
@@ -147,11 +149,11 @@ public class LinkedList<Item> implements Iterable<Item>{
         return N;
     }
 
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private Node current=first;
         private int i=N;
         @Override
@@ -159,8 +161,8 @@ public class LinkedList<Item> implements Iterable<Item>{
             return i>0;
         }
         @Override
-        public Item next() {
-            Item item=current.item;
+        public T next() {
+            T item=current.item;
             current=current.next;
             i--;
             return item;

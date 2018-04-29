@@ -6,10 +6,10 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2017/1/11.
- *  The unit algorithm for Queue
+ *  The unit algorithm for ArrayListQueue
  */
 
-public class LinkedQueueTest {
+public class LinkedArrayListQueueTest {
     @Before
     public void init(){
 

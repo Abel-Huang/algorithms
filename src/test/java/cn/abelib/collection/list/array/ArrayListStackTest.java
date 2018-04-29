@@ -6,10 +6,10 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2016/12/25.
- *  The unit algorithm for Stack
+ *  The unit algorithm for ArrayListStack
  */
 
-public class StackTest {
+public class ArrayListStackTest {
 
     @Before
     public void init(){

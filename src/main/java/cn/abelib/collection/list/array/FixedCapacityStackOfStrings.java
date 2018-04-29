@@ -1,9 +1,12 @@
 package cn.abelib.collection.list.array;
 
+import cn.abelib.util.annotation.UnUse;
+
 /**
  * Created by abel-huang on 2016/12/25.
  * This is a fixed capacity stack witch could only store src.main.string.
  */
+@UnUse
 public class FixedCapacityStackOfStrings {
     private String[] a;
     private int N;

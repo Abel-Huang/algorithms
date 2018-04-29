@@ -1,17 +1,20 @@
 package cn.abelib.collection.list.array;
 
+import cn.abelib.collection.list.Queue;
+
 import java.util.Iterator;
+
 
 /**
  * Created by abel-huang on 2016/12/25.
  */
-public class Queue<Item> implements Iterable<Item>{
-    private Item[] a=(Item[])new Object[1];
+public class ArrayListQueue<T> implements Queue<T> {
+    private T[] a=(T[])new Object[1];
     private int N=0;
-    public Queue(){}
+    public ArrayListQueue(){}
 
     private void resize(int max){
-        Item[] temp=(Item[])new Object[max];
+        T[] temp=(T[])new Object[max];
         for(int i=0;i<a.length;i++){
             temp[i]=a[i];
         }
@@ -22,15 +25,15 @@ public class Queue<Item> implements Iterable<Item>{
         return N==0;
     }
 
-    public void enqueue(Item item){
+    public void enqueue(T item){
         if(N==a.length){
             resize(2*a.length);
         }
         a[N++]=item;
     }
 
-    public Item dequeue(){
-        Item item=a[0];
+    public T dequeue(){
+        T item=a[0];
         for(int i=0;i<N-1;i++){
             a[i]=a[i+1];
         }
@@ -46,18 +49,18 @@ public class Queue<Item> implements Iterable<Item>{
         return N;
     }
 
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private int i=N;
         @Override
         public boolean hasNext() {
             return i>0;
         }
         @Override
-        public Item next() {
+        public T next() {
             return a[--i];
         }
         public void remove(){}

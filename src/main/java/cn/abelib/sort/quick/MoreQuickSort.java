@@ -1,7 +1,7 @@
 package cn.abelib.sort.quick;
 
 import cn.abelib.sort.AbstractSort;
-import cn.abelib.sort.InsertionSort;
+import cn.abelib.sort.insertion.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,9 +1,12 @@
 package cn.abelib.collection.list.array;
 
+import cn.abelib.util.annotation.UnUse;
+
 /**
  * Created by abel-huang on 2016/12/25.
  * This is a fixed capacity stack witch could store any type of object by using generic.
  */
+@UnUse
 public class FixedCapacityStack<Item> {
     private Item[] a;
     private int N;

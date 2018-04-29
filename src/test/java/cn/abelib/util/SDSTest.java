@@ -1,5 +1,6 @@
 package cn.abelib.util;
 
+import cn.abelib.commons.string.DynamicString;
 import org.junit.Test;
 
 /**

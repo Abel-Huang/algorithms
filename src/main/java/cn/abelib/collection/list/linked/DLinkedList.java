@@ -1,13 +1,22 @@
 package cn.abelib.collection.list.linked;
 
+import cn.abelib.collection.list.Deque;
+
+import java.util.Iterator;
+
 /**
  * Created by ${abel-huang} on 18/2/28.
  * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一, 部分参考了Java LinkedList
  */
-public class DLinkedList<T> {
+public class DLinkedList<T> implements Deque<T> {
     private Node<T> tail = new Node<>();
     private Node<T> head = new Node<>();
     private int len;
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 
     private class Node<T>{
         Node<T> prev;
@@ -69,7 +78,8 @@ public class DLinkedList<T> {
      * return list length
      * @return
      */
-    public int len(){
+    @Override
+    public int size() {
         return this.len;
     }
 
@@ -148,7 +158,7 @@ public class DLinkedList<T> {
      * @param value
      * @return
      */
-    public boolean lpush(T value){
+    public boolean lPush(T value){
         return this.insert(0, value);
     }
 
@@ -157,7 +167,7 @@ public class DLinkedList<T> {
      * @param value
      * @return
      */
-    public boolean rpush(T value){
+    public boolean rPush(T value){
         return this.add(value);
     }
 
@@ -272,5 +282,10 @@ public class DLinkedList<T> {
      */
     public T rpop(){
         return remove(len - 1);
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }

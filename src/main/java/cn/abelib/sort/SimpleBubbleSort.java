@@ -2,8 +2,13 @@ package cn.abelib.sort;
 
 
 /**
- * Created by abel-huang on 17/10/30.
+ * Created by abel-huang on 17/6/30.
+ *  简单的冒泡排序
  */
-public class SimpleBubbleSort {
+public class SimpleBubbleSort implements SimpleSort{
 
+    @Override
+    public void sort(int[] a) {
+
+    }
 }

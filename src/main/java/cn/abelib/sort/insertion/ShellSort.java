@@ -1,4 +1,6 @@
-package cn.abelib.sort;
+package cn.abelib.sort.insertion;
+
+import cn.abelib.sort.AbstractSort;
 
 /**
  * Created by abel-huang on 2017/7/13.

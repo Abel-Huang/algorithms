@@ -1,17 +1,19 @@
 package cn.abelib.collection.list.array;
 
+import cn.abelib.collection.list.Stack;
+
 import java.util.Iterator;
 
 /**
  * Created by abel-huang on 2016/12/25.
  */
-public class Stack<Item> implements Iterable<Item>{
-    private Item[] a=(Item[])new Object[1];
+public class ArrayListStack<T> implements Stack<T> {
+    private T[] a=(T[])new Object[1];
     private int N=0;
-    public Stack(){}
+    public ArrayListStack(){}
 
     private void resize(int max){
-        Item[] temp=(Item[])new Object[max];
+        T[] temp=(T[])new Object[max];
         for(int i=0;i<a.length;i++){
             temp[i]=a[i];
         }
@@ -22,15 +24,15 @@ public class Stack<Item> implements Iterable<Item>{
         return N==0;
     }
 
-    public void push(Item item){
+    public void push(T item){
         if(N==a.length){
             resize(2*a.length);
         }
         a[N++]=item;
     }
 
-    public Item pop(){
-        Item item=a[--N];
+    public T pop(){
+        T item=a[--N];
         a[N]=null;
         if(N>0&&N==a.length/4){
             resize(a.length/2);
@@ -38,8 +40,8 @@ public class Stack<Item> implements Iterable<Item>{
         return item;
     }
 
-    public Item peek(){
-        Item item=a[N-1];
+    public T peek(){
+        T item=a[N-1];
         return item;
     }
 
@@ -48,18 +50,18 @@ public class Stack<Item> implements Iterable<Item>{
     }
 
 
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private int i=N;
         @Override
         public boolean hasNext() {
             return i>0;
         }
         @Override
-        public Item next() {
+        public T next() {
             return a[--i];
         }
         public void remove(){}

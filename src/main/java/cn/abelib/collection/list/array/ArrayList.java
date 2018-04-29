@@ -1,6 +1,7 @@
 package cn.abelib.collection.list.array;
 
 
+import cn.abelib.collection.list.List;
 import cn.abelib.commons.Constant;
 
 import java.util.Iterator;
@@ -9,16 +10,16 @@ import java.util.Iterator;
  * Created by abel-huang on 2017/1/11.
  *  模仿JDK实现的动态数组
  */
-public class ArrayList<Item> implements Iterable<Item> {
-    private Item[] a;
+public class ArrayList<T> implements List<T> {
+    private T[] a;
     private int N = 0;
 
     public ArrayList(){
-        a = (Item[]) new Object[Constant.DEFAULT_CAPACITY];
+        a = (T[]) new Object[Constant.DEFAULT_CAPACITY];
     }
 
     public ArrayList(int capacity){
-        a = (Item[]) new Object[capacity];
+        a = (T[]) new Object[capacity];
     }
 
     /**
@@ -26,7 +27,7 @@ public class ArrayList<Item> implements Iterable<Item> {
      * @param max
      */
     private void resize(int max){
-        Item[] temp=(Item[])new Object[max];
+        T[] temp=(T[])new Object[max];
         for(int i=0;i<a.length;i++){
             temp[i]=a[i];
         }
@@ -37,20 +38,20 @@ public class ArrayList<Item> implements Iterable<Item> {
         return N==0;
     }
 
-    public void add(Item item){
+    public void add(T item){
         if(N==a.length){
             resize(2*a.length);
         }
         a[N++]=item;
     }
 
-    public Item get(int index){
+    public T get(int index){
 
         return null;
     }
 
-    public Item delTail(){
-        Item item=a[--N];
+    public T delTail(){
+        T item=a[--N];
         a[N]=null;
         if(N>0&&N==a.length/4){
             resize(a.length/2);
@@ -58,15 +59,15 @@ public class ArrayList<Item> implements Iterable<Item> {
         return item;
     }
 
-    public boolean find(Item item) {
+    public boolean find(T item) {
         return false;
     }
 
-    public void remove(Item item) {
+    public void remove(T item) {
 
     }
 
-    public Item delete(int index){
+    public T delete(int index){
         return null;
     }
 
@@ -75,18 +76,18 @@ public class ArrayList<Item> implements Iterable<Item> {
     }
 
     @Override
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private int i=N;
         @Override
         public boolean hasNext() {
             return i>0;
         }
         @Override
-        public Item next() {
+        public T next() {
             return a[--i];
         }
         public void remove(){}

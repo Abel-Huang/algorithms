@@ -1,16 +1,19 @@
 package cn.abelib.collection.list.linked;
 
 
+import cn.abelib.collection.list.Stack;
+
 import java.util.Iterator;
 
 /**
  * Created by abel-huang on 2016/12/27.
  */
-public class LinkedStack<Item> implements Iterable<Item>{
+public class LinkedStack<T> implements Stack<T> {
     private Node first;
     private int N;
+
     private class Node{
-        Item item;
+        T item;
         Node next;
     }
 
@@ -20,7 +23,7 @@ public class LinkedStack<Item> implements Iterable<Item>{
         return N==0;
     }
 
-    public void push(Item item){
+    public void push(T item){
        Node oldfirst=first;
         first=new Node();
         first.item=item;
@@ -28,34 +31,34 @@ public class LinkedStack<Item> implements Iterable<Item>{
         N++;
     }
 
-    public Item pop(){
-        Item item=first.item;
+    public T pop(){
+        T item=first.item;
         first=first.next;
         N--;
         return item;
     }
 
-    public Item peek(){
-        Item item=first.item;
+    public T peek(){
+        T item=first.item;
         return item;
     }
     public int size(){
         return N;
     }
 
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private Node current=first;
         @Override
         public boolean hasNext() {
             return current!=null;
         }
         @Override
-        public Item next() {
-            Item item=current.item;
+        public T next() {
+            T item=current.item;
             current=current.next;
             return item;
         }

@@ -1,16 +1,18 @@
 package cn.abelib.collection.list.linked;
 
+import cn.abelib.collection.list.Queue;
+
 import java.util.Iterator;
 
 /**
  * Created by abel-huang on 2017/1/10.
  */
-public class LinkedQueue<Item> implements Iterable<Item> {
+public class LinkedQueue<T> implements Queue<T> {
     private Node first;
     private Node last;
     private int N;
     private class Node{
-        Item item;
+        T item;
         Node next;
     }
 
@@ -20,7 +22,7 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return N==0;
     }
 
-    public void enqueue(Item item){
+    public void enqueue(T item){
         Node oldLast=last;
         last=new Node();
         last.item=item;
@@ -32,8 +34,8 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         N++;
     }
 
-    public Item dequeue(){
-        Item item=first.item;
+    public T dequeue(){
+        T item=first.item;
         first=first.next;
         if (isEmpty())
             last=null;
@@ -45,19 +47,19 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return N;
     }
 
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return new Itr();
     }
 
-    private class Itr implements Iterator<Item> {
+    private class Itr implements Iterator<T> {
         private Node current=first;
         @Override
         public boolean hasNext() {
             return current!=null;
         }
         @Override
-        public Item next() {
-            Item item=current.item;
+        public T next() {
+            T item=current.item;
             current=current.next;
             return item;
         }
