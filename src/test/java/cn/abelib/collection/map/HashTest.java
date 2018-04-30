@@ -49,17 +49,17 @@ public class HashTest {
 
     @Test
     public void init() {
-        HashDict<String, String> hashDict = new HashDict<>();
-        System.err.println(hashDict.capacity());
-        System.err.println(Math.abs(hashDict.size()));
+        HashMap<String, String> hashMap = new HashMap<>();
+        System.err.println(hashMap.capacity());
+        System.err.println(Math.abs(hashMap.size()));
     }
 
     @Test
     public void putTest(){
-        HashDict<Integer, Integer> hashDict = new HashDict<>();
-        hashDict.put(1, 2);
-        hashDict.put(2, 3);
-        hashDict.put(3, 4);
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.put(1, 2);
+        hashMap.put(2, 3);
+        hashMap.put(3, 4);
     }
 
 
@@ -87,39 +87,39 @@ public class HashTest {
 
     @Test
     public void testGet() {
-        HashDict<Integer, Integer> hashDict = new HashDict<>();
-        hashDict.put(1, 2);
-        hashDict.put(1, 3);
-        hashDict.put(1, 4);
-        System.err.println("size now " + hashDict.size());
-        Integer integer1 = hashDict.get(1);
-        Integer integer2 = hashDict.get(1);
-        Integer integer3 = hashDict.get(1);
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.put(1, 2);
+        hashMap.put(1, 3);
+        hashMap.put(1, 4);
+        System.err.println("size now " + hashMap.size());
+        Integer integer1 = hashMap.get(1);
+        Integer integer2 = hashMap.get(1);
+        Integer integer3 = hashMap.get(1);
         System.err.println("get 1 " + integer1);
         System.err.println("get 1 " + integer2);
         System.err.println("get 1 " + integer3);
-        hashDict.put(1, 5);
-        Integer integer4 = hashDict.get(1);
+        hashMap.put(1, 5);
+        Integer integer4 = hashMap.get(1);
         System.err.println("get 1 " + integer4);
-        System.err.println("get 1 " + hashDict.size());
-        Integer integer5 = hashDict.get(2);
+        System.err.println("get 1 " + hashMap.size());
+        Integer integer5 = hashMap.get(2);
         System.err.println("get 2 " + integer5);
     }
 
     @Test
     public void testList() {
-        HashDict<Integer, Integer> hashDict = new HashDict<>();
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
         for (int i =0; i< 6;i++){
-            hashDict.put(i, i);
+            hashMap.put(i, i);
         }
-        System.err.println(hashDict.size());
-        List<Integer> list1 = hashDict.listKeys();
+        System.err.println(hashMap.size());
+        List<Integer> list1 = hashMap.listKeys();
         for (Integer integer : list1){
             System.err.print(" " + integer);
         }
         System.err.println();
-        System.err.println("size " + hashDict.size());
-        List<Integer> list2 = hashDict.listValues();
+        System.err.println("size " + hashMap.size());
+        List<Integer> list2 = hashMap.listValues();
         for (Integer integer : list2){
             System.err.print(" " +integer);
         }
@@ -127,21 +127,21 @@ public class HashTest {
 
     @Test
     public void testPop(){
-        HashDict<Integer, Integer> hashDict = new HashDict<>();
-        hashDict.put(1, 1);
-        hashDict.put(2, 2);
-        hashDict.put(3, 3);
-        Integer integer1 = hashDict.popValue();
-        hashDict.popValue();
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.put(1, 1);
+        hashMap.put(2, 2);
+        hashMap.put(3, 3);
+        Integer integer1 = hashMap.popValue();
+        hashMap.popValue();
 
 
         System.err.println(integer1);
-        System.err.println(hashDict.size());
-        List<Integer> list1 = hashDict.listKeys();
+        System.err.println(hashMap.size());
+        List<Integer> list1 = hashMap.listKeys();
         for (Integer integer : list1){
             System.err.print(integer + " ");
         }
-        List<Integer> list2 = hashDict.listValues();
+        List<Integer> list2 = hashMap.listValues();
         for (Integer integer : list2){
             System.err.print(integer + " ");
         }
@@ -150,7 +150,7 @@ public class HashTest {
 
     @Test
     public void testRemove(){
-        HashDict<Integer, Integer> hash = new HashDict<>();
+        HashMap<Integer, Integer> hash = new HashMap<>();
         hash.put(2, 2);
         hash.put(3, 3);
         hash.put(4, 4);

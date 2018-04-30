@@ -1,4 +1,4 @@
-package cn.abelib.sort.priority;
+package cn.abelib.collection.list.priority;
 
 /**
  * Created by abel-huang on 2017/7/25.

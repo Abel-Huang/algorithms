@@ -6,9 +6,10 @@ import java.util.Iterator;
 
 /**
  * Created by ${abel-huang} on 18/2/28.
- * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一, 部分参考了Java LinkedList
+ * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一,
+ * 部分参考了Java LinkedList
  */
-public class DLinkedList<T> implements Deque<T> {
+public class DequeLinkedList<T> implements Deque<T> {
     private Node<T> tail = new Node<>();
     private Node<T> head = new Node<>();
     private int len;
@@ -38,7 +39,7 @@ public class DLinkedList<T> implements Deque<T> {
         }
     }
 
-    public DLinkedList(){
+    public DequeLinkedList(){
         len = 0;
     }
 
@@ -64,11 +65,11 @@ public class DLinkedList<T> implements Deque<T> {
     }
 
     /**
-     * add DLinkedList
+     * add DequeLinkedList
      * @param list
      * @return
      */
-    public boolean add(DLinkedList<T> list){
+    public boolean add(DequeLinkedList<T> list){
         for (int i= 0; i< list.len; i++)
             this.add(list.get(i));
         return true;

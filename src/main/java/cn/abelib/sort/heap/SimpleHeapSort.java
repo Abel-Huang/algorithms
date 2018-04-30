@@ -1,4 +1,4 @@
-package cn.abelib.sort.priority.heap;
+package cn.abelib.sort.heap;
 
 /**
  * Created by abel on 2017/1/24.

@@ -1,4 +1,4 @@
-package cn.abelib.collection.list.array;
+package cn.abelib.sort;
 
 
 
@@ -7,5 +7,5 @@ package cn.abelib.collection.list.array;
  */
 
 public class FixedCapacityStackTest {
-    // todo
+
 }

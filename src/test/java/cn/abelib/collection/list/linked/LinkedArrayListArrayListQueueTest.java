@@ -9,7 +9,7 @@ import org.junit.Test;
  *  The unit algorithm for ArrayListQueue
  */
 
-public class LinkedArrayListQueueTest {
+public class LinkedArrayListArrayListQueueTest {
     @Before
     public void init(){
 

@@ -17,7 +17,7 @@ public class DListTest {
 
     @Test
     public void init(){
-        DLinkedList<String> list = new DLinkedList<>();
+        DequeLinkedList<String> list = new DequeLinkedList<>();
         list.add("hello");
         System.err.println(list.size());
         System.err.println(list.get(0));
@@ -45,13 +45,13 @@ public class DListTest {
 
     @Test
     public void update(){
-        DLinkedList<String> list = new DLinkedList<>();
+        DequeLinkedList<String> list = new DequeLinkedList<>();
         list.add("hello");
     }
 
     @Test
     public void index(){
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         System.err.println(list.index(1));
         list.add(1);
         list.add(2);
@@ -63,12 +63,12 @@ public class DListTest {
 
     @Test
     public void add() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
         list.add(4);
-        DLinkedList<Integer> linkedList = new DLinkedList<>();
+        DequeLinkedList<Integer> linkedList = new DequeLinkedList<>();
         linkedList.add(list);
         System.err.println(linkedList.next(0));
         System.err.println(linkedList.prev(1));
@@ -82,7 +82,7 @@ public class DListTest {
 
     @Test
     public void insert() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
 
@@ -98,7 +98,7 @@ public class DListTest {
 
     @Test
     public void tail() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -111,7 +111,7 @@ public class DListTest {
 
     @Test
     public void push() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -128,7 +128,7 @@ public class DListTest {
 
     @Test
     public void remove() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -154,7 +154,7 @@ public class DListTest {
 
     @Test
     public void pop() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -174,7 +174,7 @@ public class DListTest {
 
     @Test
     public void removeAll() {
-        DLinkedList<Integer> list = new DLinkedList<>();
+        DequeLinkedList<Integer> list = new DequeLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);

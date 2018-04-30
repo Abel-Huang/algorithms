@@ -1,4 +1,4 @@
-package cn.abelib.sort.priority.heap;
+package cn.abelib.sort.heap;
 
 
 import cn.abelib.sort.AbstractSort;
