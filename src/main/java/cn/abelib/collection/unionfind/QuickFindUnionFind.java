@@ -5,7 +5,6 @@ import java.util.Scanner;
 /**
  * Created by abel-huang on 2017/1/19.
  * quick-find
- * P140
  */
 public class QuickFindUnionFind extends AbstractUnionFind {
     public QuickFindUnionFind(int N){

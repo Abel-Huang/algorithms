@@ -1,4 +1,4 @@
-package cn.abelib.search.tree;
+package cn.abelib.search;
 
 import java.util.Iterator;
 

@@ -4,7 +4,6 @@ package cn.abelib.collection.map;
 import cn.abelib.commons.MurmurHash2;
 import cn.abelib.commons.Constant;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -65,11 +64,6 @@ public class HashMap<K, V> implements Map<K, V>{
      */
     public int capacity(){
         return this.rehash==-1?ht.capacity:expand.capacity;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
     }
 
     /**
@@ -302,11 +296,6 @@ public class HashMap<K, V> implements Map<K, V>{
             }
             head = head.next;
         }
-        return null;
-    }
-
-    @Override
-    public Iterator iterator() {
         return null;
     }
 

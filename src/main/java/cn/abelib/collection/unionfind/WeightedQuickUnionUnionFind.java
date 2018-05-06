@@ -3,12 +3,12 @@ package cn.abelib.collection.unionfind;
 import java.util.Scanner;
 
 /**
- * Created by abel-huang on 2017/7/11.
- * p147
+ * Created by abel-huang on 2017/7/10.
+ * 加权quick-union算法
  */
-public class QUWC_UnionFind extends AbstractUnionFind {
+public class WeightedQuickUnionUnionFind extends AbstractUnionFind {
     private int[] sz;
-    public QUWC_UnionFind(int N){
+    public WeightedQuickUnionUnionFind(int N){
         count=N;
         id=new int[N];
         sz=new int[N];
@@ -23,21 +23,9 @@ public class QUWC_UnionFind extends AbstractUnionFind {
      * @return the new value
      */
     public int find(int p){
-        int root=p;
-        // �ҵ����ڵ�
-        while(root!=id[root]){
-            root=id[root];
-        }
-        /**
-         * �ڽ�pָ����ڵ�Ĺ����н���
-         * ���м�ĵ�Ҳ��ָ��root�ڵ�
-         */
-        while(p!=root){
-            int x=p;
-            id[x]=root;
+        while(p!=id[p])
             p=id[p];
-        }
-        return root;
+        return p;
     }
 
     /**
@@ -63,7 +51,7 @@ public class QUWC_UnionFind extends AbstractUnionFind {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        QUWC_UnionFind uf=new QUWC_UnionFind(N);
+        WeightedQuickUnionUnionFind uf=new WeightedQuickUnionUnionFind(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){

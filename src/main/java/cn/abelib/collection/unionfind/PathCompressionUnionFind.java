@@ -3,12 +3,12 @@ package cn.abelib.collection.unionfind;
 import java.util.Scanner;
 
 /**
- * Created by abel-huang on 2017/7/10.
- * p144
+ * Created by abel-huang on 2017/7/11.
+ * 路径压缩的加权quick-union算法
  */
-public class QUW_UnionFind extends AbstractUnionFind {
+public class PathCompressionUnionFind extends AbstractUnionFind {
     private int[] sz;
-    public QUW_UnionFind(int N){
+    public PathCompressionUnionFind(int N){
         count=N;
         id=new int[N];
         sz=new int[N];
@@ -23,9 +23,21 @@ public class QUW_UnionFind extends AbstractUnionFind {
      * @return the new value
      */
     public int find(int p){
-        while(p!=id[p])
+        int root=p;
+        // �ҵ����ڵ�
+        while(root!=id[root]){
+            root=id[root];
+        }
+        /**
+         * �ڽ�pָ����ڵ�Ĺ����н���
+         * ���м�ĵ�Ҳ��ָ��root�ڵ�
+         */
+        while(p!=root){
+            int x=p;
+            id[x]=root;
             p=id[p];
-        return p;
+        }
+        return root;
     }
 
     /**
@@ -51,7 +63,7 @@ public class QUW_UnionFind extends AbstractUnionFind {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input N");
         int N=sc.nextInt();
-        QUW_UnionFind uf=new QUW_UnionFind(N);
+        PathCompressionUnionFind uf=new PathCompressionUnionFind(N);
         System.out.println("Input M");
         int M=sc.nextInt();
         for(int i=0;i<M;i++){

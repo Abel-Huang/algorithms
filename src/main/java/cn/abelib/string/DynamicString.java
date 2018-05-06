@@ -1,4 +1,4 @@
-package cn.abelib.commons.string;
+package cn.abelib.string;
 
 
 import cn.abelib.commons.Constant;
