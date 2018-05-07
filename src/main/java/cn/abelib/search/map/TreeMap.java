@@ -1,4 +1,4 @@
-package cn.abelib.collection.map;
+package cn.abelib.search.map;
 
 import cn.abelib.util.annotation.UnStart;
 

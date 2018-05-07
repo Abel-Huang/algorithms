@@ -1,4 +1,4 @@
-package cn.abelib.collection.map;
+package cn.abelib.search.map;
 
 /**
  * Created by abel on 2018/5/1.

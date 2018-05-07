@@ -1,4 +1,4 @@
-package cn.abelib.collection.map;
+package cn.abelib.search.map;
 
 import cn.abelib.commons.MurmurHash2;
 import org.junit.Test;

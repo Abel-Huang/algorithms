@@ -2,7 +2,7 @@ package cn.abelib.search;
 
 import java.util.Iterator;
 
-public class BST<K extends Comparable<K>, V> implements Iterable<K> {
+public class BinaryTreeSearch<K extends Comparable<K>, V> implements Iterable<K> {
     private Node root;
 
     private  class Node{

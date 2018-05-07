@@ -1,4 +1,4 @@
-package cn.abelib.collection.map;
+package cn.abelib.search.map;
 
 
 

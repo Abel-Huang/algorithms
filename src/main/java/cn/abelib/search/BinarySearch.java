@@ -4,7 +4,7 @@ package cn.abelib.search;
  * Created by abel on 2016/12/12.
  */
 public class BinarySearch {
-    public static int binarySearch(int key, int[] a){
+    public int binarySearch(int key, int[] a){
         int l0=0;
         int h1=a.length-1;
         while(l0<=h1){

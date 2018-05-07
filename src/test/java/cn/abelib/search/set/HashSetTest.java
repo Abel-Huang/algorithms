@@ -1,4 +1,4 @@
-package cn.abelib.collection.set;
+package cn.abelib.search.set;
 
 
 /**
