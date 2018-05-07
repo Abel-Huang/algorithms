@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2016/12/25.
- *  The unit algorithm for ArrayListStack
+ *  The unit string for ArrayListStack
  */
 
 public class ArrayListStackTest {

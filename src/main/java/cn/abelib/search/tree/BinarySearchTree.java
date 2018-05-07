@@ -1,18 +1,17 @@
 package cn.abelib.search.tree;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by abel-huang on 17/10/30.
  */
 public class BinarySearchTree {
-    public TreeNode root = null;
+    private TreeNode root = null;
     private class TreeNode{
-        public int value;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int value){
+        private int value;
+        private TreeNode left;
+        private TreeNode right;
+        private TreeNode(int value){
             this.value = value;
         }
     }
@@ -54,8 +53,8 @@ public class BinarySearchTree {
         return true;
     }
 
-    public void visitTree(BinarySearchTree bst){
-        inorderVisit(bst.root);
+    public void visitTree(){
+        inorderVisit(root);
     }
 
     private void inorderVisit(TreeNode  root){
@@ -76,16 +75,5 @@ public class BinarySearchTree {
         System.err.println(root.value + "-->");
         inorderVisit(root.right);
         return false;
-    }
-
-    public static void main(String [] args){
-        BinarySearchTree bst = new BinarySearchTree();
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        bst.insertNode(list);
-        bst.visitTree(bst);
     }
 }

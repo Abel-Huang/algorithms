@@ -14,10 +14,7 @@ public class DequeLinkedList<T> implements Deque<T> {
     private Node<T> head = new Node<>();
     private int len;
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
+
 
     private class Node<T>{
         Node<T> prev;
@@ -288,5 +285,10 @@ public class DequeLinkedList<T> implements Deque<T> {
     @Override
     public Iterator<T> iterator() {
         return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return len == 0;
     }
 }

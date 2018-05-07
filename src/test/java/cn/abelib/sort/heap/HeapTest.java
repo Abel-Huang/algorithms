@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by abel-algorithm on 2017/7/30.
- *  The unit algorithm for Heap
+ * Created by abel-string on 2017/7/30.
+ *  The unit string for Heap
  */
 public class HeapTest {
     @Before

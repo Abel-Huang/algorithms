@@ -1,58 +1,60 @@
 package cn.abelib.collection.list.linked;
 
-import cn.abelib.collection.list.List;
+import cn.abelib.commons.RandomData;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by abel-huang on 2016/12/25.
+ * Created by abel-huang on 2017/12/25.
  *  跳跃链表
  *  主要是参考Redis实现的SkipList
  */
 
-public class SkipList<T> implements List<T>{
-    @Override
-    public void add(T item) {
+public class SkipList<T>{
+    private Node<T> head = new Node<>();
+    private Node<T> tail = new Node<>();
+    private int len;
+    private int level;
 
+
+    /**
+     *  跳表节点
+     * @param <T>
+     */
+    private class Node<T>{
+        Node<T> backword;
+        List<ListLevel> levels;
+        double score;
+        T value;
+
+        //头结点专用
+        Node(){
+            int levelSize = RandomData.randLevel();
+            levels = new ArrayList<>(levelSize);
+        }
+
+        public Node(Node<T> backword, List levels, double score, T value) {
+            this.backword = backword;
+            this.levels = levels;
+            this.score = score;
+            this.value = value;
+        }
     }
 
-    @Override
-    public T get(int index) {
-        return null;
+    private class ListLevel<T>{
+        // 前进指针
+        Node<T> next;
+        // 前进指针跨度
+        int span;
     }
 
-    @Override
-    public T delTail() {
-        return null;
+    public SkipList(){
+        len = 0;
+        level = 0;
     }
 
-    @Override
-    public boolean find(T item) {
-        return false;
-    }
-
-    @Override
-    public void remove(T item) {
-
-    }
-
-    @Override
-    public T delete(int index) {
-        return null;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return null;
+    public void add(T value){
+        Node<T> node = new Node<>();
     }
 }

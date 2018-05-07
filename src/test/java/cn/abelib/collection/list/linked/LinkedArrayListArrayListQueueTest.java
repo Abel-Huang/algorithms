@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2017/1/11.
- *  The unit algorithm for ArrayListQueue
+ *  The unit string for ArrayListQueue
  */
 
 public class LinkedArrayListArrayListQueueTest {

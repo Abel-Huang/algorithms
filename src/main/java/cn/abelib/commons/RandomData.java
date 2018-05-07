@@ -151,4 +151,12 @@ public class RandomData {
         long seed = System.currentTimeMillis();
         return randCharArray(seed, size);
     }
+
+    /**
+     *
+     * @return
+     */
+    public static int randLevel(){
+       return randInt(32) + 1;
+    }
 }

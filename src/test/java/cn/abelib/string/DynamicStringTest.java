@@ -1,12 +1,11 @@
-package cn.abelib.util;
+package cn.abelib.string;
 
-import cn.abelib.string.DynamicString;
 import org.junit.Test;
 
 /**
  * Created by ${abel-huang} on 18/2/28.
  */
-public class SDSTest {
+public class DynamicStringTest {
     // success
     @Test
     public void testNew(){
