@@ -4,7 +4,6 @@
 [![@Abel-Huang](https://img.shields.io/uptimerobot/status/m778918918-3e92c097147760ee39d02d36.svg)](https://github.com/Abel-Huang/common-collection)
 
 
-## 安装
 用于练习和实现一些常用的数据结构和算法。实现时主要参考jdk和Redis的方式，参考资料为《算法》和《算法导论》。
 ## collection包 容器集合
 参考java.util和Redis底层数据结构实现的一些常用容器
