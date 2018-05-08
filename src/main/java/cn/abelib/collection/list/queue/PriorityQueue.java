@@ -1,4 +1,4 @@
-package cn.abelib.collection.list.priority;
+package cn.abelib.collection.list.queue;
 
 /**
  * Created by abel-huang on 2017/7/20.

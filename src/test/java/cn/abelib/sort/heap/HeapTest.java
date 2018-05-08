@@ -17,7 +17,7 @@ public class HeapTest {
     public void add(){
 
     }
-////        MaxPriorityQueue<Integer> maxPriorityQueue = new MaxPriorityQueue<>(10);
+////        MaxHeap<Integer> maxPriorityQueue = new MaxHeap<>(10);
 ////        SimpleSelectionSort.println("The maxpq is Empty: "+maxPriorityQueue.isEmpty());
 ////        maxPriorityQueue.insert(3);
 ////        maxPriorityQueue.insert(1);
@@ -26,7 +26,7 @@ public class HeapTest {
 ////        SimpleSelectionSort.println("Delete the max item: "+maxPriorityQueue.delMax());
 ////        SimpleSelectionSort.println("The size: "+maxPriorityQueue.size());
 //
-//        MinPriorityQueue<Integer> minPriorityQueue = new MinPriorityQueue<>(8);
+//        MinHeapTest<Integer> minPriorityQueue = new MinHeapTest<>(8);
 //        SimpleSelectionSort.println("The minpq is Empty: "+minPriorityQueue.isEmpty());
 //        minPriorityQueue.insert(5);
 //        minPriorityQueue.insert(1);

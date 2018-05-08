@@ -7,7 +7,7 @@ import cn.abelib.sort.AbstractSort;
  * Created by abel-huang on 2017/7/19.
  *
  */
-public class MergeSortBT extends AbstractSort {
+public class BottomFromMergeSort extends AbstractSort {
     protected Comparable [] extra;
     //    sort from top to bottom
     @Override
