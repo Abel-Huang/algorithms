@@ -26,6 +26,16 @@ public class RandomData {
         return randInt(seed, range);
     }
 
+    public static  int[] randIntArray(int range, int size) {
+        long seed=System.currentTimeMillis();
+        Random random=new Random(seed);
+        int [] intArray=new int[size];
+        for (int i=0; i<size; i++){
+            intArray[i]=random.nextInt(range);
+        }
+        return intArray;
+    }
+
     /** create a random Integer array
      * @param seed
      * @param range
