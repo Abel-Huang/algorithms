@@ -21,4 +21,5 @@ public class SimpleQuickSortTest {
         Arrays.stream(array).forEach(System.err::print);
 
     }
+
 }
