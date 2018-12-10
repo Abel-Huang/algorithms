@@ -1,0 +1,10 @@
+package cn.abelib.dataStructure.linear.list;
+
+import cn.abelib.dataStructure.linear.Collection;
+
+/**
+ * Created by abel on 2018/4/30.
+ * 栈接口
+ */
+public interface Stack<T> extends Collection<T> {
+}
