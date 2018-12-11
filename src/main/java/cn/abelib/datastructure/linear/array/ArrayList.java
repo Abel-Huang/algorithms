@@ -1,86 +1,136 @@
 package cn.abelib.datastructure.linear.array;
 
-
-import cn.abelib.datastructure.linear.List;
 import cn.abelib.util.commons.Constant;
+import cn.abelib.util.exception.NoMoreElementException;
 
 import java.util.Iterator;
 
 /**
- * Created by abel-huang on 2017/1/11.
+ * @Author: abel-huang
+ * @Date: 2018-12-11 22:54
  *  模仿JDK实现的动态数组
  */
-public class ArrayList<T> implements List<T> {
-    private T[] a;
-    private int N = 0;
-
+public class ArrayList<T> extends BaseArray<T> {
+    /**
+     *
+     */
     public ArrayList(){
-        a = (T[]) new Object[Constant.DEFAULT_CAPACITY];
-    }
-
-    public ArrayList(int capacity){
-        a = (T[]) new Object[capacity];
+        this(Constant.DEFAULT_CAPACITY);
     }
 
     /**
-     *  数组改变容量
-     * @param max
+     * @param capacity
      */
-    private void resize(int max){
-        T[] temp=(T[])new Object[max];
-        for(int i=0;i<a.length;i++){
-            temp[i]=a[i];
-        }
-        a=temp;
+    public ArrayList(int capacity){
+        data = (T[]) new Object[capacity];
+        size = 0;
     }
 
-    @Override
-    public boolean isEmpty(){
-        return N==0;
-    }
-
-    @Override
+    /**
+     * 增加元素
+     * @param item
+     */
     public void add(T item){
-        if(N==a.length){
-            resize(2*a.length);
+        if(size == data.length){
+            resize(2* data.length);
         }
-        a[N++]=item;
+        data[size++] = item;
     }
 
-    @Override
-    public T get(int index){
-
-        return null;
-    }
-
-    @Override
-    public T delTail(){
-        T item=a[--N];
-        a[N]=null;
-        if(N>0&&N==a.length/4){
-            resize(a.length/2);
+    public void add(int index, T item){
+        if (index >= size || index < 0){
+            throw new IndexOutOfBoundsException();
         }
-        return item;
+        if(size == data.length){
+            resize(2* data.length);
+        }
+        for (int i = size; i > index; i--){
+            data[i] = data[i-1];
+        }
+        data[index] = item;
+        size++;
+    }
+
+    public T removeLast(){
+        return remove(size - 1);
+    }
+
+    /**
+     *  remove all element
+     */
+    public void removeAll(){
+        size = 0;
+    }
+
+    /**
+     *  contains
+     * @param item
+     * @return
+     */
+    public boolean contains(T item) {
+        int index = find(item);
+        return  index < size && index >= 0;
+    }
+
+    /**
+     *  返回找到元素的索引，如果找不到则返回索引
+     * @param item
+     * @return
+     */
+    public int find(T item) {
+        for (int i = 0; i< data.length; i++){
+            if (data[i] == item){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * remove certain element
+     * @param item
+     */
+    public void removeElement(T item) {
+        int index = find(item);
+        remove(index);
+    }
+
+    /**
+     * @param index
+     * @return
+     */
+    public T remove(int index){
+        if (size == 0){
+            throw new NoMoreElementException();
+        }
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException();
+        }
+        T result = data[index];
+        for (int i = index; i < size - 1; i++){
+            data[i] = data[i + 1];
+        }
+        size--;
+        if(size >0&& size == data.length/4){
+            resize(data.length/2);
+        }
+        return result;
     }
 
     @Override
-    public boolean find(T item) {
-        return false;
-    }
-
-    @Override
-    public void remove(T item) {
-
-    }
-
-    @Override
-    public T delete(int index){
-        return null;
-    }
-
-    @Override
-    public int size(){
-        return N;
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
+        sb.append("[");
+        Itr itr = new Itr();
+        while (itr.hasNext()){
+            sb.append(itr.next());
+            if (itr.hasNext()){
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
     @Override
@@ -89,16 +139,16 @@ public class ArrayList<T> implements List<T> {
     }
 
     private class Itr implements Iterator<T> {
-        private int i=N;
+        private int i = 0;
 
         @Override
         public boolean hasNext() {
-            return i>0;
+            return i < size;
         }
 
         @Override
         public T next() {
-            return a[--i];
+            return data[i++];
         }
 
         @Override
