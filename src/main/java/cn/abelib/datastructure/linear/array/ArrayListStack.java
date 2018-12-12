@@ -1,69 +1,50 @@
 package cn.abelib.datastructure.linear.array;
 
 import cn.abelib.datastructure.linear.Stack;
-
-import java.util.Iterator;
+import cn.abelib.util.commons.Constant;
 
 /**
- * Created by abel-huang on 2016/12/25.
+ * @Author: abel-huang
+ * @Date: 2016/12/25
  */
-public class ArrayListStack<T> implements Stack<T> {
-    private T[] a=(T[])new Object[1];
-    private int N=0;
-    public ArrayListStack(){}
-
-    private void resize(int max){
-        T[] temp=(T[])new Object[max];
-        for(int i=0;i<a.length;i++){
-            temp[i]=a[i];
-        }
-        a=temp;
+public class ArrayListStack<T> extends BaseArray<T> implements Stack<T> {
+    /**
+     * empty construction
+     */
+    public ArrayListStack(){
+        this(Constant.DEFAULT_CAPACITY);
     }
 
-    public boolean isEmpty(){
-        return N==0;
+    /**
+     *
+     * @param capacity
+     */
+    public ArrayListStack(int capacity){
+        data = (T[]) new Object[capacity];
+        size = 0;
     }
 
+    @Override
     public void push(T item){
-        if(N==a.length){
-            resize(2*a.length);
+        if(size == data.length){
+            resize(2* data.length);
         }
-        a[N++]=item;
+        data[size++]=item;
     }
 
+    @Override
     public T pop(){
-        T item=a[--N];
-        a[N]=null;
-        if(N>0&&N==a.length/4){
-            resize(a.length/2);
+        T item= data[--size];
+        data[size]=null;
+        if(size >0&& size == data.length/4){
+            resize(data.length/2);
         }
         return item;
     }
 
+    @Override
     public T peek(){
-        T item=a[N-1];
+        T item= data[size -1];
         return item;
-    }
-
-    public int size(){
-        return N;
-    }
-
-
-    public Iterator<T> iterator() {
-        return new Itr();
-    }
-
-    private class Itr implements Iterator<T> {
-        private int i=N;
-        @Override
-        public boolean hasNext() {
-            return i>0;
-        }
-        @Override
-        public T next() {
-            return a[--i];
-        }
-        public void remove(){}
     }
  }

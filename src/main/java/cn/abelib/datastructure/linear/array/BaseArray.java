@@ -1,6 +1,8 @@
 package cn.abelib.datastructure.linear.array;
 import cn.abelib.datastructure.linear.Collection;
 
+import java.util.Iterator;
+
 /**
  * @Author: abel-huang
  * @Date: 2018-12-11 22:54
@@ -17,11 +19,11 @@ public abstract class BaseArray<T> implements Collection<T> {
 
     /**
      *  resize
-     * @param max
+     * @param capacity
      */
-    void resize(int max){
-        T[] temp = (T[])new Object[max];
-        for(int i = 0; i < data.length; i++){
+    void resize(int capacity){
+        T[] temp = (T[])new Object[capacity];
+        for(int i = 0; i < size; i++){
             temp[i] = data[i];
         }
         data = temp;
@@ -48,5 +50,43 @@ public abstract class BaseArray<T> implements Collection<T> {
     @Override
     public int size(){
         return size;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
+        sb.append("[");
+        Itr itr = new Itr();
+        while (itr.hasNext()){
+            sb.append(itr.next());
+            if (itr.hasNext()){
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Itr();
+    }
+
+    private class Itr implements Iterator<T> {
+        private int i = 0;
+
+        @Override
+        public boolean hasNext() {
+            return i < size;
+        }
+
+        @Override
+        public T next() {
+            return data[i++];
+        }
+
+        @Override
+        public void remove(){}
     }
 }

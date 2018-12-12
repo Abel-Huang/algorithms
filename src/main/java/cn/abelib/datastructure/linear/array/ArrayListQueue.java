@@ -10,7 +10,7 @@ import java.util.Iterator;
  */
 public class ArrayListQueue<T> implements Queue<T> {
     private T[] a=(T[])new Object[1];
-    private int N=0;
+    private int size = 0;
     public ArrayListQueue(){}
 
     private void resize(int max){
@@ -21,43 +21,40 @@ public class ArrayListQueue<T> implements Queue<T> {
         a=temp;
     }
 
-    @Override
     public boolean isEmpty(){
-        return N==0;
+        return size ==0;
     }
 
     public void enqueue(T item){
-        if(N==a.length){
+        if(size ==a.length){
             resize(2*a.length);
         }
-        a[N++]=item;
+        a[size ++]=item;
     }
 
     public T dequeue(){
         T item=a[0];
-        for(int i=0;i<N-1;i++){
+        for(int i=0;i<size -1;i++){
             a[i]=a[i+1];
         }
-        a[N-1]=null;
-        --N;
-        if(N>0&&N==a.length/4){
+        a[size -1]=null;
+        --size ;
+        if(size >0&&size ==a.length/4){
             resize(a.length/2);
         }
         return item;
     }
 
-    @Override
     public int size(){
-        return N;
+        return size ;
     }
 
-    @Override
     public Iterator<T> iterator() {
         return new Itr();
     }
 
     private class Itr implements Iterator<T> {
-        private int i=N;
+        private int i=size ;
 
         @Override
         public boolean hasNext() {

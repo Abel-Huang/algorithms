@@ -1,5 +1,6 @@
 package cn.abelib.datastructure.linear.array;
 
+import cn.abelib.datastructure.linear.Stack;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,14 +11,34 @@ import org.junit.Test;
  */
 
 public class ArrayListStackTest {
+    Stack<String> stack = new ArrayListStack<>(10);
 
     @Before
-    public void init(){
-
+    public void push(){
+        System.out.println(stack.isEmpty());
+        stack.push("A");
+        stack.push("B");
+        stack.push("C");
+        stack.push("D");
     }
 
     @Test
-    public void add(){
+    public void pop(){
+        System.out.println(stack);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack);
+        System.out.println(stack.size());
+        System.out.println(stack.isEmpty());
+    }
 
+    @Test
+    public void peek(){
+        System.out.println(stack);
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack);
+        System.out.println(stack.size());
     }
 }

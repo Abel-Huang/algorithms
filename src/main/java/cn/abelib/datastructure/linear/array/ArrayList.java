@@ -3,11 +3,9 @@ package cn.abelib.datastructure.linear.array;
 import cn.abelib.util.commons.Constant;
 import cn.abelib.util.exception.NoMoreElementException;
 
-import java.util.Iterator;
-
 /**
  * @Author: abel-huang
- * @Date: 2018-12-11 22:54
+ * @Date: 2017/1/11
  *  模仿JDK实现的动态数组
  */
 public class ArrayList<T> extends BaseArray<T> {
@@ -96,6 +94,7 @@ public class ArrayList<T> extends BaseArray<T> {
     }
 
     /**
+     * 通过 lazy-resize，防止复杂度震荡
      * @param index
      * @return
      */
@@ -111,47 +110,9 @@ public class ArrayList<T> extends BaseArray<T> {
             data[i] = data[i + 1];
         }
         size--;
-        if(size >0&& size == data.length/4){
+        if(size >0 && size == data.length/4){
             resize(data.length/2);
         }
         return result;
-    }
-
-    @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
-        sb.append("[");
-        Itr itr = new Itr();
-        while (itr.hasNext()){
-            sb.append(itr.next());
-            if (itr.hasNext()){
-                sb.append(", ");
-            }
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return new Itr();
-    }
-
-    private class Itr implements Iterator<T> {
-        private int i = 0;
-
-        @Override
-        public boolean hasNext() {
-            return i < size;
-        }
-
-        @Override
-        public T next() {
-            return data[i++];
-        }
-
-        @Override
-        public void remove(){}
     }
 }

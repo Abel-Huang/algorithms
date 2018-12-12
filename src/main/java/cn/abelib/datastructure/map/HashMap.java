@@ -1,6 +1,7 @@
-package cn.abelib.datastructure.tree;
+package cn.abelib.datastructure.hash;
 
 
+import cn.abelib.datastructure.tree.Map;
 import cn.abelib.util.commons.Constant;
 import cn.abelib.util.commons.MurmurHash2;
 

@@ -9,7 +9,7 @@ import java.util.Iterator;
  */
 public class Bag<T> implements Collection<T> {
     private Node first;
-    private int N;
+    private int size;
     private class Node{
         T item;
         Node next;
@@ -17,8 +17,9 @@ public class Bag<T> implements Collection<T> {
 
     public Bag(){}
 
+    @Override
     public boolean isEmpty(){
-        return N==0;
+        return size ==0;
     }
 
     public void add(T item){
@@ -26,13 +27,15 @@ public class Bag<T> implements Collection<T> {
         first=new Node();
         first.item=item;
         first.next=oldFirst;
-        N++;
+        size++;
     }
 
+    @Override
     public int size(){
-        return N;
+        return size;
     }
 
+    @Override
     public Iterator<T> iterator() {
         return new Itr();
     }

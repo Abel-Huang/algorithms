@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.linear.set;
+package cn.abelib.datastructure;
 
 /**
  * Created by abel-huang on 2017/1/19.
