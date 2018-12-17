@@ -2,6 +2,7 @@ package cn.abelib.datastructure.linear.array;
 
 import cn.abelib.datastructure.linear.Stack;
 import cn.abelib.util.commons.Constant;
+import cn.abelib.util.exception.NoMoreElementException;
 
 /**
  * @Author: abel-huang
@@ -34,6 +35,9 @@ public class ArrayListStack<T> extends BaseArray<T> implements Stack<T> {
 
     @Override
     public T pop(){
+        if (size < 1) {
+            throw new NoMoreElementException();
+        }
         T item= data[--size];
         data[size]=null;
         if(size >0&& size == data.length/4){
@@ -44,6 +48,9 @@ public class ArrayListStack<T> extends BaseArray<T> implements Stack<T> {
 
     @Override
     public T peek(){
+        if (size < 1) {
+            throw new NoMoreElementException();
+        }
         T item= data[size -1];
         return item;
     }

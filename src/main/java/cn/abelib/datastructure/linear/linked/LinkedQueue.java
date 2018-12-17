@@ -43,6 +43,11 @@ public class LinkedQueue<T> implements Queue<T> {
         return item;
     }
 
+    @Override
+    public T getFront() {
+        return null;
+    }
+
     public int size(){
         return N;
     }

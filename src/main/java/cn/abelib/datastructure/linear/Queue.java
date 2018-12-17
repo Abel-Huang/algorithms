@@ -5,4 +5,9 @@ package cn.abelib.datastructure.linear;
  *  单向队列接口
  */
 public interface Queue<T> extends Collection<T>{
+    void enqueue(T item);
+
+    T dequeue();
+
+    T getFront();
 }

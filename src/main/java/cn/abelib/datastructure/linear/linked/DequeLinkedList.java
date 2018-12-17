@@ -14,6 +14,25 @@ public class DequeLinkedList<T> implements Deque<T> {
     private Node<T> head = new Node<>();
     private int len;
 
+    @Override
+    public void enqueue(T item) {
+
+    }
+
+    @Override
+    public T dequeue() {
+        return null;
+    }
+
+    @Override
+    public T getFront() {
+        return null;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
 
 
     private class Node<T>{
@@ -67,16 +86,21 @@ public class DequeLinkedList<T> implements Deque<T> {
      * @return
      */
     public boolean add(DequeLinkedList<T> list){
-        for (int i= 0; i< list.len; i++)
+        for (int i= 0; i< list.len; i++) {
             this.add(list.get(i));
+        }
         return true;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
     }
 
     /**
      * return list length
      * @return
      */
-    @Override
     public int size() {
         return this.len;
     }
@@ -103,8 +127,9 @@ public class DequeLinkedList<T> implements Deque<T> {
      * @return
      */
     public int index(T value){
-        if (len <= 0)
+        if (len <= 0) {
             return -1;
+        }
         Node<T> tmp = head;
         int i;
         for (i = 0; i < len; ++i){
@@ -268,6 +293,7 @@ public class DequeLinkedList<T> implements Deque<T> {
      *  pop from left
      * @return
      */
+    // todo
 
     public T lpop(){
         return remove(0);
@@ -282,13 +308,13 @@ public class DequeLinkedList<T> implements Deque<T> {
         return remove(len - 1);
     }
 
-    @Override
-    public Iterator<T> iterator() {
-        return null;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return len == 0;
-    }
+//  1  @Override
+//    public Iterator<T> iterator() {
+//        return null;
+//    }
+//
+//    @Override
+//    public boolean isEmpty() {
+//        return len == 0;
+//    }
 }

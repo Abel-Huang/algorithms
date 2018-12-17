@@ -19,10 +19,12 @@ public class LinkedStack<T> implements Stack<T> {
 
     public LinkedStack(){}
 
+    @Override
     public boolean isEmpty(){
         return N==0;
     }
 
+    @Override
     public void push(T item){
        Node oldfirst=first;
         first=new Node();
@@ -31,6 +33,7 @@ public class LinkedStack<T> implements Stack<T> {
         N++;
     }
 
+    @Override
     public T pop(){
         T item=first.item;
         first=first.next;
@@ -38,10 +41,13 @@ public class LinkedStack<T> implements Stack<T> {
         return item;
     }
 
+    @Override
     public T peek(){
         T item=first.item;
         return item;
     }
+
+    @Override
     public int size(){
         return N;
     }
@@ -62,6 +68,7 @@ public class LinkedStack<T> implements Stack<T> {
             current=current.next;
             return item;
         }
+        @Override
         public void remove(){}
     }
 }
