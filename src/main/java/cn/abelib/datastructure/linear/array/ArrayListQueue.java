@@ -35,7 +35,7 @@ public class ArrayListQueue<T> extends BaseArray<T> implements Queue<T> {
 
     @Override
     public T dequeue(){
-        if (size < 1) {
+        if (isEmpty()) {
             throw new NoMoreElementException();
         }
         T item=data[0];
@@ -52,7 +52,7 @@ public class ArrayListQueue<T> extends BaseArray<T> implements Queue<T> {
 
     @Override
     public T getFront() {
-        if (size < 1) {
+        if (isEmpty()) {
             throw new NoMoreElementException();
         }
         return data[0];
