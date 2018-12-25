@@ -1,48 +1,70 @@
 package cn.abelib.datastructure.linear.linked;
 
-import cn.abelib.datastructure.linear.List;
+
+import cn.abelib.util.exception.NoMoreElementException;
 
 import java.util.Iterator;
 
 /**
- * Created by abel-huang on 2017/1/11.
+ * @Author: abel-huang
+ * @Date: 2017/1/11
  * This is a linked list
  */
-public class LinkedList<T> implements List<T> {
-    private Node first;
-    private Node last;
-    private int N;
-    private class Node{
-        T item;
-        Node next;
+public class LinkedList<T> extends AbstractLinkedList<T> {
+    public LinkedList(){
+        super();
     }
-
-    public LinkedList(){}
 
     @Override
-    public boolean isEmpty(){
-        return N==0;
-    }
-
     public void add(T item){
-        Node oldNow=last;
-        last=new Node();
-        last.item=item;
-        last.next=null;
-        if(N==0){
-            first=last;
+        Node oldNow= tail;
+        tail =new Node();
+        tail.item=item;
+        tail.next=null;
+        if(size ==0){
+            head = tail;
         }
         else{
-            oldNow.next=last;
+            oldNow.next = tail;
         }
-        N++;
+        size++;
     }
 
+    public void add(int index, T item){
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == size){
+            add(item);
+            return;
+        }
+        Node newNode = new Node();
+        newNode.item = item;
+        if (index == 0){
+            newNode.next = head;
+            head = newNode;
+            size++;
+            return;
+        }
+        Node tmp = head;
+       while (true){
+           if (index == 1){
+               newNode.next = tmp.next;
+               tmp.next = newNode;
+               size++;
+               return;
+           }
+           tmp = tmp.next;
+           index --;
+       }
+    }
+
+    @Override
     public T get(int index){
-        if (index < 0 || index >= N){
+        if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Index out of bound");
         }
-        Node temp=first;
+        Node temp= head;
         while (index>0){
             temp=temp.next;
             index--;
@@ -55,121 +77,91 @@ public class LinkedList<T> implements List<T> {
      * @return
      */
     public T delTail(){
-        if (N < 1){
+        if (size < 1){
             throw  new NullPointerException("No more Item in this list");
         }
-        if (N == 1){
-            T result = first.item;
-            first = null;
-            last = null;
-            N = 0;
+        if (size == 1){
+            T result = head.item;
+            head = null;
+            tail = null;
+            size = 0;
             return result;
         }
-        T item=last.item;
-        Node temp=first;
-        while (temp.next!=last){
+        T item= tail.item;
+        Node temp= head;
+        while (temp.next!= tail){
            temp=temp.next;
         }
-        last = temp;
+        tail = temp;
         temp.next = null;
-        N--;
+        size--;
         return item;
     }
 
-    public boolean find(T item) {
-        boolean isFind=false;
-        Node temp=first;
-        while (temp!=null){
-            if ((temp.item+"").equals(item+"")){
-                isFind=true;
-                break;
-            }
-            temp=temp.next;
+    @Override
+    public int find(T item) {
+        int index = -1;
+        Iterator<T> iterator = iterator();
+        while (iterator.hasNext()){
+           index ++;
+           if (item == iterator.next()){
+               return index;
+           }
         }
-        return isFind;
-    }
-
-    public void remove(T item) {
-        if((last.item+"").equals(item+"")){
-            delTail();
-        }
-        else if((first.item+"").equals(item+"")){
-            Node temp=first;
-            first=temp.next;
-            temp=null;
-            N--;
-            if(N<2){
-                last=first;
-            }
-        }
-        else{
-            Node temp=first;
-            while (temp.next!=null){
-                if ((temp.next.item+"").equals(item+"")){
-                    temp.next=temp.next.next;
-                    N--;
-                }
-                temp=temp.next;
-            }
-        }
-    }
-
-    public T delete(int index){
-        if(index==N){
-            return delTail();
-        }
-        else if(index==1){
-            Node temp=first;
-            T item=last.item;
-            first=temp.next;
-            temp=null;
-            N--;
-            if(N<2){
-                last=first;
-            }
-            return item;
-        }
-        else if(index<N&&index>1){
-            Node temp=first;
-            while (index>2){
-                temp=temp.next;
-                index--;
-            }
-            T item=temp.next.item;
-            temp.next=temp.next.next;
-            //first=temp;
-            N--;
-            return item;
-        }
-        else{
-            return null;
-        }
+        return -1;
     }
 
     @Override
-    public int size(){
-        return N;
+    public boolean contains(T item){
+        return find(item) != -1;
     }
 
-    public Iterator<T> iterator() {
-        return new Itr();
+    @Override
+    public void removeElement(T item) {
+      int index = find(item);
+      if (index == -1){
+          throw new NoMoreElementException();
+      }
+      remove(index);
     }
 
-    private class Itr implements Iterator<T> {
-        private Node current=first;
-        private int i=N;
-        @Override
-        public boolean hasNext() {
-            return i>0;
+    @Override
+    public void removeAll() {
+        head = tail;
+        size = 0;
+    }
+
+    /**
+     *  完全错误
+     * @param index
+     * @return
+     */
+    @Override
+    public T remove(int index){
+        if (index < 0 || index >= size || size == 0){
+            throw new IndexOutOfBoundsException();
         }
-        @Override
-        public T next() {
-            T item=current.item;
-            current=current.next;
-            i--;
+        if (index == 0){
+            T item = get(0);
+            if (size == 1){
+                removeAll();
+            }else {
+                head = head.next;
+                size--;
+            }
             return item;
         }
-        public void remove(){}
+        Node tmp = head;
+        while (true){
+            if (index == 1){
+                T item = tmp.next.item;
+                tmp.next = tmp.next.next;
+                size--;
+                return item;
+            }
+            tmp = tmp.next;
+            index --;
+        }
     }
 }
 

@@ -9,7 +9,7 @@ import org.junit.Test;
  *  The unit string for ArrayListQueue
  */
 
-public class LinkedArrayListArrayListQueueTest {
+public class LinkedArrayListAbstractArrayListQueueTest {
     @Before
     public void init(){
 

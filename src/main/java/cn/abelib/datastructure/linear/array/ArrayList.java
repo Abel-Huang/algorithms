@@ -8,7 +8,7 @@ import cn.abelib.util.exception.NoMoreElementException;
  * @Date: 2017/1/11
  *  模仿JDK实现的动态数组
  */
-public class ArrayList<T> extends BaseArray<T> {
+public class ArrayList<T> extends AbstractArray<T> {
     /**
      *
      */

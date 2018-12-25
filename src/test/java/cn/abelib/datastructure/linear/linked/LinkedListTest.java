@@ -25,6 +25,11 @@ public class LinkedListTest {
    }
 
    @Test
+   public void reverseTest(){
+       System.out.println(linkedList);
+   }
+
+   @Test
     public void getTest(){
        System.out.println(linkedList.get(0));
        System.out.println(linkedList.get(1));
@@ -32,6 +37,50 @@ public class LinkedListTest {
        System.out.println(linkedList.get(3));
        System.out.println(linkedList.get(4));
    }
+
+   @Test
+   public void addTest(){
+        linkedList.add(0, 0);
+        linkedList.add(1, 1);
+        linkedList.add(2, 2);
+       linkedList.add(linkedList.size(), linkedList.size());
+        System.out.println(linkedList);
+   }
+
+   @Test
+   public void findTest(){
+       System.out.println(linkedList.find(0));
+       System.out.println(linkedList.find(1));
+       System.out.println(linkedList.find(2));
+   }
+
+    @Test
+    public void containsTest(){
+        System.out.println(linkedList.contains(0));
+        System.out.println(linkedList.contains(1));
+        System.out.println(linkedList.contains(2));
+    }
+
+    @Test
+    public void removeAllTest(){
+        linkedList.removeAll();
+        System.out.println(linkedList);
+    }
+
+    @Test
+    public void removeTest(){
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(0));
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(1));
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(1));
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(0));
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(0));
+        System.out.println(linkedList);
+    }
 
    @Test
     public void delTailTest(){
@@ -45,21 +94,4 @@ public class LinkedListTest {
        System.out.println(linkedList.delTail());
        System.out.println(linkedList.delTail());
    }
-
-
-    @Test
-    public void findTest(){
-
-    }
-
-
-    @Test
-    public void removeTest(){
-
-    }
-
-    @Test
-    public void deleteTest(){
-
-    }
 }

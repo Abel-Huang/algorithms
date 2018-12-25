@@ -8,7 +8,7 @@ import cn.abelib.util.exception.NoMoreElementException;
  * @Author: abel-huang
  * @Date: 2016/12/25
  */
-public class ArrayListStack<T> extends BaseArray<T> implements Stack<T> {
+public class ArrayListStack<T> extends AbstractArray<T> implements Stack<T> {
     /**
      * empty construction
      */

@@ -11,6 +11,6 @@ public class ConstantData {
                                                "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
                                                "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
                                                "y", "z"};
-    public static final String SORT_ERROR_MSG="BaseArray is not sort correctly";
+    public static final String SORT_ERROR_MSG="AbstractArray is not sort correctly";
 
 }

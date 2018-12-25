@@ -8,7 +8,7 @@ import cn.abelib.util.exception.NoMoreElementException;
 /**
  * Created by abel-huang on 2016/12/25.
  */
-public class ArrayListQueue<T> extends BaseArray<T> implements Queue<T> {
+public class ArrayListQueue<T> extends AbstractArray<T> implements Queue<T> {
     /**
      * empty construction
      */
