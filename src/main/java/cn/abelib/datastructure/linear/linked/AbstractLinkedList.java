@@ -64,11 +64,11 @@ public abstract class AbstractLinkedList<T> implements Collection<T> {
     }
 
     private class Itr implements Iterator<T> {
-        private Node current= head;
-        private int i= size;
+        private Node current = head;
+        private int i = size;
         @Override
         public boolean hasNext() {
-            return i>0;
+            return i > 0;
         }
         @Override
         public T next() {

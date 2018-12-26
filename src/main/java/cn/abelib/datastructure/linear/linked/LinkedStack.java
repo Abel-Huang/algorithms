@@ -8,9 +8,9 @@ import java.util.Iterator;
 /**
  * Created by abel-huang on 2016/12/27.
  */
-public class LinkedStack<T> implements Stack<T> {
-    private Node first;
-    private int N;
+public class LinkedStack<T>  implements Stack<T> {
+    private Node head;
+    private int size;
 
     private class Node{
         T item;
@@ -21,54 +21,72 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public boolean isEmpty(){
-        return N==0;
+        return size ==0;
     }
 
     @Override
     public void push(T item){
-       Node oldfirst=first;
-        first=new Node();
-        first.item=item;
-        first.next=oldfirst;
-        N++;
+       Node oldHead= head;
+        head =new Node();
+        head.item=item;
+        head.next=oldHead;
+        size++;
     }
 
     @Override
     public T pop(){
-        T item=first.item;
-        first=first.next;
-        N--;
+        T item= head.item;
+        head = head.next;
+        size--;
         return item;
     }
 
     @Override
     public T peek(){
-        T item=first.item;
-        return item;
+        return head.item;
     }
 
     @Override
     public int size(){
-        return N;
+        return size;
     }
 
+    @Override
     public Iterator<T> iterator() {
         return new Itr();
     }
 
     private class Itr implements Iterator<T> {
-        private Node current=first;
+        private Node current = head;
+        private int i = size;
         @Override
         public boolean hasNext() {
-            return current!=null;
+            return i > 0;
         }
         @Override
         public T next() {
             T item=current.item;
             current=current.next;
+            i--;
             return item;
         }
         @Override
         public void remove(){}
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
+        sb.append("[");
+       Itr itr = new Itr();
+        while (itr.hasNext()){
+            sb.append(itr.next());
+            if (itr.hasNext()){
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
