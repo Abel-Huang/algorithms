@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.tree;
+package cn.abelib.datastructure.tree.multi;
 
 import java.util.ArrayList;
 

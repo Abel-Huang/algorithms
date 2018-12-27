@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.tree;
+package cn.abelib.datastructure.tree;
 
 /**
  * Created by abel on 2018/5/7.
