@@ -3,7 +3,9 @@ package cn.abelib.algorithm.unionfind;
 import java.util.Scanner;
 
 /**
- * Created by abel-huang on 2017/7/11.
+ *
+ * @author abel-huang
+ * @date 2017/7/11
  * 路径压缩的加权quick-union算法
  */
 public class PathCompressionUnionFind extends AbstractUnionFind {

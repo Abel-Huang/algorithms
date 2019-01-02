@@ -2,6 +2,9 @@ package cn.abelib.algorithm.search;
 
 import java.util.Iterator;
 
+/**
+ * @author abel
+ */
 public class BinaryTreeSearch<K extends Comparable<K>, V> implements Iterable<K> {
     private Node root;
 
@@ -31,15 +34,17 @@ public class BinaryTreeSearch<K extends Comparable<K>, V> implements Iterable<K>
     }
 
     private V get(Node node, K key){
-        if (node == null)
+        if (node == null) {
             return null;
+        }
         int cmp = key.compareTo(node.key);
-        if (cmp < 0)
+        if (cmp < 0) {
             return get(node.left, key);
-        else if(cmp > 0)
+        } else if(cmp > 0) {
             return get(node.right, key);
-        else
+        } else {
             return node.value;
+        }
     }
 
     public void put(K key, V value){
@@ -47,19 +52,22 @@ public class BinaryTreeSearch<K extends Comparable<K>, V> implements Iterable<K>
     }
 
     private Node put(Node node, K key, V value){
-        if (node == null)
+        if (node == null) {
             return new Node(key, value, 1);
+        }
         int cmp = key.compareTo(node.key);
-        if (cmp < 0)
+        if (cmp < 0) {
             node.left = put(node.left, key, value);
-        else if (cmp > 0)
+        } else if (cmp > 0) {
             node.right = put(node.right, key, value);
-        else
+        } else {
             node.value = value;
+        }
         node.N = size(node.left) + size(node.right) + 1;
         return node;
     }
 
+    @Override
     public Iterator<K> iterator() {
         return new Itr();
     }
@@ -83,6 +91,7 @@ public class BinaryTreeSearch<K extends Comparable<K>, V> implements Iterable<K>
             }
             return null;
         }
+        @Override
         public void remove(){}
     }
 }

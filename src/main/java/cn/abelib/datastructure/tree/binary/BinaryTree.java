@@ -3,13 +3,17 @@ package cn.abelib.datastructure.tree.binary;
 import cn.abelib.datastructure.linear.linked.LinkedList;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
- * Created by abel-huang on 17/10/30.
+ *
+ * @author abel-huang
+ * @date 17/10/30
  */
-public class BinaryTree<T extends Comparable<T>> {
+public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
     private TreeNode root;
     private int size;
+
     private class TreeNode{
         private T value;
         private TreeNode left;
@@ -19,19 +23,6 @@ public class BinaryTree<T extends Comparable<T>> {
             this.value = value;
             left = null;
             right = null;
-        }
-    }
-
-    /**
-     *  批量插入
-     * @param items
-     */
-    public void add(Collection<T> items){
-        if (items == null|| items.size() == 0){
-            return;
-        }
-        for (T item : items){
-            add(item);
         }
     }
 
@@ -54,6 +45,19 @@ public class BinaryTree<T extends Comparable<T>> {
      */
     public boolean isEmpty(){
         return size == 0;
+    }
+
+    /**
+     *  批量插入
+     * @param items
+     */
+    public void add(Collection<T> items){
+        if (items == null|| items.size() == 0){
+            return;
+        }
+        for (T item : items){
+            add(item);
+        }
     }
 
     /**
@@ -235,5 +239,29 @@ public class BinaryTree<T extends Comparable<T>> {
      */
     private void postOrderVisit(TreeNode  originalNode, LinkedList<T> nodes){
 
+    }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Itr();
+    }
+
+    private class Itr implements Iterator<T> {
+        private int i = 0;
+        private LinkedList<T> nodes = inOrderVisit();
+
+        @Override
+        public boolean hasNext() {
+            return i < size;
+        }
+
+        @Override
+        public T next() {
+            return nodes.get(i);
+        }
+
+        @Override
+        public void remove(){}
     }
 }

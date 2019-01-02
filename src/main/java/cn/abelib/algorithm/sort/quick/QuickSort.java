@@ -7,7 +7,9 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * Created by abel-huang on 2017/7/18.
+ *
+ * @author abel-huang
+ * @date 2017/7/18
  */
 public class QuickSort extends AbstractSort {
     @Override
@@ -29,16 +31,21 @@ public class QuickSort extends AbstractSort {
         Comparable value=a[low];
         int i=low, j=high+1;
         while (true){
-            while(less(a[++i], value))
-                if (i==high)
+            while(less(a[++i], value)) {
+                if (i==high) {
                     break;
-            while(less(value, a[--j]))
-                if (j==low)
+                }
+            }
+            while(less(value, a[--j])) {
+                if (j==low) {
                     break;
-            if (i>=j)
+                }
+            }
+            if (i>=j) {
                 break;
-            else
+            } else {
                 exchange(a, i ,j);
+            }
         }
         exchange(a, low, j);
         return j;

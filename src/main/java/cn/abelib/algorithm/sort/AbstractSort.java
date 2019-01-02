@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.sort;
 
 /**
- * Created by abel-huang on 2017/7/12.
+ *
+ * @author abel-huang
+ * @date 2017/7/12
  * A array abstract class for sort
  */
 public abstract class AbstractSort implements Sort{

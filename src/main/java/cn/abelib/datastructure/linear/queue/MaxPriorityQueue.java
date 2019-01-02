@@ -1,7 +1,9 @@
 package cn.abelib.datastructure.linear.queue;
 
 /**
- * Created by abel-huang on 2017/7/30.
+ *
+ * @author abel-huang
+ * @date 2017/7/30
  */
 public class MaxPriorityQueue <K extends Comparable<K>>{
     private K[] maxpq;
@@ -73,8 +75,9 @@ public class MaxPriorityQueue <K extends Comparable<K>>{
             if(j <N && less(j, j+1)){
                 j++;
             }
-            if (!less(k, j))
+            if (!less(k, j)) {
                 break;
+            }
             exchange(k, j);
             k = j;
         }

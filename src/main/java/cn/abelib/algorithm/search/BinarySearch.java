@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.search;
 
 /**
- * Created by abel on 2016/12/12.
+ *
+ * @author abel
+ * @date 2016/12/12
  */
 public class BinarySearch {
     public int binarySearch(int key, int[] a){
@@ -9,12 +11,13 @@ public class BinarySearch {
         int h1=a.length-1;
         while(l0<=h1){
             int mid=l0+(h1-l0)/2;
-            if(key<a[mid])
+            if(key<a[mid]) {
                 h1=mid-1;
-            else if(key>a[mid])
+            } else if(key>a[mid]) {
                 l0=mid+1;
-            else
+            } else {
                 return mid;
+            }
         }
         return -1;
     }

@@ -1,7 +1,9 @@
 package cn.abelib.datastructure.linear.queue;
 
 /**
- * Created by abel-huang on 2017/7/20.
+ *
+ * @author abel-huang
+ * @date 2017/7/20
  */
 public abstract class PriorityQueue<K extends Comparable<K>> {
     public K[] pq;

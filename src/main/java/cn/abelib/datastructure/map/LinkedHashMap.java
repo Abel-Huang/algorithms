@@ -1,8 +1,10 @@
-package cn.abelib.datastructure.hash;
+package cn.abelib.datastructure.map;
 
 
 /**
- * Created by abel on 2018/5/1.
+ *
+ * @author abel
+ * @date 2018/5/1
  */
 public class LinkedHashMap<K, V> extends HashMap<K, V> {
 }

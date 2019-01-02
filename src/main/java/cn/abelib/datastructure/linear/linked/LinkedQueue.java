@@ -6,7 +6,9 @@ import cn.abelib.util.exception.NoMoreElementException;
 import java.util.Iterator;
 
 /**
- * Created by abel-huang on 2017/1/10.
+ *
+ * @author abel-huang
+ * @date 2017/1/10
  */
 public class LinkedQueue<T> implements Queue<T> {
     private Node head;

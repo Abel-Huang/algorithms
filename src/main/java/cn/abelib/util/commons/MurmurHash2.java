@@ -9,6 +9,7 @@ import java.nio.ByteOrder;
 
 /**
  * 一致性Hash的一种算法 高效低碰撞率
+ * @author abel
  */
 public class MurmurHash2 {
 

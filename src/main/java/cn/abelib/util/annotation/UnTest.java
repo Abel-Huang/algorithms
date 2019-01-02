@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 
 @Target({ElementType.METHOD})
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface UnTest {
     String value() default "UnTest";
 }

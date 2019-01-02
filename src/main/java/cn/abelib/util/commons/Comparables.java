@@ -1,7 +1,9 @@
 package cn.abelib.util.commons;
 
 /**
- * Created by abel-huang on 2017/7/19.
+ *
+ * @author abel-huang
+ * @date 2017/7/19
  * Comparable
  */
 public class Comparables {

@@ -3,7 +3,9 @@ package cn.abelib.algorithm.sort.insertion;
 import cn.abelib.algorithm.sort.SimpleSort;
 
 /**
- * Created by abel on 2017/7/24.
+ *
+ * @author abel
+ * @date 2017/7/24
  */
 public class SimpleShellSort implements SimpleSort {
     @Override

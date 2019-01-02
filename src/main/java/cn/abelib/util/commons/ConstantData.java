@@ -1,7 +1,9 @@
 package cn.abelib.util.commons;
 
 /**
- * Created by abel-huang on 2017/7/22.
+ *
+ * @author abel-huang
+ * @date 2017/7/22
  */
 public class ConstantData {
     public static final String[] STRING_ITEM= {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",

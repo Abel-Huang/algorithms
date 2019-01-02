@@ -4,7 +4,9 @@ package cn.abelib.algorithm.sort.merge;
 import cn.abelib.algorithm.sort.AbstractSort;
 
 /**
- * Created by abel-huang on 2017/7/19.
+ *
+ * @author abel-huang
+ * @date 2017/7/19
  *
  */
 public class BottomFromMergeSort extends AbstractSort {

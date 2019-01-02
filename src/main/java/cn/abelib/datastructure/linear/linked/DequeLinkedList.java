@@ -8,6 +8,7 @@ import java.util.Iterator;
  * Created by ${abel-huang} on 18/2/28.
  * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一,
  * 部分参考了Java LinkedList
+ * @author abel
  */
 public class DequeLinkedList<T> implements Deque<T> {
     private Node<T> tail = new Node<>();
@@ -101,6 +102,7 @@ public class DequeLinkedList<T> implements Deque<T> {
      * return list length
      * @return
      */
+    @Override
     public int size() {
         return this.len;
     }

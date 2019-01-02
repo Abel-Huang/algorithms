@@ -3,7 +3,9 @@ package cn.abelib.algorithm.unionfind;
 import java.util.Scanner;
 
 /**
- * Created by abel-huang on 2017/1/19.
+ *
+ * @author abel-huang
+ * @date 2017/1/19
  * quick-find
  */
 public class QuickFindUnionFind extends AbstractUnionFind {

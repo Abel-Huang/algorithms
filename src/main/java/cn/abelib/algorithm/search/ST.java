@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.search;
 
 /**
- * Created by abel-huang on 2017/8/2.
+ *
+ * @author abel-huang
+ * @date 2017/8/2
  */
 public abstract class ST<K extends Comparable<K>, V> {
 

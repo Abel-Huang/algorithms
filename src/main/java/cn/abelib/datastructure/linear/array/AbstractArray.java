@@ -7,7 +7,6 @@ import java.util.Iterator;
  * @Author: abel-huang
  * @Date: 2018-12-11 22:54
  */
-
 public abstract class AbstractArray<T> implements Collection<T> {
     T[] data;
     int size;

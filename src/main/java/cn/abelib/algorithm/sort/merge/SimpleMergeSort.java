@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.sort.merge;
 
 /**
- * Created by abel-huang on 2017/7/11.
+ *
+ * @author abel-huang
+ * @date 2017/7/11
  * 时间复杂度为NlogN 其中递归sort()的复杂度为logN merge()的复杂度为N
  *  需要额外的空间进行排序
  */

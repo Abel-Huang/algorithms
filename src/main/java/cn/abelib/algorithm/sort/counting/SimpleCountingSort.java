@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.sort.counting;
 
 /**
- * Created by abel on 2018/4/11.
+ *
+ * @author abel
+ * @date 2018/4/11
  * 计数排序
  * 计数排序是基数排序和桶排序的基础
  * 时间复杂度为(N+K) K 是排序元素的范围 空间复杂度为 K

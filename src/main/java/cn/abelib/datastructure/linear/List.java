@@ -2,7 +2,9 @@ package cn.abelib.datastructure.linear;
 
 
 /**
- * Created by abel on 2018/4/30.
+ *
+ * @author abel
+ * @date 2018/4/30
  *  List接口
  */
 public interface List<T> extends Collection<T>{

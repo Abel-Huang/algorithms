@@ -94,4 +94,9 @@ public class LinkedListTest {
        System.out.println(linkedList.delTail());
        System.out.println(linkedList.delTail());
    }
+
+   @Test
+    public void traverseTest(){
+       linkedList.forEach(System.out::println);
+   }
 }

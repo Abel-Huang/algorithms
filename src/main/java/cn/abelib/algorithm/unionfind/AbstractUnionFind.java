@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.unionfind;
 
 /**
- * Created by abel-huang on 2017/7/12.
+ *
+ * @author abel-huang
+ * @date 2017/7/12
  */
 public abstract  class AbstractUnionFind {
     protected int count;

@@ -1,8 +1,10 @@
-package cn.abelib.datastructure.tree.tree;
+package cn.abelib.datastructure.tree.binary;
 
 
 /**
- * Created by abel-huang on 2018/4/2.
+ *
+ * @author abel-huang
+ * @date 2018/4/2
  *  简单红黑树, 参考算法(4th)实现
  *  删除操作目前未完成
  */

@@ -6,6 +6,7 @@ import cn.abelib.util.commons.Constant;
 /**
  * Created by ${abel-huang} on 18/2/27.
  * redis字符串的底层结构SDS，一个可变的字符串
+ * @author abel
  */
 public class DynamicString {
     private int len;

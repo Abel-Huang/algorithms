@@ -4,7 +4,9 @@ package cn.abelib.util.commons;
 import java.util.Random;
 
 /**
- * Created by abel-huang on 2017/7/22.
+ *
+ * @author abel-huang
+ * @date 2017/7/22
  */
 public class RandomData {
     /**

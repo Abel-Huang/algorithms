@@ -1,7 +1,9 @@
 package cn.abelib.algorithm.sort;
 
 /**
- * Created by abel-huang on 17/10/30.
+ *
+ * @author abel-huang
+ * @date 17/10/30
  */
 
 public class BubbleSort {

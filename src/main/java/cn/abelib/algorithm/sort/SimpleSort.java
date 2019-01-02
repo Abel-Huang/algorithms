@@ -3,7 +3,9 @@ package cn.abelib.algorithm.sort;
 import java.util.Arrays;
 
 /**
- * Created by abel on 2018/4/30.
+ *
+ * @author abel
+ * @date 2018/4/30
  *  基础排序的接口
  */
 public interface SimpleSort{

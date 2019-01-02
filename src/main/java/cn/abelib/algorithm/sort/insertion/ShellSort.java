@@ -3,7 +3,9 @@ package cn.abelib.algorithm.sort.insertion;
 import cn.abelib.algorithm.sort.AbstractSort;
 
 /**
- * Created by abel-huang on 2017/7/13.
+ *
+ * @author abel-huang
+ * @date 2017/7/13
  * Shell sort, based on Insert sort
  */
 public class ShellSort extends AbstractSort {

@@ -1,7 +1,6 @@
-package cn.abelib.datastructure.hash;
+package cn.abelib.datastructure.map;
 
 
-import cn.abelib.datastructure.tree.Map;
 import cn.abelib.util.commons.Constant;
 import cn.abelib.util.commons.MurmurHash2;
 
@@ -9,7 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by abel-huang on 18/3/8.
+ *
+ * @author abel-huang
+ * @date 18/3/8
  * 模仿redis底层实现的HashMap，但是没有实现渐进式rehash，
  * 目前打算采用CopyOnWrite的形式实现
  */
@@ -148,12 +149,13 @@ public class HashMap<K, V> implements Map<K, V> {
      * @return
      */
     private int shouldRehash0(){
-        if (ht.size > 2 * ht.capacity)
+        if (ht.size > 2 * ht.capacity) {
             return 1;
-        else if (ht.size < ht.capacity/10)
+        } else if (ht.size < ht.capacity/10) {
             return -1;
-        else
+        } else {
             return 0;
+        }
     }
 
     /**
@@ -173,8 +175,9 @@ public class HashMap<K, V> implements Map<K, V> {
                 int capacity = ht.capacity;
                 while (true){
                     capacity =capacity/2;
-                    if (capacity <= this.size())
+                    if (capacity <= this.size()) {
                         break;
+                    }
                 }
                 capacity*=2;
                 capacity = capacity<Constant.DEFAULT_CAPACITY?Constant.DEFAULT_CAPACITY:capacity;
@@ -229,8 +232,9 @@ public class HashMap<K, V> implements Map<K, V> {
      * @return
      */
     private NodeEntry<K, V> pop(){
-        if (this.ht.size < 1)
+        if (this.ht.size < 1) {
             throw new RuntimeException("Dict is already empty!");
+        }
         NodeEntry<K, V> nodeEntry = null;
         for (int i =0; i< ht.capacity; i++){
             if ( ht.table[i].next != null) {

@@ -1,5 +1,6 @@
 package cn.abelib.algorithm.search.map;
 
+import cn.abelib.datastructure.map.HashMap;
 import cn.abelib.util.commons.MurmurHash2;
 import org.junit.Test;
 
@@ -162,6 +163,5 @@ public class HashTest {
         for (Integer integer2 : list2){
             System.err.print(integer2 + " ");
         }
-
     }
 }

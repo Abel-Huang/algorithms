@@ -6,7 +6,9 @@ import cn.abelib.datastructure.linear.Stack;
 import java.util.Iterator;
 
 /**
- * Created by abel-huang on 2016/12/27.
+ *
+ * @author abel-huang
+ * @date 2016/12/27
  */
 public class LinkedStack<T>  implements Stack<T> {
     private Node head;

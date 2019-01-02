@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by abel-huang on 2017/12/25.
+ *
+ * @author abel-huang
+ * @date 2017/12/25
  *  跳跃链表
  *  主要是参考Redis实现的SkipList
+ *  todo
  */
 
 public class SkipList<T>{

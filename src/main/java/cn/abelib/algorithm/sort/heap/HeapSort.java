@@ -4,9 +4,12 @@ package cn.abelib.algorithm.sort.heap;
 import cn.abelib.algorithm.sort.AbstractSort;
 
 /**
- * Created by abel-huang on 2017/7/31.
+ *
+ * @author abel-huang
+ * @date 2017/7/31
  */
 public class HeapSort extends AbstractSort {
+    @Override
     public void sort(Comparable [] a){
         int N = a.length-1;
         for (int k =N/2; k>=0; k--){
@@ -19,13 +22,14 @@ public class HeapSort extends AbstractSort {
     }
 
     private void sink(Comparable [] a, int k, int N){
-        while(2*k+1 <= N){
+        while(2*k + 1 <= N){
             int j = 2*k + 1;
             if(j < N  && less(a[j], a[j+1])){
                 j++;
             }
-            if (!less(a[k], a[j]))
+            if (!less(a[k], a[j])) {
                 break;
+            }
             exchange(a, k, j);
             k = j;
         }

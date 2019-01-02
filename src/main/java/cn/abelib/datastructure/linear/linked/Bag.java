@@ -5,7 +5,9 @@ import cn.abelib.datastructure.linear.Collection;
 import java.util.Iterator;
 
 /**
- * Created by abel-huang on 2016/12/25.
+ *
+ * @author abel-huang
+ * @date 2016/12/25
  */
 public class Bag<T> implements Collection<T> {
     private Node first;

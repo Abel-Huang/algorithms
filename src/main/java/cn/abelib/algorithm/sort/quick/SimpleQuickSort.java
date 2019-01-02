@@ -2,7 +2,9 @@ package cn.abelib.algorithm.sort.quick;
 
 
 /**
- * Created by abel-huang on 2017/7/12.
+ *
+ * @author abel-huang
+ * @date 2017/7/12
  *  简单的快速排序
  */
 public  class SimpleQuickSort {
