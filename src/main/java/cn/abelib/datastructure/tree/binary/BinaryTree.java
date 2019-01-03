@@ -1,12 +1,17 @@
 package cn.abelib.datastructure.tree.binary;
 
+import cn.abelib.datastructure.linear.Queue;
+import cn.abelib.datastructure.linear.Stack;
 import cn.abelib.datastructure.linear.linked.LinkedList;
+import cn.abelib.datastructure.linear.linked.LinkedQueue;
+import cn.abelib.datastructure.linear.linked.LinkedStack;
+import cn.abelib.util.annotation.UnFinish;
 
 import java.util.Collection;
 import java.util.Iterator;
 
 /**
- *
+ * 基础的二叉树
  * @author abel-huang
  * @date 17/10/30
  */
@@ -19,7 +24,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
         private TreeNode left;
         private TreeNode right;
 
-        public TreeNode(T value){
+        private TreeNode(T value){
             this.value = value;
             left = null;
             right = null;
@@ -142,6 +147,123 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
         }
     }
 
+    /**
+     *  找到二叉树最大值
+     * @return
+     */
+    public T max() {
+       if (size < 1) {
+           return null;
+       }
+       if (size == 1) {
+           return root.value;
+       }
+        TreeNode traveses = root;
+       while (traveses.right != null) {
+           traveses = traveses.right;
+       }
+       return traveses.value;
+    }
+
+    /**
+     *  删除最大元素
+     * @return
+     */
+    public T removeMax() {
+        T item = max();
+        root = removeMax(root);
+        return item;
+    }
+
+    /**
+     *  返回删除节点后新的二分搜索树的根
+     * @param node
+     * @return
+     */
+    private TreeNode removeMax(TreeNode node) {
+        if (node.right == null) {
+            TreeNode traveses = node.left;
+            node.left = null;
+            size --;
+            return traveses;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    /**
+     *  找到二叉树最小值
+     * @return
+     */
+    public T min() {
+        if (size < 1) {
+            return null;
+        }
+        if (size == 1) {
+            return root.value;
+        }
+        TreeNode traveses = root;
+        while (traveses.left != null) {
+            traveses = traveses.left;
+        }
+        return traveses.value;
+    }
+
+    /**
+     *  删除最小元素
+     * @return
+     */
+    public T removeMin() {
+        T item = min();
+        root = removeMin(root);
+        return item;
+    }
+
+    /**
+     *  返回删除节点后新的二分搜索树的根
+     * @param node
+     * @return
+     */
+    private TreeNode removeMin(TreeNode node) {
+        if (node.left == null) {
+            TreeNode rightNode = node.right;
+            node.right = null;
+            size --;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    /**
+     *  非递归广度优先遍历
+     * @return
+     */
+    public LinkedList<T> levelOrderVisit() {
+        return levelOrderVisit(root);
+    }
+
+    private LinkedList<T> levelOrderVisit(TreeNode  originalNode) {
+        LinkedList<T> nodes =new LinkedList<>();
+        if (size < 1){
+            return nodes;
+        }
+        TreeNode traveses = originalNode;
+        Queue<TreeNode> queue = new LinkedQueue<>();
+        queue.enqueue(traveses);
+        while (!queue.isEmpty()) {
+            traveses = queue.dequeue();
+            nodes.add(traveses.value);
+            if (traveses.left != null) {
+                queue.enqueue(traveses.left);
+            }
+            if (traveses.right != null) {
+                queue.enqueue(traveses.right);
+            }
+        }
+        return nodes;
+    }
+
     public LinkedList<T> inOrderVisitRecursion(){
         LinkedList<T> nodes = new LinkedList<>();
         inOrderVisitRecursion(root, nodes);
@@ -162,20 +284,40 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
     }
 
     public LinkedList<T> inOrderVisit(){
-        LinkedList<T> nodes = new LinkedList<>();
-        inOrderVisit(root, nodes);
-        return nodes;
+        return inOrderVisit(root);
     }
 
     /**
      *  非递归中序遍历
      * @param originalNode
      */
-    private void inOrderVisit(TreeNode  originalNode, LinkedList<T> nodes){
+    @UnFinish
+    private LinkedList<T> inOrderVisit(TreeNode  originalNode) {
+        // todo
+        LinkedList<T> nodes =new LinkedList<>();
+        if (size < 1){
+            return nodes;
+        }
+        TreeNode traveses = originalNode;
+        Stack<TreeNode> stack = new LinkedStack<>();
+        stack.push(traveses);
+        while (!stack.isEmpty()) {
+            if (traveses.left != null) {
+                stack.push(traveses.left);
+                traveses = traveses.left;
+            } else {
+                traveses = stack.pop();
+                nodes.add(traveses.value);
+                if (traveses.right != null) {
+                    stack.push(traveses.right);
+                }
 
+            }
+        }
+        return nodes;
     }
 
-    public LinkedList<T> preOrderVisitRecursion(){
+    public LinkedList<T> preOrderVisitRecursion() {
         LinkedList<T> nodes = new LinkedList<>();
         preOrderVisitRecursion(root, nodes);
         return nodes;
@@ -184,8 +326,9 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
     /**
      *  递归前序遍历
      * @param originalNode
+     * @param nodes
      */
-    private void preOrderVisitRecursion(TreeNode  originalNode, LinkedList<T> nodes){
+    private void preOrderVisitRecursion(TreeNode  originalNode, LinkedList<T> nodes) {
         if (originalNode == null){
             return;
         }
@@ -195,17 +338,32 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
     }
 
     public LinkedList<T> preOrderVisit(){
-        LinkedList<T> nodes = new LinkedList<>();
-        preOrderVisit(root, nodes);
-        return nodes;
+        return preOrderVisit(root);
     }
 
     /**
      *  非递归前序遍历
      * @param originalNode
      */
-    private void preOrderVisit(TreeNode  originalNode,  LinkedList<T> nodes){
-
+    private  LinkedList<T> preOrderVisit(TreeNode  originalNode) {
+        LinkedList<T> nodes =new LinkedList<>();
+        if (size < 1){
+            return nodes;
+        }
+        TreeNode  traveses = originalNode;
+        Stack<TreeNode> stack = new LinkedStack<>();
+        stack.push(traveses);
+        while (!stack.isEmpty()) {
+            traveses = stack.pop();
+            nodes.add(traveses.value);
+            if (traveses.right != null) {
+                stack.push(traveses.right);
+            }
+            if (traveses.left != null) {
+                stack.push(traveses.left);
+            }
+        }
+        return nodes;
     }
 
     public  LinkedList<T> postOrderVisitRecursion(){
@@ -238,7 +396,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
      * @param originalNode
      */
     private void postOrderVisit(TreeNode  originalNode, LinkedList<T> nodes){
-
+        // todo
     }
 
 
@@ -249,7 +407,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
 
     private class Itr implements Iterator<T> {
         private int i = 0;
-        private LinkedList<T> nodes = inOrderVisit();
+        private LinkedList<T> nodes = inOrderVisitRecursion();
 
         @Override
         public boolean hasNext() {
@@ -258,7 +416,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
 
         @Override
         public T next() {
-            return nodes.get(i);
+            return nodes.get(i++);
         }
 
         @Override
