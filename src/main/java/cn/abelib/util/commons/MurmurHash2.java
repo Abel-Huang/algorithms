@@ -3,12 +3,14 @@ package cn.abelib.util.commons;
 /**
  * Created by ${abel-huang} on 18/3/8.
  */
+
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 /**
  * 一致性Hash的一种算法 高效低碰撞率
+ *
  * @author abel
  */
 public class MurmurHash2 {
@@ -80,6 +82,7 @@ public class MurmurHash2 {
     public static BigDecimal hashUnsigned(String key) {
         return readUnsignedLong(hash(key));
     }
+
     public static BigDecimal hashUnsigned(byte[] key) {
         return readUnsignedLong(hash(key));
     }

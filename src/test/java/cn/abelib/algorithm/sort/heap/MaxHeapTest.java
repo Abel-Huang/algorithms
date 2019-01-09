@@ -10,16 +10,17 @@ import java.util.Arrays;
  */
 public class MaxHeapTest {
     @Test
-    public void insertTest(){
+    public void insertTest() {
         MaxHeap maxHeap = new MaxHeap();
-        maxHeap.insertList(Arrays.asList( 12, 5, 33));
+        maxHeap.insertList(Arrays.asList(12, 5, 33));
         maxHeap.traversal();
     }
+
     @Test
-    public void delMaxTest(){
+    public void delMaxTest() {
         MaxHeap maxHeap = new MaxHeap();
-        maxHeap.insertList(Arrays.asList( 1, 5, 3, 4, 7, 9 ,8, 6, 2));
-         maxHeap.traversal();
+        maxHeap.insertList(Arrays.asList(1, 5, 3, 4, 7, 9, 8, 6, 2));
+        maxHeap.traversal();
 
         System.err.println(maxHeap.delMax());
         maxHeap.traversal();

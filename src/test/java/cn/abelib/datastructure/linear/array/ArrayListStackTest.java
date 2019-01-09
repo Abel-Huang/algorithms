@@ -7,14 +7,14 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2016/12/25.
- *  The unit string for ArrayListStack
+ * The unit string for ArrayListStack
  */
 
 public class ArrayListStackTest {
     Stack<String> stack = new ArrayListStack<>(10);
 
     @Before
-    public void push(){
+    public void push() {
         System.out.println(stack.isEmpty());
         stack.push("A");
         stack.push("B");
@@ -23,7 +23,7 @@ public class ArrayListStackTest {
     }
 
     @Test
-    public void pop(){
+    public void pop() {
         System.out.println(stack);
         System.out.println(stack.pop());
         System.out.println(stack.pop());
@@ -33,7 +33,7 @@ public class ArrayListStackTest {
     }
 
     @Test
-    public void peek(){
+    public void peek() {
         System.out.println(stack);
         System.out.println(stack.peek());
         System.out.println(stack.pop());

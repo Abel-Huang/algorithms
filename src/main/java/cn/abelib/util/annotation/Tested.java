@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *  改方法已经通过测试
+ * 改方法已经通过测试
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

@@ -4,7 +4,6 @@ package cn.abelib.algorithm.sort.insertion;
 import cn.abelib.algorithm.sort.SimpleSort;
 
 /**
- *
  * @author abel-huang
  * @date 2017/7/10
  */

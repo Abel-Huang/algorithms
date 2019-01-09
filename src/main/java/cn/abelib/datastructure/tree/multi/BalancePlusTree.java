@@ -3,13 +3,12 @@ package cn.abelib.datastructure.tree.multi;
 import java.util.ArrayList;
 
 /**
- *
  * @author abel-huang
  * @date 2017/11/2
- *  B+树的简单实现
+ * B+树的简单实现
  */
 public class BalancePlusTree<T> {
-    private class TreeNode{
+    private class TreeNode {
         private boolean isLeaf;
         private TreeNode parent;
         private ArrayList<T> keys;

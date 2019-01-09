@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class SimpleCountingSortTest {
     @Test
-    public void countingSortTest(){
+    public void countingSortTest() {
         int[] a = RandomData.randIntArray(1000, 1000);
         SimpleCountingSort countingSort = new SimpleCountingSort();
         countingSort.sort(a);

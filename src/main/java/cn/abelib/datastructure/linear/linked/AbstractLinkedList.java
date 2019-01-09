@@ -28,29 +28,29 @@ public abstract class AbstractLinkedList<T> implements Collection<T> {
     public abstract void removeAll();
 
     @Override
-    public int size(){
+    public int size() {
         return size;
     }
 
-    class Node{
+    class Node {
         T item;
         Node next;
     }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
         sb.append("[");
         Itr itr = new Itr();
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             sb.append(itr.next());
-            if (itr.hasNext()){
+            if (itr.hasNext()) {
                 sb.append(", ");
             }
         }
@@ -66,18 +66,22 @@ public abstract class AbstractLinkedList<T> implements Collection<T> {
     private class Itr implements Iterator<T> {
         private Node current = head;
         private int i = size;
+
         @Override
         public boolean hasNext() {
             return i > 0;
         }
+
         @Override
         public T next() {
-            T item=current.item;
-            current=current.next;
+            T item = current.item;
+            current = current.next;
             i--;
             return item;
         }
+
         @Override
-        public void remove(){}
+        public void remove() {
+        }
     }
 }

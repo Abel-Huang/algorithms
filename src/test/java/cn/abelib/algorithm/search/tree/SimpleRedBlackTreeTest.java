@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class SimpleRedBlackTreeTest {
     @Test
-    public void insertTest(){
+    public void insertTest() {
         SimpleRedBlackTree rbTree = new SimpleRedBlackTree();
         rbTree.insert(5);
         rbTree.insert(3);

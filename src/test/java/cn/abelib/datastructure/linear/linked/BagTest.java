@@ -11,13 +11,13 @@ public class BagTest {
     Bag bag = null;
 
     @Before
-    public void init(){
+    public void init() {
         bag = new Bag();
         Assert.assertTrue(bag.isEmpty());
     }
 
     @Test
-    public void add(){
+    public void add() {
         bag.add(1);
         Assert.assertFalse(bag.isEmpty());
     }

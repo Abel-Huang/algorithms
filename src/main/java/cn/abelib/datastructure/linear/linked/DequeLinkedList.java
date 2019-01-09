@@ -8,6 +8,7 @@ import java.util.Iterator;
  * Created by ${abel-huang} on 18/2/28.
  * 模仿Redis底层双向链表的实现，是Redis list的底层实现之一,
  * 部分参考了Java LinkedList
+ *
  * @author abel
  */
 public class DequeLinkedList<T> implements Deque<T> {
@@ -36,38 +37,39 @@ public class DequeLinkedList<T> implements Deque<T> {
     }
 
 
-    private class Node<T>{
+    private class Node<T> {
         Node<T> prev;
         Node<T> next;
         T value;
 
-        Node(){
+        Node() {
 
         }
 
-        Node(T value){
+        Node(T value) {
             this.value = value;
         }
 
-        Node(T value,   Node<T> prev,   Node<T> next){
+        Node(T value, Node<T> prev, Node<T> next) {
             this.value = value;
             this.prev = prev;
             this.next = next;
         }
     }
 
-    public DequeLinkedList(){
+    public DequeLinkedList() {
         len = 0;
     }
 
     /**
-     *  add tail
+     * add tail
+     *
      * @param value
      * @return
      */
-    public boolean add(T value){
+    public boolean add(T value) {
         Node<T> now = new Node<>(value);
-        if (len == 0){
+        if (len == 0) {
             len++;
             head.next = now;
             tail.next = now;
@@ -83,11 +85,12 @@ public class DequeLinkedList<T> implements Deque<T> {
 
     /**
      * add DequeLinkedList
+     *
      * @param list
      * @return
      */
-    public boolean add(DequeLinkedList<T> list){
-        for (int i= 0; i< list.len; i++) {
+    public boolean add(DequeLinkedList<T> list) {
+        for (int i = 0; i < list.len; i++) {
             this.add(list.get(i));
         }
         return true;
@@ -100,6 +103,7 @@ public class DequeLinkedList<T> implements Deque<T> {
 
     /**
      * return list length
+     *
      * @return
      */
     @Override
@@ -109,15 +113,16 @@ public class DequeLinkedList<T> implements Deque<T> {
 
     /**
      * return the item of index
+     *
      * @param index
      * @return
      */
-    public T get(int index){
-        if (index < 0 || index >= len){
+    public T get(int index) {
+        if (index < 0 || index >= len) {
             throw new IndexOutOfBoundsException("Index out of bound");
         }
         Node<T> tmp = head;
-        for (int i = 0; i <= index; ++i){
+        for (int i = 0; i <= index; ++i) {
             tmp = tmp.next;
         }
         return tmp.value;
@@ -125,18 +130,19 @@ public class DequeLinkedList<T> implements Deque<T> {
 
     /**
      * return the index of the first same value
+     *
      * @param value
      * @return
      */
-    public int index(T value){
+    public int index(T value) {
         if (len <= 0) {
             return -1;
         }
         Node<T> tmp = head;
         int i;
-        for (i = 0; i < len; ++i){
+        for (i = 0; i < len; ++i) {
             tmp = tmp.next;
-            if (value.equals(tmp.value)){
+            if (value.equals(tmp.value)) {
                 return i;
             }
         }
@@ -144,74 +150,77 @@ public class DequeLinkedList<T> implements Deque<T> {
     }
 
     /**
-     *
      * @param index
      * @return
      */
-    public T next(int index){
+    public T next(int index) {
         return this.get(index + 1);
     }
 
     /**
-     *
      * @param index
      * @return
      */
-    public T prev(int index){
+    public T prev(int index) {
         return this.get(index - 1);
     }
 
     /**
-     *  list tail
+     * list tail
+     *
      * @return
      */
-    public T tail(){
+    public T tail() {
         return tail.next.value;
     }
 
     /**
-     *  list head
+     * list head
+     *
      * @return
      */
 
-    public T head(){
+    public T head() {
         return head.next.value;
     }
 
     /**
      * push from left
+     *
      * @param value
      * @return
      */
-    public boolean lPush(T value){
+    public boolean lPush(T value) {
         return this.insert(0, value);
     }
 
     /**
      * push from right
+     *
      * @param value
      * @return
      */
-    public boolean rPush(T value){
+    public boolean rPush(T value) {
         return this.add(value);
     }
 
     /**
-     *  插入
+     * 插入
+     *
      * @param index
      * @param value
      * @return
      */
-    public boolean insert(int index, T value){
-        if (index > len || index < 0){
+    public boolean insert(int index, T value) {
+        if (index > len || index < 0) {
             throw new IndexOutOfBoundsException("Index out of bound");
         }
-        if (index == len){
+        if (index == len) {
             return add(value);
         }
         Node<T> now = new Node<>(value);
 
-        if (index == 0){
+        if (index == 0) {
             Node<T> old = head.next;
             old.prev = now;
             now.next = old;
@@ -221,7 +230,7 @@ public class DequeLinkedList<T> implements Deque<T> {
             return true;
         }
         Node<T> old = head.next;
-        while (index > 0){
+        while (index > 0) {
             index--;
             old = old.next;
         }
@@ -234,18 +243,19 @@ public class DequeLinkedList<T> implements Deque<T> {
     }
 
     /**
-     *  remove node
+     * remove node
+     *
      * @param index
      * @return
      */
-    public T remove(int index){
-        if (index >= len || index < 0){
+    public T remove(int index) {
+        if (index >= len || index < 0) {
             throw new IndexOutOfBoundsException("Index out of bound");
         }
         Node<T> now = head.next;
         Node<T> temp;
-        if (index == 0){
-            if (len == 1){
+        if (index == 0) {
+            if (len == 1) {
                 len--;
                 head.next = null;
                 tail.next = null;
@@ -258,7 +268,7 @@ public class DequeLinkedList<T> implements Deque<T> {
             len--;
             return temp.value;
         }
-        if (index == len - 1){
+        if (index == len - 1) {
             Node<T> tails = tail.next;
             tail.next = tails.prev;
             tails.prev.next = null;
@@ -267,7 +277,7 @@ public class DequeLinkedList<T> implements Deque<T> {
             len--;
             return tails.value;
         }
-        while (index > 0){
+        while (index > 0) {
             index--;
             now = now.next;
         }
@@ -279,34 +289,35 @@ public class DequeLinkedList<T> implements Deque<T> {
         return now.value;
     }
 
-    public T remove(T value){
+    public T remove(T value) {
         int index = index(value);
         return remove(index);
     }
 
-    public void removeAll(){
-        while (len > 0){
+    public void removeAll() {
+        while (len > 0) {
             remove(0);
         }
     }
 
 
     /**
-     *  pop from left
+     * pop from left
+     *
      * @return
      */
     // todo
-
-    public T lpop(){
+    public T lpop() {
         return remove(0);
     }
 
 
     /**
-     *  pop from right
+     * pop from right
+     *
      * @return
      */
-    public T rpop(){
+    public T rpop() {
         return remove(len - 1);
     }
 

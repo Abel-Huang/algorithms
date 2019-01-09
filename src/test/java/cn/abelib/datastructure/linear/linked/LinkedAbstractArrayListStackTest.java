@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class LinkedAbstractArrayListStackTest {
     @Test
-    public void addTest(){
+    public void addTest() {
 
     }
 }

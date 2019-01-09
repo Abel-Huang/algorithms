@@ -1,7 +1,6 @@
 package cn.abelib.algorithm.search;
 
 /**
- *
  * @author abel-huang
  * @date 2017/8/2
  */
@@ -15,7 +14,7 @@ public abstract class ST<K extends Comparable<K>, V> {
 
     public abstract boolean contains(K key);
 
-    public abstract  boolean isEmpty();
+    public abstract boolean isEmpty();
 
     public abstract int size();
 
@@ -37,11 +36,11 @@ public abstract class ST<K extends Comparable<K>, V> {
 
     public abstract int size(K low, K high);
 
-    Iterable<K> keys(K low, K high){
+    Iterable<K> keys(K low, K high) {
         return null;
     }
 
-    Iterable<K> keys(){
+    Iterable<K> keys() {
         return null;
     }
 

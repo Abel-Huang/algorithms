@@ -1,7 +1,6 @@
 package cn.abelib.algorithm.sort.counting;
 
 /**
- *
  * @author abel
  * @date 2018/4/11
  * 计数排序
@@ -11,19 +10,20 @@ package cn.abelib.algorithm.sort.counting;
  */
 public class SimpleCountingSort {
     private final int ITEM_SIZE = 1000;
-    public void sort(int[] a){
+
+    public void sort(int[] a) {
         int[] map = new int[ITEM_SIZE + 1];
-        for (int i = 0; i < a.length; i++){
-            if (map[a[i]] == 0){
+        for (int i = 0; i < a.length; i++) {
+            if (map[a[i]] == 0) {
                 map[a[i]] = 1;
-            }else {
+            } else {
                 map[a[i]]++;
             }
         }
         int index = 0;
-        for (int i =0; i< map.length; i++){
-            if (map[i] != 0){
-                for (int j = 0; j< map[i]; j++){
+        for (int i = 0; i < map.length; i++) {
+            if (map[i] != 0) {
+                for (int j = 0; j < map[i]; j++) {
                     a[index] = i;
                     index++;
                 }

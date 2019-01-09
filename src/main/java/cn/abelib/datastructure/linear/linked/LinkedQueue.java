@@ -6,7 +6,6 @@ import cn.abelib.util.exception.NoMoreElementException;
 import java.util.Iterator;
 
 /**
- *
  * @author abel-huang
  * @date 2017/1/10
  */
@@ -14,20 +13,22 @@ public class LinkedQueue<T> implements Queue<T> {
     private Node head;
     private Node tail;
     private int size;
-    private class Node{
+
+    private class Node {
         T item;
         Node next;
     }
 
-    public LinkedQueue(){}
+    public LinkedQueue() {
+    }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     @Override
-    public void enqueue(T item){
+    public void enqueue(T item) {
         Node oldLast = tail;
         tail = new Node();
         tail.item = item;
@@ -41,7 +42,7 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue(){
+    public T dequeue() {
         if (isEmpty()) {
             throw new NoMoreElementException();
         }
@@ -63,7 +64,7 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     @Override
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -74,29 +75,33 @@ public class LinkedQueue<T> implements Queue<T> {
 
     private class Itr implements Iterator<T> {
         private Node current = head;
+
         @Override
         public boolean hasNext() {
             return current != null;
         }
+
         @Override
         public T next() {
             T item = current.item;
             current = current.next;
             return item;
         }
+
         @Override
-        public void remove(){}
+        public void remove() {
+        }
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
         sb.append("[");
         Itr itr = new Itr();
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             sb.append(itr.next());
-            if (itr.hasNext()){
+            if (itr.hasNext()) {
                 sb.append(", ");
             }
         }

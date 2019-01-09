@@ -7,12 +7,11 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
  * @author abel-huang
  * @date 2017/7/19
  */
 public class MoreQuickSort extends AbstractSort {
-    private final int TRANS_ARG=5;
+    private final int TRANS_ARG = 5;
 
     @Override
     public void sort(Comparable[] a) {
@@ -20,15 +19,15 @@ public class MoreQuickSort extends AbstractSort {
         sort(a, 0, a.length - 1);
     }
 
-    private void sort(Comparable []a, int low, int high){
-        if (high<=low+TRANS_ARG){
+    private void sort(Comparable[] a, int low, int high) {
+        if (high <= low + TRANS_ARG) {
             new InsertionSort().sort(a, low, high);
             return;
         }
-        int left=low, right=high, i=low+1;
-        Comparable value=a[low];
-        while(i<=right){
-            int cmp=a[i].compareTo(value);
+        int left = low, right = high, i = low + 1;
+        Comparable value = a[low];
+        while (i <= right) {
+            int cmp = a[i].compareTo(value);
             if (cmp < 0) {
                 exchange(a, left++, i++);
             } else if (cmp > 0) {
@@ -37,7 +36,7 @@ public class MoreQuickSort extends AbstractSort {
                 i++;
             }
         }
-        sort(a, low, left-1);
-        sort(a, right+1, high);
+        sort(a, low, left - 1);
+        sort(a, right + 1, high);
     }
 }

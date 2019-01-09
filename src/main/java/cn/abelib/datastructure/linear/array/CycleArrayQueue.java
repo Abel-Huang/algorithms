@@ -17,11 +17,11 @@ public class CycleArrayQueue<T> implements Queue<T> {
     private T[] data;
     private int size;
 
-    public CycleArrayQueue(){
+    public CycleArrayQueue() {
         this(Constant.DEFAULT_CAPACITY);
     }
 
-    public CycleArrayQueue(int capacity){
+    public CycleArrayQueue(int capacity) {
         data = (T[]) new Object[capacity];
         size = 0;
         tail = 0;
@@ -29,12 +29,13 @@ public class CycleArrayQueue<T> implements Queue<T> {
     }
 
     /**
-     *  resize
+     * resize
+     *
      * @param newCapacity
      */
-    private void resize(int newCapacity){
-        T[] temp = (T[])new Object[newCapacity + 1];
-        for(int i = 0; i < size; i++){
+    private void resize(int newCapacity) {
+        T[] temp = (T[]) new Object[newCapacity + 1];
+        for (int i = 0; i < size; i++) {
             temp[i] = data[(i + head) % data.length];
         }
         data = temp;
@@ -60,7 +61,7 @@ public class CycleArrayQueue<T> implements Queue<T> {
         T item = data[head];
         head = (head + 1) % data.length;
         size--;
-        if(size >0 && size == data.length / 4){
+        if (size > 0 && size == data.length / 4) {
             resize(data.length / 2);
         }
         return item;
@@ -85,14 +86,14 @@ public class CycleArrayQueue<T> implements Queue<T> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
         sb.append("head [");
         CycleArrayQueue.Itr itr = new CycleArrayQueue.Itr();
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             sb.append(itr.next());
-            if (itr.hasNext()){
+            if (itr.hasNext()) {
                 sb.append(", ");
             }
         }
@@ -119,6 +120,7 @@ public class CycleArrayQueue<T> implements Queue<T> {
         }
 
         @Override
-        public void remove(){}
+        public void remove() {
+        }
     }
 }

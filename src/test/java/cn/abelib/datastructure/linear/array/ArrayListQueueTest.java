@@ -11,7 +11,7 @@ public class ArrayListQueueTest {
     Queue<String> queue = new ArrayListQueue<>();
 
     @Before
-    public void enqueue(){
+    public void enqueue() {
         System.out.println(queue.isEmpty());
         queue.enqueue("A");
         queue.enqueue("B");
@@ -20,7 +20,7 @@ public class ArrayListQueueTest {
     }
 
     @Test
-    public void dequeue(){
+    public void dequeue() {
         System.out.println(queue.isEmpty());
         System.out.println(queue);
         System.out.println(queue.dequeue());
@@ -31,7 +31,7 @@ public class ArrayListQueueTest {
     }
 
     @Test
-    public void getFront(){
+    public void getFront() {
         System.out.println(queue);
         System.out.println(queue.getFront());
         System.out.println(queue.dequeue());

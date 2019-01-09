@@ -6,17 +6,17 @@ import org.junit.Test;
 
 /**
  * Created by abel-huang on 2017/1/11.
- *  The unit string for ArrayListQueue
+ * The unit string for ArrayListQueue
  */
 
 public class LinkedArrayListAbstractArrayListQueueTest {
     @Before
-    public void init(){
+    public void init() {
 
     }
 
     @Test
-    public void add(){
+    public void add() {
 
     }
 }

@@ -4,7 +4,6 @@ package cn.abelib.util.commons;
 import java.util.Random;
 
 /**
- *
  * @author abel-huang
  * @date 2017/7/22
  */
@@ -14,8 +13,8 @@ public class RandomData {
      * @param range
      * @return random int
      */
-    public static int randInt(long seed, int range){
-        Random random=new Random(seed);
+    public static int randInt(long seed, int range) {
+        Random random = new Random(seed);
         return random.nextInt(range);
     }
 
@@ -23,32 +22,34 @@ public class RandomData {
      * @param range
      * @return
      */
-    public static int randInt(int range){
-        long seed=System.currentTimeMillis();
+    public static int randInt(int range) {
+        long seed = System.currentTimeMillis();
         return randInt(seed, range);
     }
 
-    public static  int[] randIntArray(int range, int size) {
-        long seed=System.currentTimeMillis();
-        Random random=new Random(seed);
-        int [] intArray=new int[size];
-        for (int i=0; i<size; i++){
-            intArray[i]=random.nextInt(range);
+    public static int[] randIntArray(int range, int size) {
+        long seed = System.currentTimeMillis();
+        Random random = new Random(seed);
+        int[] intArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            intArray[i] = random.nextInt(range);
         }
         return intArray;
     }
 
-    /** create a random Integer array
+    /**
+     * create a random Integer array
+     *
      * @param seed
      * @param range
      * @param size
      * @return random Integer array
      */
-    public static  Integer[] randIntegerArray(long seed, int range, int size) {
-        Random random=new Random(seed);
-        Integer [] integerArray=new Integer[size];
-        for (int i=0; i<size; i++){
-            integerArray[i]=random.nextInt(range);
+    public static Integer[] randIntegerArray(long seed, int range, int size) {
+        Random random = new Random(seed);
+        Integer[] integerArray = new Integer[size];
+        for (int i = 0; i < size; i++) {
+            integerArray[i] = random.nextInt(range);
         }
         return integerArray;
     }
@@ -58,7 +59,7 @@ public class RandomData {
      * @param size
      * @return
      */
-    public static  Integer[] randIntegerArray(int range, int size) {
+    public static Integer[] randIntegerArray(int range, int size) {
         long seed = System.currentTimeMillis();
         return randIntegerArray(seed, range, size);
     }
@@ -67,29 +68,31 @@ public class RandomData {
      * @param seed
      * @return random double
      */
-    public static double randDouble(long seed){
-        Random random=new Random(seed);
+    public static double randDouble(long seed) {
+        Random random = new Random(seed);
         return random.nextDouble();
     }
 
     /**
      * @return random double
      */
-    public static double randDouble(){
-        long seed=System.currentTimeMillis();
+    public static double randDouble() {
+        long seed = System.currentTimeMillis();
         return randDouble(seed);
     }
 
-    /** create a random Double array
+    /**
+     * create a random Double array
+     *
      * @param range
      * @param size
      * @return random Double array
      */
-    public static  Double[] randDoubleArray(long seed, int range, int size){
-        Random random=new Random(seed);
-        Double [] doubleArray=new Double[size];
-        for (int i=0; i<size; i++){
-            doubleArray[i]=random.nextDouble()+random.nextInt(range);
+    public static Double[] randDoubleArray(long seed, int range, int size) {
+        Random random = new Random(seed);
+        Double[] doubleArray = new Double[size];
+        for (int i = 0; i < size; i++) {
+            doubleArray[i] = random.nextDouble() + random.nextInt(range);
         }
         return doubleArray;
     }
@@ -99,8 +102,8 @@ public class RandomData {
      * @param size
      * @return
      */
-    public static  Double[] randDoubleArray(int range,int size){
-        long seed=System.currentTimeMillis();
+    public static Double[] randDoubleArray(int range, int size) {
+        long seed = System.currentTimeMillis();
         return randDoubleArray(seed, range, size);
     }
 
@@ -110,15 +113,15 @@ public class RandomData {
      * @param size
      * @return String[]
      */
-    public static  String[] randStrArray(long seed, int length, int size){
-        Random random=new Random(seed);
-        String [] strItems = ConstantData.STRING_ITEM;
-        String [] randStr = new String[size];
-        int N= strItems.length;
+    public static String[] randStrArray(long seed, int length, int size) {
+        Random random = new Random(seed);
+        String[] strItems = ConstantData.STRING_ITEM;
+        String[] randStr = new String[size];
+        int N = strItems.length;
         int index;
-        for (int i=0; i<size; i++){
-            StringBuilder item= new StringBuilder();
-            for (int j=0; j<length; j++){
+        for (int i = 0; i < size; i++) {
+            StringBuilder item = new StringBuilder();
+            for (int j = 0; j < length; j++) {
                 index = random.nextInt(N);
                 item.append(strItems[index]);
             }
@@ -132,8 +135,8 @@ public class RandomData {
      * @param size
      * @return String[]
      */
-    public static String [] randStrArray(int length, int size){
-        long seed=System.currentTimeMillis();
+    public static String[] randStrArray(int length, int size) {
+        long seed = System.currentTimeMillis();
         return randStrArray(seed, length, size);
     }
 
@@ -142,13 +145,13 @@ public class RandomData {
      * @param size
      * @return Character []
      */
-    public static Character [] randCharArray(long seed, int size){
-        Random random =new Random(seed);
-        String [] strItems = ConstantData.STRING_ITEM;
-        Character [] randChar = new Character[size];
-        int N= strItems.length;
+    public static Character[] randCharArray(long seed, int size) {
+        Random random = new Random(seed);
+        String[] strItems = ConstantData.STRING_ITEM;
+        Character[] randChar = new Character[size];
+        int N = strItems.length;
         int index;
-        for (int i=0; i<size; i++) {
+        for (int i = 0; i < size; i++) {
             index = random.nextInt(N);
             randChar[i] = strItems[index].charAt(0);
         }
@@ -159,16 +162,15 @@ public class RandomData {
      * @param size
      * @return Character []
      */
-    public static Character [] randCharArray(int size){
+    public static Character[] randCharArray(int size) {
         long seed = System.currentTimeMillis();
         return randCharArray(seed, size);
     }
 
     /**
-     *
      * @return
      */
-    public static int randLevel(){
-       return randInt(32) + 1;
+    public static int randLevel() {
+        return randInt(32) + 1;
     }
 }

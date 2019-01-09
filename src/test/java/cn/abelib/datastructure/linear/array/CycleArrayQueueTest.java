@@ -12,7 +12,7 @@ public class CycleArrayQueueTest {
     Queue<String> queue = new CycleArrayQueue<>();
 
     @Before
-    public void enqueue(){
+    public void enqueue() {
         System.out.println(queue.isEmpty());
         queue.enqueue("A");
         queue.enqueue("B");
@@ -21,7 +21,7 @@ public class CycleArrayQueueTest {
     }
 
     @Test
-    public void dequeue(){
+    public void dequeue() {
         System.out.println(queue.isEmpty());
         System.out.println(queue);
         System.out.println(queue.dequeue());
@@ -32,7 +32,7 @@ public class CycleArrayQueueTest {
     }
 
     @Test
-    public void getFront(){
+    public void getFront() {
         System.out.println(queue);
         System.out.println(queue.getFront());
         System.out.println(queue.dequeue());

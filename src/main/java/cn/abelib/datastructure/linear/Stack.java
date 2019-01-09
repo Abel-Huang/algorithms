@@ -5,7 +5,7 @@ package cn.abelib.datastructure.linear;
  * @Date: 2018/4/30
  * 栈接口
  */
-public interface Stack<T> extends Collection<T>{
+public interface Stack<T> extends Collection<T> {
     void push(T item);
 
     T pop();

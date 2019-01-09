@@ -8,7 +8,7 @@ import org.junit.Test;
 public class DynamicStringTest {
     // success
     @Test
-    public void testNew(){
+    public void testNew() {
         DynamicString string = new DynamicString("Hello 4121241212345678900876543345678987654456789765434567876543456787654345678654345676543" +
                 "fbnmnbvcvbnmmmmnbvccccvbnmhgfdvbnu654edfghy5rfbnjytrfdvbnjuytrdfcvbuytrfbhytrfdvbnytrfhytrfgbnyrdewertyukmnfd23456yhgfdwyhgfr" +
                 "gtredfhytredfbyrfghjuytrfr3456iolkmgrtyujkngfrthbvftghbgrld123456");
@@ -19,7 +19,7 @@ public class DynamicStringTest {
 
     // success
     @Test
-    public void tesEmpty(){
+    public void tesEmpty() {
         DynamicString string = new DynamicString();
         System.err.println(string.len());
         System.err.println(string.available());
@@ -27,7 +27,7 @@ public class DynamicStringTest {
     }
 
     @Test
-    public void tesFixed(){
+    public void tesFixed() {
         DynamicString string = new DynamicString(2);
         System.err.println(string.len());
         System.err.println(string.available());
@@ -36,7 +36,7 @@ public class DynamicStringTest {
 
 
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
         DynamicString string = new DynamicString("1234567890");
         System.err.println(string.len());
         System.err.println(string.available());
@@ -57,14 +57,14 @@ public class DynamicStringTest {
 
     // success
     @Test
-    public void testBitCac(){
+    public void testBitCac() {
 
-        System.err.println(1>>1);
-        System.err.println(2>>1);
-        System.err.println(2<<1);
-        System.err.println(-2<<1);
-        System.err.println(-1>>1);
-        System.err.println(-2>>1);
+        System.err.println(1 >> 1);
+        System.err.println(2 >> 1);
+        System.err.println(2 << 1);
+        System.err.println(-2 << 1);
+        System.err.println(-1 >> 1);
+        System.err.println(-2 >> 1);
     }
 
     @Test

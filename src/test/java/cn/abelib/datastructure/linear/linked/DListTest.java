@@ -10,13 +10,13 @@ import java.util.LinkedList;
  */
 public class DListTest {
     @Test
-    public void test(){
+    public void test() {
         LinkedList<String> list = new LinkedList<>();
         list.add("");
     }
 
     @Test
-    public void init(){
+    public void init() {
         DequeLinkedList<String> list = new DequeLinkedList<>();
         list.add("hello");
         System.err.println(list.size());
@@ -44,13 +44,13 @@ public class DListTest {
     }
 
     @Test
-    public void update(){
+    public void update() {
         DequeLinkedList<String> list = new DequeLinkedList<>();
         list.add("hello");
     }
 
     @Test
-    public void index(){
+    public void index() {
         DequeLinkedList<Integer> list = new DequeLinkedList<>();
         System.err.println(list.index(1));
         list.add(1);
@@ -91,7 +91,7 @@ public class DListTest {
         list.insert(3, 3);
         list.insert(3, 4);
 
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
 
     }
@@ -120,7 +120,7 @@ public class DListTest {
         list.rPush(4);
         list.rPush(5);
 
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
 
     }
@@ -147,7 +147,7 @@ public class DListTest {
 //            System.err.println(list.get(i));
 //        list.remove(0);
 
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
 
     }
@@ -166,7 +166,7 @@ public class DListTest {
 
         System.err.println(list.size());
 
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
 
     }
@@ -179,12 +179,12 @@ public class DListTest {
         list.add(2);
         list.add(3);
 
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
         list.removeAll();
 
         System.err.println(list.size());
-        for (int i = 0; i<list.size(); i++)
+        for (int i = 0; i < list.size(); i++)
             System.err.println(list.get(i));
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class HashTest {
     @Test
-    public void testHash(){
+    public void testHash() {
         String str1 = "bre2brt2gwegw";
         String str2 = "vnwqfj3m210fk3";
         long hash1 = MurmurHash2.hash(str1);
@@ -25,7 +25,7 @@ public class HashTest {
         long hash8 = str2.hashCode();
 
         System.err.println(hash1);
-        System.err.println((hash1+"").length());
+        System.err.println((hash1 + "").length());
         System.err.println(hash2);
 
         System.err.println(hash3);
@@ -56,7 +56,7 @@ public class HashTest {
     }
 
     @Test
-    public void putTest(){
+    public void putTest() {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         hashMap.put(1, 2);
         hashMap.put(2, 3);
@@ -64,22 +64,23 @@ public class HashTest {
     }
 
 
-    private int hash(Integer key){
+    private int hash(Integer key) {
         long code = MurmurHash2.hash(key.toString());
         return (int) code;
     }
 
     /**
-     *  cal index in the ht
+     * cal index in the ht
+     *
      * @param key
      * @return
      */
-    private int index(Integer key){
-        return hash(key)&15;
+    private int index(Integer key) {
+        return hash(key) & 15;
     }
 
     @Test
-    public void testIndex(){
+    public void testIndex() {
         int hash = hash(1);
         int index = index(1);
         System.err.println(hash);
@@ -110,24 +111,24 @@ public class HashTest {
     @Test
     public void testList() {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        for (int i =0; i< 6;i++){
+        for (int i = 0; i < 6; i++) {
             hashMap.put(i, i);
         }
         System.err.println(hashMap.size());
         List<Integer> list1 = hashMap.listKeys();
-        for (Integer integer : list1){
+        for (Integer integer : list1) {
             System.err.print(" " + integer);
         }
         System.err.println();
         System.err.println("size " + hashMap.size());
         List<Integer> list2 = hashMap.listValues();
-        for (Integer integer : list2){
-            System.err.print(" " +integer);
+        for (Integer integer : list2) {
+            System.err.print(" " + integer);
         }
     }
 
     @Test
-    public void testPop(){
+    public void testPop() {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         hashMap.put(1, 1);
         hashMap.put(2, 2);
@@ -139,18 +140,18 @@ public class HashTest {
         System.err.println(integer1);
         System.err.println(hashMap.size());
         List<Integer> list1 = hashMap.listKeys();
-        for (Integer integer : list1){
+        for (Integer integer : list1) {
             System.err.print(integer + " ");
         }
         List<Integer> list2 = hashMap.listValues();
-        for (Integer integer : list2){
+        for (Integer integer : list2) {
             System.err.print(integer + " ");
         }
 
     }
 
     @Test
-    public void testRemove(){
+    public void testRemove() {
         HashMap<Integer, Integer> hash = new HashMap<>();
         hash.put(2, 2);
         hash.put(3, 3);
@@ -160,7 +161,7 @@ public class HashTest {
         System.err.println(hash.size());
 
         List<Integer> list2 = hash.listValues();
-        for (Integer integer2 : list2){
+        for (Integer integer2 : list2) {
             System.err.print(integer2 + " ");
         }
     }

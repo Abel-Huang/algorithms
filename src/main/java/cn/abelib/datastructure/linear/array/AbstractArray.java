@@ -1,4 +1,5 @@
 package cn.abelib.datastructure.linear.array;
+
 import cn.abelib.datastructure.linear.Collection;
 
 import java.util.Iterator;
@@ -12,54 +13,55 @@ public abstract class AbstractArray<T> implements Collection<T> {
     int size;
 
     @Override
-    public boolean isEmpty(){
-        return size ==0;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     /**
-     *  resize
+     * resize
+     *
      * @param capacity
      */
-    void resize(int capacity){
-        T[] temp = (T[])new Object[capacity];
-        for(int i = 0; i < size; i++){
+    void resize(int capacity) {
+        T[] temp = (T[]) new Object[capacity];
+        for (int i = 0; i < size; i++) {
             temp[i] = data[i];
         }
         data = temp;
     }
 
-    public T get(int index){
-        if (index >= size || index < 0){
+    public T get(int index) {
+        if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         return data[index];
     }
 
-    public void set(int index, T item){
-        if (index >= size || index < 0){
+    public void set(int index, T item) {
+        if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         data[index] = item;
     }
 
-    public int capacity(){
+    public int capacity() {
         return data.length;
     }
 
     @Override
-    public int size(){
+    public int size() {
         return size;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format(this.getClass().getSimpleName() + ": size=%d, content=", size));
         sb.append("[");
         Itr itr = new Itr();
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             sb.append(itr.next());
-            if (itr.hasNext()){
+            if (itr.hasNext()) {
                 sb.append(", ");
             }
         }
@@ -86,6 +88,7 @@ public abstract class AbstractArray<T> implements Collection<T> {
         }
 
         @Override
-        public void remove(){}
+        public void remove() {
+        }
     }
 }

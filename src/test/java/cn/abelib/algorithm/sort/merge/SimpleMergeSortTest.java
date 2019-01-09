@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class SimpleMergeSortTest {
     @Test
-    public void simpleMergeSort(){
+    public void simpleMergeSort() {
         SimpleMergeSort sort = new SimpleMergeSort();
         int a[] = RandomData.randIntArray(1000, 1000);
         sort.sort(a);

@@ -5,16 +5,16 @@ import org.junit.Test;
 
 /**
  * Created by abel-string on 2017/7/30.
- *  The unit string for Heap
+ * The unit string for Heap
  */
 public class HeapTest {
     @Before
-    public void init(){
+    public void init() {
 
     }
 
     @Test
-    public void add(){
+    public void add() {
 
     }
 ////        MaxHeap<Integer> maxPriorityQueue = new MaxHeap<>(10);

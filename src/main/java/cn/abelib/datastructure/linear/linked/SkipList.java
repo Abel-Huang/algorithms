@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author abel-huang
  * @date 2017/12/25
- *  跳跃链表
- *  主要是参考Redis实现的SkipList
- *  todo
+ * 跳跃链表
+ * 主要是参考Redis实现的SkipList
+ * todo
  */
 
-public class SkipList<T>{
+public class SkipList<T> {
     private Node<T> head = new Node<>();
     private Node<T> tail = new Node<>();
     private int len;
@@ -22,17 +21,18 @@ public class SkipList<T>{
 
 
     /**
-     *  跳表节点
+     * 跳表节点
+     *
      * @param <T>
      */
-    private class Node<T>{
+    private class Node<T> {
         Node<T> backword;
         List<ListLevel> levels;
         double score;
         T value;
 
         //头结点专用
-        Node(){
+        Node() {
             int levelSize = RandomData.randLevel();
             levels = new ArrayList<>(levelSize);
         }
@@ -45,19 +45,19 @@ public class SkipList<T>{
         }
     }
 
-    private class ListLevel<T>{
+    private class ListLevel<T> {
         // 前进指针
         Node<T> next;
         // 前进指针跨度
         int span;
     }
 
-    public SkipList(){
+    public SkipList() {
         len = 0;
         level = 0;
     }
 
-    public void add(T value){
+    public void add(T value) {
         Node<T> node = new Node<>();
     }
 }

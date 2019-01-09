@@ -14,14 +14,14 @@ public class ArrayListTest {
 
 
     @Before
-    public void init(){
+    public void init() {
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
     }
 
     @Test
-    public void add(){
+    public void add() {
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
@@ -35,19 +35,19 @@ public class ArrayListTest {
     }
 
     @Test
-    public void get(){
+    public void get() {
         System.out.println(arrayList.get(0));
         System.out.println(arrayList.get(1));
         System.out.println(arrayList.get(2));
         arrayList.add(16);
-        for (Integer i : arrayList){
+        for (Integer i : arrayList) {
             System.out.println(i);
         }
         System.out.println(arrayList);
     }
 
     @Test
-    public void findAndContains(){
+    public void findAndContains() {
         System.out.println(arrayList.find(0));
         System.out.println(arrayList.find(2));
         System.out.println(arrayList.contains(0));
@@ -55,7 +55,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void remove(){
+    public void remove() {
         System.out.println(arrayList);
 //        arrayList.remove(0);
 //        System.out.println(arrayList);

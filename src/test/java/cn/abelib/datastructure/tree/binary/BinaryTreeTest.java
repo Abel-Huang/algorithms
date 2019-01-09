@@ -11,6 +11,7 @@ import org.junit.Test;
  */
 public class BinaryTreeTest {
     private BinaryTree<Integer> binaryTree;
+
     ////////////////////
     //        4       //
     //      /   \     //
@@ -19,7 +20,7 @@ public class BinaryTreeTest {
     //  1     3       //
     ////////////////////
     @Before
-    public void init(){
+    public void init() {
         binaryTree = new BinaryTree<>();
         System.out.println(binaryTree.isEmpty());
         binaryTree.add(4);
@@ -32,7 +33,7 @@ public class BinaryTreeTest {
 
     @Test
     @Tested
-    public void addTest(){
+    public void addTest() {
         binaryTree.addRecursion(7);
         binaryTree.addRecursion(6);
         System.out.println(binaryTree.size());
@@ -41,13 +42,13 @@ public class BinaryTreeTest {
 
     @Test
     @Tested
-    public void sizeTest(){
+    public void sizeTest() {
         System.out.println(binaryTree.size());
     }
 
     @Test
     @Tested
-    public void containsTest(){
+    public void containsTest() {
         System.out.println(binaryTree.contains(1));
         System.out.println(binaryTree.contains(2));
         System.out.println(binaryTree.contains(3));
@@ -100,25 +101,25 @@ public class BinaryTreeTest {
 
     @Test
     @Tested
-    public void inOrderVisitRecursionTest(){
+    public void inOrderVisitRecursionTest() {
         System.out.println(binaryTree.inOrderVisitRecursion());
     }
 
     @Test
     @UnFinish
-    public void inOrderVisitTest(){
+    public void inOrderVisitTest() {
         System.out.println(binaryTree.inOrderVisit());
     }
 
     @Test
     @Tested
-    public void preOrderVisitRecursionTest(){
+    public void preOrderVisitRecursionTest() {
         System.out.println(binaryTree.preOrderVisitRecursion());
     }
 
     @Test
     @Tested
-    public void preOrderVisitTest(){
+    public void preOrderVisitTest() {
         binaryTree.addRecursion(7);
         binaryTree.addRecursion(6);
         System.out.println(binaryTree.preOrderVisit());
@@ -126,13 +127,13 @@ public class BinaryTreeTest {
 
     @Test
     @Tested
-    public void postOrderVisitRecursionTest(){
+    public void postOrderVisitRecursionTest() {
         System.out.println(binaryTree.postOrderVisitRecursion());
     }
 
     @Test
     @Tested
-    public void traverseTest(){
+    public void traverseTest() {
         binaryTree.forEach(System.out::println);
     }
 }
