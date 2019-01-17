@@ -1,6 +1,4 @@
-package cn.abelib.algorithm.unionfind;
-
-import java.util.Scanner;
+package cn.abelib.datastructure.unionfind;
 
 /**
  * @author abel-huang
@@ -24,6 +22,7 @@ public class PathCompressionUnionFind extends AbstractUnionFind {
      * @param p the old value
      * @return the new value
      */
+    @Override
     public int find(int p) {
         int root = p;
         // �ҵ����ڵ�
@@ -46,6 +45,7 @@ public class PathCompressionUnionFind extends AbstractUnionFind {
      * @param p
      * @param q
      */
+    @Override
     public void union(int p, int q) {
         int pID = find(p);
         int qID = find(q);
@@ -59,24 +59,5 @@ public class PathCompressionUnionFind extends AbstractUnionFind {
             sz[qID] += sz[pID];
         }
         count--;
-    }
-
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Input N");
-        int N = sc.nextInt();
-        PathCompressionUnionFind uf = new PathCompressionUnionFind(N);
-        System.out.println("Input M");
-        int M = sc.nextInt();
-        for (int i = 0; i < M; i++) {
-            System.out.println("Input two integer");
-            int p = sc.nextInt();
-            int q = sc.nextInt();
-            if (uf.connected(p, q))
-                continue;
-            uf.union(p, q);
-            System.out.println(p + " : " + q);
-        }
-        System.out.println(uf.count() + " component");
     }
 }

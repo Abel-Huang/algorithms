@@ -1,6 +1,5 @@
-package cn.abelib.algorithm.unionfind;
+package cn.abelib.datastructure.unionfind;
 
-import java.util.Scanner;
 
 /**
  * @author abel-huang
@@ -24,9 +23,11 @@ public class WeightedQuickUnionUnionFind extends AbstractUnionFind {
      * @param p the old value
      * @return the new value
      */
+    @Override
     public int find(int p) {
-        while (p != id[p])
+        while (p != id[p]) {
             p = id[p];
+        }
         return p;
     }
 
@@ -34,6 +35,7 @@ public class WeightedQuickUnionUnionFind extends AbstractUnionFind {
      * @param p
      * @param q
      */
+    @Override
     public void union(int p, int q) {
         int pID = find(p);
         int qID = find(q);
@@ -47,24 +49,5 @@ public class WeightedQuickUnionUnionFind extends AbstractUnionFind {
             sz[qID] += sz[pID];
         }
         count--;
-    }
-
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Input N");
-        int N = sc.nextInt();
-        WeightedQuickUnionUnionFind uf = new WeightedQuickUnionUnionFind(N);
-        System.out.println("Input M");
-        int M = sc.nextInt();
-        for (int i = 0; i < M; i++) {
-            System.out.println("Input two integer");
-            int p = sc.nextInt();
-            int q = sc.nextInt();
-            if (uf.connected(p, q))
-                continue;
-            uf.union(p, q);
-            System.out.println(p + " : " + q);
-        }
-        System.out.println(uf.count() + " component");
     }
 }

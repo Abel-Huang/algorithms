@@ -1,4 +1,4 @@
-package cn.abelib.algorithm.unionfind;
+package cn.abelib.datastructure.unionfind;
 
 /**
  * @author abel-huang
