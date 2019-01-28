@@ -1,9 +1,4 @@
-package cn.abelib.algorithm.search.tree;
-
-import cn.abelib.datastructure.tree.binary.BinaryTree;
-import org.junit.Test;
-
-import java.util.Arrays;
+package cn.abelib.datastructure.tree.tree;
 
 
 /**

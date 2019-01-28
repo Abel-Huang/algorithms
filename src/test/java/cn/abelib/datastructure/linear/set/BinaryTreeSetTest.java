@@ -13,8 +13,6 @@ public class BinaryTreeSetTest {
 
     @Before
     public void init() {
-        System.out.println(treeSet.size());
-        System.out.println(treeSet.isEmpty());
         treeSet.add(1);
         treeSet.add(1);
         treeSet.add(2);
@@ -29,4 +27,17 @@ public class BinaryTreeSetTest {
         System.out.println(treeSet.isEmpty());
     }
 
+    @Test
+    public void containsTest() {
+        System.out.println(treeSet.contains(1));
+        System.out.println(treeSet.contains(2));
+        System.out.println(treeSet.contains(4));
+    }
+
+    @Test
+    public void remove() {
+        treeSet.remove(1);
+        System.out.println(treeSet.size());
+        System.out.println(treeSet);
+    }
 }

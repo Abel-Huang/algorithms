@@ -1,4 +1,4 @@
-package cn.abelib.algorithm.search.tree;
+package cn.abelib.datastructure.tree.tree;
 
 import cn.abelib.datastructure.tree.binary.SimpleRedBlackTree;
 import org.junit.Test;

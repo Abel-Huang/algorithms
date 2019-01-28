@@ -456,4 +456,10 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
         public void remove() {
         }
     }
+
+    @Override
+    public String toString() {
+        // todo
+        return super.toString();
+    }
 }

@@ -1,14 +1,15 @@
 package cn.abelib.datastructure.unionfind;
 
-import cn.abelib.datastructure.union.find.QuickFindUnionFind;
+
+import cn.abelib.datastructure.union.find.SizedQuickUnionUnionFind;
 import cn.abelib.datastructure.union.find.UnionFind;
 import org.junit.Test;
 
 /**
- * Created by abel-huang on 2017/7/25.
+ * Created by abel-huang on 2017/7/19.
  */
-public class QuickFindUnionFindTest {
-    UnionFind unionFind = new QuickFindUnionFind(1000);
+public class SizedQuickUnionUnionFindTest {
+    UnionFind unionFind = new SizedQuickUnionUnionFind(1000);
 
     @Test
     public void sizeTest() {

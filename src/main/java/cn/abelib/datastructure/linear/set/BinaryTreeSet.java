@@ -22,6 +22,7 @@ public class BinaryTreeSet<T extends Comparable<T>> implements Set<T> {
 
     @Override
     public void remove(T item) {
+        // todo
         binaryTree.remove(item);
     }
 
@@ -38,6 +39,11 @@ public class BinaryTreeSet<T extends Comparable<T>> implements Set<T> {
     @Override
     public boolean isEmpty() {
         return binaryTree.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return binaryTree.toString();
     }
 }
 

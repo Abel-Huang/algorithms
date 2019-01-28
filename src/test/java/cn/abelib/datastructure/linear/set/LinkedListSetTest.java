@@ -9,23 +9,35 @@ import org.junit.Test;
  * @Date: 2019-01-09 23:01
  */
 public class LinkedListSetTest {
-    private Set<Integer> treeSet = new LinkedListSet<>();
+    private Set<Integer> linkedListSet = new LinkedListSet<>();
 
     @Before
     public void init() {
-        System.out.println(treeSet.size());
-        System.out.println(treeSet.isEmpty());
-        treeSet.add(1);
-        treeSet.add(1);
-        treeSet.add(2);
-        treeSet.add(2);
-        treeSet.add(3);
-        treeSet.add(3);
+        linkedListSet.add(1);
+        linkedListSet.add(1);
+        linkedListSet.add(2);
+        linkedListSet.add(2);
+        linkedListSet.add(3);
+        linkedListSet.add(3);
     }
 
     @Test
     public void addTest() {
-        System.out.println(treeSet.size());
-        System.out.println(treeSet.isEmpty());
+        System.out.println(linkedListSet.size());
+        System.out.println(linkedListSet.isEmpty());
+    }
+
+    @Test
+    public void containsTest() {
+        System.out.println(linkedListSet.contains(1));
+        System.out.println(linkedListSet.contains(2));
+        System.out.println(linkedListSet.contains(4));
+    }
+
+    @Test
+    public void remove() {
+        linkedListSet.remove(1);
+        System.out.println(linkedListSet.size());
+        System.out.println(linkedListSet);
     }
 }

@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 /**
  * @Author: abel.huang
  * @Date: 2019-01-09 23:46
+ * 基于链表实现的 Map
  */
 public class LinkedListMap<K, V> implements Map<K, V> {
     private LinkedList<NodeEntry<K, V>> mapList;

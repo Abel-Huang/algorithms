@@ -1,6 +1,5 @@
-package cn.abelib.algorithm.search.map;
+package cn.abelib.datastructure.map;
 
-import cn.abelib.datastructure.map.HashMap;
 import cn.abelib.util.commons.MurmurHash2;
 import org.junit.Test;
 
