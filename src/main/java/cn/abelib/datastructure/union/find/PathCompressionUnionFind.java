@@ -5,7 +5,9 @@ package cn.abelib.datastructure.union.find;
  * @date 2017/7/11
  * 路径压缩的加权quick-union算法
  * 通过调用find方法时，压缩树的深度，
- * 从而降低find的时间复杂度
+ * 从而降低find的时间复杂度，这种方法
+ * 一次性压缩的并不彻底，多次调用会彻底
+ * 压缩
  */
 public class PathCompressionUnionFind extends RankedQuickUnionUnionFind {
 

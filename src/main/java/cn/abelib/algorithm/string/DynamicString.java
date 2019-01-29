@@ -115,7 +115,6 @@ public class DynamicString {
         return this;
     }
 
-
     public int len() {
         return this.len;
     }
@@ -125,7 +124,6 @@ public class DynamicString {
     }
 
     public String value() {
-
         return String.valueOf(buf, 0, len);
     }
 

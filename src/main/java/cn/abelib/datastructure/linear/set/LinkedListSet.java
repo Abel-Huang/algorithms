@@ -1,7 +1,6 @@
 package cn.abelib.datastructure.linear.set;
 
-import cn.abelib.datastructure.linear.Set;
-import cn.abelib.datastructure.linear.linked.LinkedList;
+import cn.abelib.datastructure.linear.list.LinkedList;
 
 /**
  * @Author: abel.huang

@@ -1,7 +1,5 @@
 package cn.abelib.datastructure.linear.set;
 
-import cn.abelib.datastructure.linear.Set;
-
 /**
  * @Author: abel.huang
  * @Date: 2019-01-20 00:55

@@ -1,10 +1,10 @@
 package cn.abelib.datastructure.tree.binary;
 
-import cn.abelib.datastructure.linear.Queue;
-import cn.abelib.datastructure.linear.Stack;
-import cn.abelib.datastructure.linear.linked.LinkedList;
-import cn.abelib.datastructure.linear.linked.LinkedQueue;
-import cn.abelib.datastructure.linear.linked.LinkedStack;
+import cn.abelib.datastructure.linear.queue.Queue;
+import cn.abelib.datastructure.linear.stack.Stack;
+import cn.abelib.datastructure.linear.list.LinkedList;
+import cn.abelib.datastructure.linear.queue.LinkedQueue;
+import cn.abelib.datastructure.linear.stack.LinkedStack;
 import cn.abelib.util.annotation.UnFinish;
 
 import java.util.Collection;

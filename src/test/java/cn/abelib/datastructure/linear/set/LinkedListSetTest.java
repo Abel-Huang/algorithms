@@ -1,6 +1,5 @@
 package cn.abelib.datastructure.linear.set;
 
-import cn.abelib.datastructure.linear.Set;
 import org.junit.Before;
 import org.junit.Test;
 

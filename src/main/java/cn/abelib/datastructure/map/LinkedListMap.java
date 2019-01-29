@@ -1,6 +1,6 @@
 package cn.abelib.datastructure.map;
 
-import cn.abelib.datastructure.linear.linked.LinkedList;
+import cn.abelib.datastructure.linear.list.LinkedList;
 
 import java.util.NoSuchElementException;
 

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 /**
  * Created by abel-string on 2017/7/30.
- * The unit string for Heap
+ * The unit string for BinaryHeap
  */
 public class HeapTest {
     @Before
@@ -17,7 +17,7 @@ public class HeapTest {
     public void add() {
 
     }
-////        MaxHeap<Integer> maxPriorityQueue = new MaxHeap<>(10);
+////        MaxBinaryHeap<Integer> maxPriorityQueue = new MaxBinaryHeap<>(10);
 ////        SimpleSelectionSort.println("The maxpq is Empty: "+maxPriorityQueue.isEmpty());
 ////        maxPriorityQueue.insert(3);
 ////        maxPriorityQueue.insert(1);
@@ -26,7 +26,7 @@ public class HeapTest {
 ////        SimpleSelectionSort.println("Delete the max item: "+maxPriorityQueue.delMax());
 ////        SimpleSelectionSort.println("The size: "+maxPriorityQueue.size());
 //
-//        MinHeapTest<Integer> minPriorityQueue = new MinHeapTest<>(8);
+//        MinBinaryHeapTest<Integer> minPriorityQueue = new MinBinaryHeapTest<>(8);
 //        SimpleSelectionSort.println("The minpq is Empty: "+minPriorityQueue.isEmpty());
 //        minPriorityQueue.insert(5);
 //        minPriorityQueue.insert(1);
