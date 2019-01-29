@@ -12,5 +12,5 @@ public interface Queue<T> extends Collection<T> {
 
     T dequeue();
 
-    T getFront();
+    T peek();
 }

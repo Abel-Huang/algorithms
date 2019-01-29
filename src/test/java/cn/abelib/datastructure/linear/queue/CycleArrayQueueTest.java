@@ -1,7 +1,5 @@
 package cn.abelib.datastructure.linear.queue;
 
-import cn.abelib.datastructure.linear.queue.Queue;
-import cn.abelib.datastructure.linear.queue.CycleArrayQueue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,9 +33,9 @@ public class CycleArrayQueueTest {
     @Test
     public void getFront() {
         System.out.println(queue);
-        System.out.println(queue.getFront());
+        System.out.println(queue.peek());
         System.out.println(queue.dequeue());
-        System.out.println(queue.getFront());
+        System.out.println(queue.peek());
         System.out.println(queue);
         System.out.println(queue.size());
     }

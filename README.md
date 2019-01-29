@@ -17,7 +17,7 @@
 2. 链表 :white_check_mark:
 3. 栈 :white_check_mark:
 4. 队列 :construction:
-5. 二叉堆 :construction:
+5. 二叉堆 :white_check_mark:
 6. 背包 :white_check_mark:
 7. 二叉树 :construction:
 8. Trie :construction:

@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.linear.queue;
+package cn.abelib.datastructure.linear.queue.priority;
 
 
 /**

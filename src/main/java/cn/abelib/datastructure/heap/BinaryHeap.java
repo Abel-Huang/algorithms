@@ -4,6 +4,7 @@ import cn.abelib.datastructure.linear.list.ArrayList;
 import cn.abelib.util.commons.Constant;
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
@@ -156,5 +157,14 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractBinaryHeap<T> {
         T temp = array.get(i);
         array.set(i, array.get(j));
         array.set(j, temp);
+    }
+
+    /**
+     * 使用 ArrayList的迭代器
+     * @return
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return array.iterator();
     }
 }

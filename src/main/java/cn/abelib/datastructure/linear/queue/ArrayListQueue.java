@@ -51,7 +51,7 @@ public class ArrayListQueue<T> extends AbstractArray<T> implements Queue<T> {
     }
 
     @Override
-    public T getFront() {
+    public T peek() {
         if (isEmpty()) {
             throw new NoMoreElementException();
         }

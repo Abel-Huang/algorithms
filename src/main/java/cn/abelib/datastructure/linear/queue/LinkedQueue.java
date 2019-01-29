@@ -55,7 +55,7 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T getFront() {
+    public T peek() {
         if (isEmpty()) {
             throw new NoMoreElementException();
         }
