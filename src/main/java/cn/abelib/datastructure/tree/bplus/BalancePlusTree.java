@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.multi;
+package cn.abelib.datastructure.tree.bplus;
 
 import java.util.ArrayList;
 
@@ -14,5 +14,4 @@ public class BalancePlusTree<T> {
         private ArrayList<T> keys;
         private ArrayList<TreeNode> childNodes;
     }
-
 }

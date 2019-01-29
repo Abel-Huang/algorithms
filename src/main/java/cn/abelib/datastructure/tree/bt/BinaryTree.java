@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.binary;
+package cn.abelib.datastructure.tree.bt;
 
 import cn.abelib.datastructure.linear.queue.Queue;
 import cn.abelib.datastructure.linear.stack.Stack;

@@ -41,7 +41,7 @@ public class LinkedListMapTest {
     @Test
     public void removeTest() {
         linkedListMap.remove(1);
-        //System.out.println(linkedListMap.get(1));
+        //System.out.println(linkedListMap.getTop(1));
         System.out.println(linkedListMap.size());
     }
 }

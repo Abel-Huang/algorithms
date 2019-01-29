@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.binary;
+package cn.abelib.datastructure.tree.bt;
 
 import cn.abelib.util.annotation.Tested;
 import cn.abelib.util.annotation.UnFinish;

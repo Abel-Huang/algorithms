@@ -1,6 +1,6 @@
 package cn.abelib.datastructure.tree.tree;
 
-import cn.abelib.datastructure.tree.binary.SimpleRedBlackTree;
+import cn.abelib.datastructure.tree.bt.SimpleRedBlackTree;
 import org.junit.Test;
 
 /**

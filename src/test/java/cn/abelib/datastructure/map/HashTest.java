@@ -96,15 +96,15 @@ public class HashTest {
         Integer integer1 = hashMap.get(1);
         Integer integer2 = hashMap.get(1);
         Integer integer3 = hashMap.get(1);
-        System.err.println("get 1 " + integer1);
-        System.err.println("get 1 " + integer2);
-        System.err.println("get 1 " + integer3);
+        System.err.println("getTop 1 " + integer1);
+        System.err.println("getTop 1 " + integer2);
+        System.err.println("getTop 1 " + integer3);
         hashMap.put(1, 5);
         Integer integer4 = hashMap.get(1);
-        System.err.println("get 1 " + integer4);
-        System.err.println("get 1 " + hashMap.size());
+        System.err.println("getTop 1 " + integer4);
+        System.err.println("getTop 1 " + hashMap.size());
         Integer integer5 = hashMap.get(2);
-        System.err.println("get 2 " + integer5);
+        System.err.println("getTop 2 " + integer5);
     }
 
     @Test

@@ -139,12 +139,12 @@ public class DListTest {
         System.err.println(list.remove(0));
 //        list.remove(0);
 //        for (int i = 0; i<list.len(); i++)
-//            System.err.println(list.get(i));
+//            System.err.println(list.getTop(i));
 //        list.remove(0);
 //        list.remove(0);
 //        System.err.println();
 //        for (int i = 0; i<list.len(); i++)
-//            System.err.println(list.get(i));
+//            System.err.println(list.getTop(i));
 //        list.remove(0);
 
         for (int i = 0; i < list.size(); i++)

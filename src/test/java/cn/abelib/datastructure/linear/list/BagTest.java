@@ -8,11 +8,11 @@ import org.junit.Test;
  * create by abel-huang on 2017/10/30
  */
 public class BagTest {
-    Bag bag = null;
+    private LinkedBag bag;
 
     @Before
     public void init() {
-        bag = new Bag();
+        bag = new LinkedBag();
         Assert.assertTrue(bag.isEmpty());
     }
 

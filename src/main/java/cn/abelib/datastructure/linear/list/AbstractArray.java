@@ -9,8 +9,8 @@ import java.util.Iterator;
  * @Date: 2018-12-11 22:54
  */
 public abstract class AbstractArray<T> implements Collection<T> {
-    public T[] data;
-    public int size;
+    protected T[] data;
+    protected int size;
 
     @Override
     public boolean isEmpty() {

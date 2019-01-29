@@ -5,8 +5,8 @@ package cn.abelib.datastructure.linear.queue;
  * @date 2017/7/20
  */
 public abstract class BasePriorityQueue<K extends Comparable<K>> {
-    public K[] pq;
-    public int N = 0;
+    protected K[] pq;
+    protected int N = 0;
 
     public BasePriorityQueue(int size) {
         pq = (K[]) new Comparable[size + 1];
