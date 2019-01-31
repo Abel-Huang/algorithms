@@ -261,6 +261,17 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
     }
 
     /**
+     *  惰性删除
+     * @param item
+     * @return
+     */
+    @UnFinish
+    public boolean lazyRemove(T item) {
+        // todo
+        return false;
+    }
+
+    /**
      * 非递归广度优先遍历
      *
      * @return
