@@ -13,17 +13,23 @@
 5. 字符串 :construction:
 
 ## data structure 数据结构
-1. 动态数组 :white_check_mark:
-2. 链表 :white_check_mark:
-3. 栈 :white_check_mark:
-4. 队列 :construction:
-5. 二叉堆 :white_check_mark:
-6. 背包 :white_check_mark:
-7. 二叉树 :construction:
+1. Dynamic Array :white_check_mark:
+2. Linked List :white_check_mark:
+3. Stack :white_check_mark:
+4. Queue :white_check_mark:
+    4.1 Priority queue :white_check_mark:
+5. Heap :white_check_mark:
+    5.1: Binary heap :white_check_mark:
+    5.2: Multi heap :construction:
+6. Bag :white_check_mark:
+7. Binary Tree :construction:
 8. Trie :construction:
+    8.1 Trie :white_check_mark:
+    8.2 Array trie :construction:
+    8.3 Double array trie :construction:
 9. AVL :construction:
-10. 红黑树 :construction:
-11. B+ 树 :construction:
-12. 并查集 :white_check_mark:
-13. 哈希表 :white_check_mark:
-14. 线段树 :white_check_mark:
+10. Red black tree :construction:
+11. B+ tree :construction:
+12. Union find :white_check_mark:
+13. Hash table :white_check_mark:
+14. Segment Tree :white_check_mark:
