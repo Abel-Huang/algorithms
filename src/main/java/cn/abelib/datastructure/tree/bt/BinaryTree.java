@@ -1,5 +1,6 @@
 package cn.abelib.datastructure.tree.bt;
 
+import cn.abelib.datastructure.linear.Collection;
 import cn.abelib.datastructure.linear.queue.Queue;
 import cn.abelib.datastructure.linear.stack.Stack;
 import cn.abelib.datastructure.linear.list.LinkedList;
@@ -7,7 +8,6 @@ import cn.abelib.datastructure.linear.queue.LinkedQueue;
 import cn.abelib.datastructure.linear.stack.LinkedStack;
 import cn.abelib.util.annotation.UnFinish;
 
-import java.util.Collection;
 import java.util.Iterator;
 
 /**
@@ -16,9 +16,9 @@ import java.util.Iterator;
  * @author abel-huang
  * @date 17/10/30
  */
-public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
+public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
     private TreeNode root;
-    private int size;
+    protected int size;
 
     private class TreeNode {
         private T value;
@@ -42,6 +42,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
      *
      * @return
      */
+    @Override
     public int size() {
         return size;
     }
@@ -51,6 +52,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
      *
      * @return
      */
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
