@@ -1,7 +1,7 @@
 package cn.abelib.datastructure.tree.avl;
 
 
-import cn.abelib.datastructure.tree.bt.BinaryTree;
+import cn.abelib.datastructure.tree.bst.BinaryTree;
 
 
 /**

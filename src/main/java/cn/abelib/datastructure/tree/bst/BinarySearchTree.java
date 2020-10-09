@@ -1,4 +1,4 @@
-package cn.abelib.datastructure.tree.bt;
+package cn.abelib.datastructure.tree.bst;
 
 /**
  * @Author: abel.huang
