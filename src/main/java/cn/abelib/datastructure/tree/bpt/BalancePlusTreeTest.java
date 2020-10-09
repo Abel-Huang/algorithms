@@ -29,4 +29,15 @@ public class BalancePlusTreeTest {
 
         System.out.println(balancePlusTree.binarySearchInternalNode(entry, keyValues));
     }
+
+    /**
+     * todo 待验证
+     */
+    @Test
+    public void insertTest() {
+        balancePlusTree.insert(new KeyValue("a", "word"));
+        balancePlusTree.insert(new KeyValue("c", "tree"));
+        balancePlusTree.insert(new KeyValue("d", "balance"));
+        balancePlusTree.insert(new KeyValue("b", "hello"));
+    }
 }

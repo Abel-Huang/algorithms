@@ -99,8 +99,8 @@ public class SkipList<T> {
         int level = randomLevel();
         SkipNode<T> newNode = new SkipNode<>(score, level, value);
 
-        SkipNode<T> temp = head;
-        SkipNode[] update = findNodeNext(temp, level, score);
+        SkipNode<T> node = head;
+        SkipNode[] update = findNodeNext(node, level, score);
 
         // 给新插入节点设置前后关系
         for (int i = 0; i < level; i ++) {
@@ -113,15 +113,15 @@ public class SkipList<T> {
     }
 
     public T find(int score) {
-        SkipNode<T> temp = head;
+        SkipNode<T> node = head;
         for (int i = currentMaxLevel - 1; i >= 0; i--) {
-            while (temp.next[i] != null && temp.next[i].score < score) {
-                temp = temp.next[i];
+            while (node.next[i] != null && node.next[i].score < score) {
+                node = node.next[i];
             }
         }
         // 找到该数据
-        if (temp.next[0] != null && temp.next[0].score == score) {
-            return (T) temp.next[0].value;
+        if (node.next[0] != null && node.next[0].score == score) {
+            return (T) node.next[0].value;
         }
         return null;
     }
