@@ -1,7 +1,9 @@
 package cn.abelib.datastructure.tree.bpt;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author abel-huang
@@ -32,7 +34,7 @@ public class BalancePlusTree {
      * @param entry
      */
     public void insert(KeyValue entry) {
-        // 插入空B+树
+        // 插入空B+树，此时根节点也为空
         if (this.root == null) {
             TreeNode node = new TreeNode();
             node.getKeyValues().add(entry);
@@ -40,7 +42,7 @@ public class BalancePlusTree {
             // 根节点没有父节点
             this.root.setParentNode(null);
         }
-        // 只有一个非空节点的B+树
+        // 只有一个非空节点的B+树，此时仅有一个节点即根节点
         else if (this.root.getChildren().isEmpty() && this.root.getKeyValues().size() < (this.degree - 1)) {
             insert(entry, this.root);
         }
@@ -51,6 +53,7 @@ public class BalancePlusTree {
                 curr = curr.getChildren().get(binarySearchInternalNode(entry, curr.getKeyValues()));
             }
             insert(entry, curr);
+            // 如果超过阈值需要进行节点分裂
             if (curr.getKeyValues().size() == this.degree) {
                 split(curr);
             }
@@ -71,11 +74,12 @@ public class BalancePlusTree {
         rightNode.setParentNode(middleNode);
 
         // 分裂后的中间节点
-        middleNode.getKeyValues().add(node.getKeyValues().get(mid));
+        middleNode.getKeyValues().add(new KeyValue(node.getKeyValues().get(mid)));
         middleNode.getChildren().add(rightNode);
 
         // 分裂之前的原始节点, 即分裂后左边的部分
-        node.getKeyValues().subList(mid, node.getKeyValues().size()).clear();
+        //node.getKeyValues().subList(mid, node.getKeyValues().size()).clear();
+        node.setKeyValues(node.getKeyValues().subList(0, mid));
 
         split(node.getParentNode(), node, middleNode, true);
     }
@@ -197,7 +201,7 @@ public class BalancePlusTree {
     }
 
     /**
-     * 找到keyValues中比entry小的第一个元素
+     * 按照keyValues从小到大的顺序，找到entry所处的位置
      * @param entry
      * @param keyValues
      * @return
@@ -245,5 +249,38 @@ public class BalancePlusTree {
      */
     public boolean delete(String key) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        Queue<TreeNode> queue = new LinkedList<>();
+        StringBuilder builder = new StringBuilder("BalancePlusTree{" +
+                "root=" + root +
+                ", degree=" + degree +
+                ", ");
+        queue.add(this.root);
+        TreeNode curr = null;
+        while (!queue.isEmpty()) {
+            curr = queue.poll();
+            if (curr == null) {
+                if (queue.peek() == null) {
+                    break;
+                }
+                continue;
+            }
+            builder.append(curr.toString());
+            if (curr.getChildren().isEmpty()) {
+                break;
+            }
+            queue.addAll(curr.getChildren());
+
+        }
+        curr = curr.getNextNode();
+        while (curr != null) {
+            builder.append(curr.toString());
+            curr = curr.getNextNode();
+        }
+        builder.append( '}');
+        return builder.toString();
     }
 }

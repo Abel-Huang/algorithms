@@ -17,6 +17,11 @@ public class KeyValue implements Comparable<KeyValue> {
         this.values.add(value);
     }
 
+    public KeyValue(KeyValue keyValue) {
+        this.key = keyValue.getKey();
+        this.values = keyValue.getValues();
+    }
+
     public String getKey() {
         return key;
     }
@@ -36,5 +41,13 @@ public class KeyValue implements Comparable<KeyValue> {
     @Override
     public int compareTo(KeyValue keyValue) {
         return this.key.compareTo(keyValue.key);
+    }
+
+    @Override
+    public String toString() {
+        return "KeyValue{" +
+                "key='" + key + '\'' +
+                ", values=" + values +
+                '}';
     }
 }
