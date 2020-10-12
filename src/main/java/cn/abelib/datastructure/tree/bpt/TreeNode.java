@@ -17,13 +17,19 @@ public class TreeNode {
      */
     private List<KeyValue> keyValues;
     /**
-     * 后继指针
+     * 后继指针(只用于叶节点，即数据节点的链表)
      */
     private TreeNode nextNode;
     /**
-     * 前驱指针
+     * 前驱指针(同上)
      */
     private TreeNode prevNode;
+    /**
+     * 是否是叶节点，叶节点即数据节点，用于存放数据，位于B+树最下面一层，
+     * 非叶子节点为索引节点，存放的是从底层提升上来的索引数据，
+     * 只有叶子节点才有前驱和后继指针
+     */
+    private boolean isLeaf;
     /**
      * 父节点
      */
@@ -85,11 +91,18 @@ public class TreeNode {
         this.parentNode = parentNode;
     }
 
+    public boolean isLeaf() {
+        return isLeaf;
+    }
+
+    public void setLeaf(boolean leaf) {
+        isLeaf = leaf;
+    }
+
     @Override
     public String toString() {
         return "TreeNode{" +
-                "children=" + children +
-//                ", keyValues=" + keyValues +
+                ", keyValues=" + keyValues +
                 ", nextNode=" + nextNode +
                 ", prevNode=" + prevNode +
                 ", parentNode=" + parentNode +

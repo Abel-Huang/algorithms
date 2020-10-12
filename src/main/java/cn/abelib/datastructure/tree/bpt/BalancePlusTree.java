@@ -1,5 +1,7 @@
 package cn.abelib.datastructure.tree.bpt;
 
+import cn.abelib.util.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,25 +32,27 @@ public class BalancePlusTree {
     }
 
     /**
-     * 插入操作
+     * 插入操作 todo 对于isLeaf的属性修改存在问题
      * @param entry
      */
     public void insert(KeyValue entry) {
         // 插入空B+树，此时根节点也为空
         if (this.root == null) {
-            TreeNode node = new TreeNode();
-            node.getKeyValues().add(entry);
-            this.root = node;
+            this.root = new TreeNode();
+            this.root.getKeyValues().add(entry);
             // 根节点没有父节点
             this.root.setParentNode(null);
+            // 只有一个根节点，此时没有索引节点，只有根节点
+            this.root.setLeaf(true);
         }
-        // 只有一个非空节点的B+树，此时仅有一个节点即根节点
+        // 只有一个非空节点的B+树，此时仅有一个节点即根节点，且未达到分裂阈值
         else if (this.root.getChildren().isEmpty() && this.root.getKeyValues().size() < (this.degree - 1)) {
             insert(entry, this.root);
         }
-        // 常规场景
+        // 常规场景，此时需要考虑节点分裂情况
         else {
             TreeNode curr = this.root;
+            // 通过判断在索引节点的哪个位置来确定位于子节点的位置
             while (!curr.getChildren().isEmpty()) {
                 curr = curr.getChildren().get(binarySearchInternalNode(entry, curr.getKeyValues()));
             }
@@ -69,35 +73,36 @@ public class BalancePlusTree {
         TreeNode middleNode = new TreeNode();
         TreeNode rightNode = new TreeNode();
 
-        // 分裂后的右边节点
-        rightNode.setKeyValues(node.getKeyValues().subList(mid, node.getKeyValues().size()));
+        // 分裂后的右边节点, 即后续的右边子节点
+        List<KeyValue> keyValues = (List<KeyValue>) CollectionUtils.subList(node.getKeyValues(), mid, node.getKeyValues().size());
+        rightNode.setKeyValues(keyValues);
         rightNode.setParentNode(middleNode);
 
-        // 分裂后的中间节点
-        middleNode.getKeyValues().add(new KeyValue(node.getKeyValues().get(mid)));
+        // 分裂后的中间节点, 即后续的父节点
+        middleNode.getKeyValues().add(node.getKeyValues().get(mid));
         middleNode.getChildren().add(rightNode);
 
-        // 分裂之前的原始节点, 即分裂后左边的部分
-        //node.getKeyValues().subList(mid, node.getKeyValues().size()).clear();
-        node.setKeyValues(node.getKeyValues().subList(0, mid));
+        // 分裂之前的原始节点, 即分裂后左边子节点
+        node.setKeyValues((List<KeyValue>) CollectionUtils.subList(node.getKeyValues(),0, mid));
 
-        split(node.getParentNode(), node, middleNode, true);
+        split(node, middleNode, true);
     }
 
     /**
      *
-     * @param curr 当前结点
-     * @param prev 当前结点的子节点(实际上前驱节点)
+     * @param left
      * @param insertingNode
      * @param first
      */
-    private void split(TreeNode curr, TreeNode prev, TreeNode insertingNode, boolean first) {
-        if (curr == null) {
+    private void split(TreeNode left, TreeNode insertingNode, boolean first) {
+        TreeNode parent = left.getParentNode();
+        // 说明当前结点的父节点为空，即当前结点为根节点
+        if (parent == null) {
             this.root = insertingNode;
-            int indexForPrev = binarySearchInternalNode(prev.getKeyValues().get(0), insertingNode.getKeyValues());
+            int indexForPrev = binarySearchInternalNode(left.getKeyValues().get(0), insertingNode.getKeyValues());
             // 设置 insertingNode 父子节点关系
-            prev.setParentNode(insertingNode);
-            insertingNode.getChildren().add(indexForPrev, prev);
+            left.setParentNode(insertingNode);
+            insertingNode.getChildren().add(indexForPrev, left);
             if (first) {
                 if (indexForPrev == 0) {
                     insertingNode.getChildren().get(0).setNextNode(insertingNode.getChildren().get(1));
@@ -108,23 +113,24 @@ public class BalancePlusTree {
                 }
             }
         }
+        // 当前需要分裂的节点不是根节点
         else {
-            merge(insertingNode, curr);
-            // 如果合并后的节点已经满了
-            if (curr.getKeyValues().size() == this.degree) {
+            promote(insertingNode, parent);
+            // 判断父节点是否需要进行分裂
+            if (parent.getKeyValues().size() == this.degree) {
                 int mid = (int) (Math.ceil(this.degree / 2.0) - 1);
                 TreeNode middleNode = new TreeNode();
                 TreeNode rightNode = new TreeNode();
 
                 // 分裂后的右边节点
-                rightNode.setKeyValues(curr.getKeyValues().subList(mid + 1, curr.getKeyValues().size()));
+                rightNode.setKeyValues(parent.getKeyValues().subList(mid + 1, parent.getKeyValues().size()));
                 rightNode.setParentNode(middleNode);
 
                 // 分裂后的中间节点
-                middleNode.getKeyValues().add(curr.getKeyValues().get(mid));
+                middleNode.getKeyValues().add(parent.getKeyValues().get(mid));
                 middleNode.getChildren().add(rightNode);
 
-                List<TreeNode> childrenOfCurr = curr.getChildren();
+                List<TreeNode> childrenOfCurr = parent.getChildren();
                 List<TreeNode> childrenOfRight = new ArrayList<>();
                 int lastChildOfLeft = childrenOfCurr.size() - 1;
 
@@ -141,20 +147,20 @@ public class BalancePlusTree {
                 }
                 rightNode.setChildren(childrenOfRight);
 
-                curr.getChildren().subList(lastChildOfLeft + 1, childrenOfCurr.size()).clear();
-                curr.getKeyValues().subList(mid, curr.getKeyValues().size()).clear();
+                parent.getChildren().subList(lastChildOfLeft + 1, childrenOfCurr.size()).clear();
+                parent.getKeyValues().subList(mid, parent.getKeyValues().size()).clear();
 
-                split(curr.getParentNode(), curr, middleNode, false);
+                split(parent, middleNode, false);
             }
         }
     }
 
     /**
-     * 合并内部节点
+     * 合并内部节点，如果非根节点超出阈值，需要分裂并且将中间数据节点晋升到父索引节点
      * @param mergeFrom
      * @param mergeInto
      */
-    private void merge(TreeNode mergeFrom, TreeNode mergeInto) {
+    private void promote(TreeNode mergeFrom, TreeNode mergeInto) {
         KeyValue keyValue = mergeFrom.getKeyValues().get(0);
         TreeNode childNode = mergeFrom.getChildren().get(0);
 
@@ -168,8 +174,8 @@ public class BalancePlusTree {
         mergeInto.getChildren().add(childIndex, childNode);
         mergeInto.getKeyValues().add(index, keyValue);
 
-        //
-        if (mergeInto.getChildren().isEmpty() && mergeInto.getChildren().get(0).getChildren().isEmpty()) {
+        // 设置新节点的前驱后继关系
+        if (!mergeInto.getChildren().isEmpty() && mergeInto.getChildren().get(0).getChildren().isEmpty()) {
             if (mergeInto.getChildren().size() - 1 != childIndex && mergeInto.getChildren().get(childIndex + 1).getPrevNode() == null) {
                 mergeInto.getChildren().get(childIndex + 1).setPrevNode(mergeInto.getChildren().get(childIndex));
                 mergeInto.getChildren().get(childIndex).setNextNode(mergeInto.getChildren().get(childIndex + 1));
@@ -192,8 +198,8 @@ public class BalancePlusTree {
 
     private void insert(KeyValue entry, TreeNode node) {
         int indexOfKey = binarySearchInternalNode(entry, node.getKeyValues());
+        //如果是同样的key，则插入到同一个kv中, 目前设计思路是key对应的value不是唯一的, 可以为多个，后续应该可以改为设置是否支持unique
         if (indexOfKey != 0 && node.getKeyValues().get(indexOfKey - 1).getKey().equals(entry.getKey())) {
-            // 目前设计思路是key对应的value不是唯一的
             node.getKeyValues().get(indexOfKey - 1).getValues().addAll(entry.getValues());
         } else {
             node.getKeyValues().add(indexOfKey, entry);
@@ -268,7 +274,7 @@ public class BalancePlusTree {
                 }
                 continue;
             }
-            builder.append(curr.toString());
+            builder.append(printNode(curr));
             if (curr.getChildren().isEmpty()) {
                 break;
             }
@@ -277,10 +283,41 @@ public class BalancePlusTree {
         }
         curr = curr.getNextNode();
         while (curr != null) {
-            builder.append(curr.toString());
+            builder.append(printNode(curr));
             curr = curr.getNextNode();
         }
-        builder.append( '}');
+        builder.append('}');
         return builder.toString();
+    }
+
+    private String printNode(TreeNode curr) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < curr.getKeyValues().size(); i++) {
+            builder.append(curr.getKeyValues().get(i).getKey()).append(":(");
+            String values = "";
+            for (int j = 0; j < curr.getKeyValues().get(i).getValues().size(); j++) {
+                builder.append(curr.getKeyValues().get(i).getValues().get(j)).append(",");
+            }
+            builder.append(values.isEmpty() ? ");" : values.substring(0, values.length() - 1)).append(");");
+        }
+        builder.append("||");
+        return builder.toString();
+    }
+
+    public List<TreeNode> toList() {
+        return preorder(this.root);
+    }
+
+    private List<TreeNode> preorder(TreeNode node) {
+        List<TreeNode> result = new ArrayList<>();
+        if (node == null) {
+            return result;
+        }
+        result.add(node);
+        for (TreeNode curr : node.getChildren()) {
+            result.addAll(preorder(curr));
+        }
+        return result;
     }
 }
