@@ -88,8 +88,7 @@ public class TreeNode {
     @Override
     public String toString() {
         return "TreeNode{" +
-                "children=" + children +
-//                ", keyValues=" + keyValues +
+                "keyValues=" + keyValues +
                 ", nextNode=" + nextNode +
                 ", prevNode=" + prevNode +
                 ", parentNode=" + parentNode +

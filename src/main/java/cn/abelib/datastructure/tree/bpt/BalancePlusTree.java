@@ -1,9 +1,7 @@
 package cn.abelib.datastructure.tree.bpt;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @author abel-huang
@@ -25,17 +23,47 @@ public class BalancePlusTree {
         this.root = null;
     }
 
+    /**
+     * 返回B+树的维度
+     * @return
+     */
+    public int getDegree() {
+        return this.degree;
+    }
+
+    /**
+     * 返回根节点
+     * @return
+     */
     public TreeNode getRoot() {
         return this.root;
+    }
+
+    /**
+     * 对外暴露的接口
+     * @param key
+     * @param value
+     */
+    public void insert(String key, Object value) {
+         insert(new KeyValue(key, value));
+    }
+
+    /**
+     * 对外暴露的接口
+     * @param key
+     * @param values
+     */
+    public void insert(String key, List<Object> values) {
+        insert(new KeyValue(key, values));
     }
 
     /**
      * 插入操作
      * @param entry
      */
-    public void insert(KeyValue entry) {
+    private void insert(KeyValue entry) {
         // 插入空B+树，此时根节点也为空
-        if (this.root == null) {
+        if (getRoot() == null) {
             TreeNode node = new TreeNode();
             node.getKeyValues().add(entry);
             this.root = node;
@@ -43,18 +71,18 @@ public class BalancePlusTree {
             this.root.setParentNode(null);
         }
         // 只有一个非空节点的B+树，此时仅有一个节点即根节点
-        else if (this.root.getChildren().isEmpty() && this.root.getKeyValues().size() < (this.degree - 1)) {
-            insert(entry, this.root);
+        else if (getRoot().getChildren().isEmpty() && getRoot().getKeyValues().size() < (getDegree() - 1)) {
+            insert(entry, getRoot());
         }
         // 常规场景
         else {
-            TreeNode curr = this.root;
+            TreeNode curr = getRoot();
             while (!curr.getChildren().isEmpty()) {
                 curr = curr.getChildren().get(binarySearchInternalNode(entry, curr.getKeyValues()));
             }
             insert(entry, curr);
             // 如果超过阈值需要进行节点分裂
-            if (curr.getKeyValues().size() == this.degree) {
+            if (curr.getKeyValues().size() == getDegree()) {
                 split(curr);
             }
         }
@@ -65,12 +93,12 @@ public class BalancePlusTree {
      * @param node
      */
     private void split(TreeNode node) {
-        int mid = this.degree / 2;
+        int mid = getDegree() / 2;
         TreeNode middleNode = new TreeNode();
         TreeNode rightNode = new TreeNode();
 
         // 分裂后的右边节点
-        rightNode.setKeyValues(node.getKeyValues().subList(mid, node.getKeyValues().size()));
+        rightNode.setKeyValues(new ArrayList<>(node.getKeyValues().subList(mid, node.getKeyValues().size())));
         rightNode.setParentNode(middleNode);
 
         // 分裂后的中间节点
@@ -78,8 +106,7 @@ public class BalancePlusTree {
         middleNode.getChildren().add(rightNode);
 
         // 分裂之前的原始节点, 即分裂后左边的部分
-        //node.getKeyValues().subList(mid, node.getKeyValues().size()).clear();
-        node.setKeyValues(node.getKeyValues().subList(0, mid));
+        node.setKeyValues(new ArrayList<>(node.getKeyValues().subList(0, mid)));
 
         split(node.getParentNode(), node, middleNode, true);
     }
@@ -111,13 +138,13 @@ public class BalancePlusTree {
         else {
             merge(insertingNode, curr);
             // 如果合并后的节点已经满了
-            if (curr.getKeyValues().size() == this.degree) {
-                int mid = (int) (Math.ceil(this.degree / 2.0) - 1);
+            if (curr.getKeyValues().size() == getDegree()) {
+                int mid = (int) (Math.ceil(getDegree() / 2.0) - 1);
                 TreeNode middleNode = new TreeNode();
                 TreeNode rightNode = new TreeNode();
 
                 // 分裂后的右边节点
-                rightNode.setKeyValues(curr.getKeyValues().subList(mid + 1, curr.getKeyValues().size()));
+                rightNode.setKeyValues(new ArrayList<>((curr.getKeyValues().subList(mid + 1, curr.getKeyValues().size()))));
                 rightNode.setParentNode(middleNode);
 
                 // 分裂后的中间节点
@@ -169,7 +196,7 @@ public class BalancePlusTree {
         mergeInto.getKeyValues().add(index, keyValue);
 
         //
-        if (mergeInto.getChildren().isEmpty() && mergeInto.getChildren().get(0).getChildren().isEmpty()) {
+        if (!mergeInto.getChildren().isEmpty() && mergeInto.getChildren().get(0).getChildren().isEmpty()) {
             if (mergeInto.getChildren().size() - 1 != childIndex && mergeInto.getChildren().get(childIndex + 1).getPrevNode() == null) {
                 mergeInto.getChildren().get(childIndex + 1).setPrevNode(mergeInto.getChildren().get(childIndex));
                 mergeInto.getChildren().get(childIndex).setNextNode(mergeInto.getChildren().get(childIndex + 1));
@@ -234,12 +261,112 @@ public class BalancePlusTree {
     }
 
     /**
+     * 标准的二分搜索，没有则返回-1
+     * @param entry
+     * @param keyValues
+     * @return
+     */
+    public int binarySearchInternalNode2(KeyValue entry, List<KeyValue> keyValues) {
+        int left = 0;
+        int right = keyValues.size() - 1;
+        int mid;
+        int index = -1;
+        // 如果小于第一个元素，那位置就在第一个位置
+        if (entry.compareTo(keyValues.get(left)) < 0) {
+            return 0;
+        }
+        // 如果大于最后一个元素，那位置就在集合最后一个位置
+        if (entry.compareTo(keyValues.get(right)) >= 0) {
+            return keyValues.size();
+        }
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (entry.compareTo(keyValues.get(mid)) == 0) {
+                index = mid;
+                break;
+            } else if (entry.compareTo(keyValues.get(mid)) >= 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return index;
+    }
+
+    /**
      * 搜索操作
      * @param key
      * @return
      */
-    public Object search(String key) {
+    public KeyValue search(String key) {
+        KeyValue searchKey = new KeyValue(key);
+        TreeNode curr = getRoot();
+        while (!curr.getChildren().isEmpty()) {
+            curr = curr.getChildren().get(binarySearchInternalNode(searchKey, curr.getKeyValues()));
+        }
+
+        for (KeyValue kv: curr.getKeyValues()) {
+            if (kv.compareTo(searchKey) == 0) {
+                return kv;
+            } else if (kv.compareTo(searchKey) > 0) {
+                break;
+            }
+        }
+
         return null;
+    }
+
+    /**
+     * 查看键是否存在
+     * @param key
+     * @return
+     */
+    public boolean contains(String key) {
+        KeyValue searchKey = new KeyValue(key);
+        TreeNode curr = getRoot();
+        while (!curr.getChildren().isEmpty()) {
+            curr = curr.getChildren().get(binarySearchInternalNode(searchKey, curr.getKeyValues()));
+        }
+
+        for (KeyValue kv: curr.getKeyValues()) {
+            if (kv.compareTo(searchKey) == 0) {
+                return true;
+            } else if (kv.compareTo(searchKey) > 0) {
+                break;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * scan操作，闭区间
+     * @param from
+     * @param to
+     * @return
+     */
+    public List<KeyValue> scan(String from, String to) {
+        KeyValue fromKey = new KeyValue(from);
+        KeyValue toKey = new KeyValue(to);
+        TreeNode curr = getRoot();
+        while (!curr.getChildren().isEmpty()) {
+            curr = curr.getChildren().get(binarySearchInternalNode(fromKey, curr.getKeyValues()));
+        }
+
+        List<KeyValue> keyValues = new ArrayList<>();
+        boolean end = false;
+        while (curr != null && !end) {
+            for (KeyValue kv: curr.getKeyValues()) {
+                if (kv.compareTo(fromKey) >= 0 && kv.compareTo(toKey) <= 0) {
+                    keyValues.add(kv);
+                } else if (kv.compareTo(toKey) > 0){
+                    end = true;
+                }
+            }
+            curr = curr.getNextNode();
+
+        }
+        return keyValues;
     }
 
     /**
@@ -248,39 +375,113 @@ public class BalancePlusTree {
      * @return
      */
     public boolean delete(String key) {
+        KeyValue searchKey = new KeyValue(key);
+
+        // 对于空B+树的删除，此时根节点为空
+        if (getRoot() == null) {
+            return false;
+        }
+
+        TreeNode curr = getRoot();
+        // 只有一个根节点的B+树
+        if (getRoot().getChildren().isEmpty()) {
+            int index = binarySearchInternalNode2(searchKey, curr.getKeyValues());
+            if (index < 0) {
+                return false;
+            }
+            curr.getKeyValues().remove(index);
+            return true;
+        }
+        // 一般场景
+        else {
+            while (!curr.getChildren().isEmpty()) {
+                curr = curr.getChildren().get(binarySearchInternalNode(searchKey, curr.getKeyValues()));
+            }
+            int index = binarySearchInternalNode2(searchKey, curr.getKeyValues());
+            if (index < 0) {
+                return false;
+            }
+            // 进行删除操作
+            curr.getKeyValues().remove(index);
+            // todo 需要进行后续处理操作
+
+            return true;
+        }
+    }
+
+    /**
+     * 更新接口
+     * @param key
+     * @param value
+     * @return
+     */
+    public boolean update(String key, Object value) {
+        return update(new KeyValue(key, value));
+    }
+
+    public boolean update(String key, List<Object> values) {
+        return update(new KeyValue(key, values));
+    }
+
+    private boolean update(KeyValue entry) {
+        TreeNode curr = getRoot();
+        while (!curr.getChildren().isEmpty()) {
+            curr = curr.getChildren().get(binarySearchInternalNode(entry, curr.getKeyValues()));
+        }
+
+        for (KeyValue kv: curr.getKeyValues()) {
+            if (kv.compareTo(entry) == 0) {
+                kv.setValues(entry.getValues());
+                return true;
+            } else if (kv.compareTo(entry) > 0) {
+                insert(entry);
+                return false;
+            }
+        }
+
         return false;
     }
 
+    /**
+     * todo  children 打印会出现SOF异常
+     * @return
+     */
     @Override
     public String toString() {
-        Queue<TreeNode> queue = new LinkedList<>();
         StringBuilder builder = new StringBuilder("BalancePlusTree{" +
                 "root=" + root +
                 ", degree=" + degree +
                 ", ");
-        queue.add(this.root);
-        TreeNode curr = null;
-        while (!queue.isEmpty()) {
-            curr = queue.poll();
-            if (curr == null) {
-                if (queue.peek() == null) {
-                    break;
-                }
-                continue;
-            }
-            builder.append(curr.toString());
-            if (curr.getChildren().isEmpty()) {
+        TreeNode curr = this.root;
+        while (curr != null) {
+            if (!curr.getChildren().isEmpty()) {
+                curr = curr.getChildren().get(0);
+            } else {
                 break;
             }
-            queue.addAll(curr.getChildren());
-
         }
-        curr = curr.getNextNode();
         while (curr != null) {
-            builder.append(curr.toString());
+            builder.append(curr.getKeyValues());
             curr = curr.getNextNode();
         }
         builder.append( '}');
         return builder.toString();
+    }
+
+    public List<KeyValue> toList() {
+        List<KeyValue> list = new ArrayList<>();
+        TreeNode curr = this.root;
+        while (curr != null) {
+            if (!curr.getChildren().isEmpty()) {
+                curr = curr.getChildren().get(0);
+            } else {
+                break;
+            }
+        }
+        while (curr != null) {
+            list.addAll(curr.getKeyValues());
+            curr = curr.getNextNode();
+        }
+        return list;
     }
 }
