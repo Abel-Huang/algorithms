@@ -38,6 +38,8 @@ public class BalancePlusTreeTest {
         keyValues.add(new KeyValue("h", "hard"));
         System.out.println(balancePlusTree.binarySearchInternalNode(new KeyValue("f", "hello"), keyValues));
         System.out.println(balancePlusTree.binarySearchInternalNode(new KeyValue("b", "hello"), keyValues));
+        System.out.println(balancePlusTree.binarySearchInternalNode(new KeyValue("Z", "hello"), keyValues));
+        System.out.println(balancePlusTree.binarySearchInternalNode(new KeyValue("a", "hello"), keyValues));
     }
 
     @Test

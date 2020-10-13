@@ -136,7 +136,7 @@ public class BalancePlusTree {
             }
         }
         else {
-            merge(insertingNode, curr);
+            promote(insertingNode, curr);
             // 如果合并后的节点已经满了
             if (curr.getKeyValues().size() == getDegree()) {
                 int mid = (int) (Math.ceil(getDegree() / 2.0) - 1);
@@ -177,11 +177,11 @@ public class BalancePlusTree {
     }
 
     /**
-     * 合并内部节点
+     * 合并内部节点, 符合条件的数据节点晋升为索引节点
      * @param mergeFrom
      * @param mergeInto
      */
-    private void merge(TreeNode mergeFrom, TreeNode mergeInto) {
+    private void promote(TreeNode mergeFrom, TreeNode mergeInto) {
         KeyValue keyValue = mergeFrom.getKeyValues().get(0);
         TreeNode childNode = mergeFrom.getChildren().get(0);
 
@@ -401,12 +401,82 @@ public class BalancePlusTree {
             if (index < 0) {
                 return false;
             }
-            // 进行删除操作
-            curr.getKeyValues().remove(index);
-            // todo 需要进行后续处理操作
-
+            // 如果删除后的节点 >= (int) (Math.ceil(getDegree() / 2.0) - 1), 删除操作结束，否则需要进行后续合并操作
+            if (curr.getKeyValues().size() < (int) Math.ceil(getDegree() / 2.0)) {
+                delete(curr, index);
+            } else {
+                // 进行删除操作
+                curr.getKeyValues().remove(index);
+            }
             return true;
         }
+    }
+
+    /**
+     * 删除后的合并操作, 只考虑其与左边的兄弟节点之间的关系
+     */
+    private void delete(TreeNode curr, int delIdx) {
+        TreeNode parent = curr.getParentNode();
+        // 这种场景应该是不会存在，其父节点必然存在
+        if (parent == null) {
+            return;
+        }
+        // 获得当前节点的位于父节点的位置
+        int index = binarySearchInternalNode(curr.getKeyValues().get(0), parent.getKeyValues());
+        // 当前节点位于最左端，或者左兄弟数量
+        if (index > 0) {
+            // 需要获得当前节点的左兄弟节点
+            TreeNode leftNode =  parent.getChildren().get(index - 1);
+            // 如果兄弟节点过半阈值，则需要借一个key
+            if (leftNode.getKeyValues().size() > (int) (Math.ceil(getDegree() / 2.0) - 1)) {
+                borrow(parent, leftNode, curr, delIdx);
+                return;
+            } else {
+                // 其他情形，无法从兄弟节点借到数据, 则需要将左右节点进行合并
+                merge(parent, leftNode, curr, delIdx);
+            }
+        }
+        // 被删除的节点位于父节点的第一个子节点, 那么需要考虑与右边节点进行合并
+        else {
+
+        }
+
+        if (parent.getKeyValues().size() >= (int) (Math.ceil(getDegree() / 2.0) - 1)) {
+            return;
+        }
+        // 针对索引节点的合并
+        merge(parent);
+    }
+
+    /**
+     *  todo
+     * 合并左右节点，并删除索引中的数据
+     * @param parent
+     * @param leftNode
+     * @param rightNode
+     * @param index
+     */
+    private void merge(TreeNode parent, TreeNode leftNode, TreeNode rightNode, int index) {
+
+    }
+
+    /**
+     *  todo
+     * 针对索引节点的合并
+     * @param parent
+     */
+    private void merge(TreeNode parent) {
+
+    }
+
+    /**
+     *  todo
+     * 从兄弟节点中借一个key，并删除右边key
+     * @param leftNode
+     * @param rightNode
+     */
+    private void borrow(TreeNode parent, TreeNode leftNode, TreeNode rightNode, int index) {
+
     }
 
     /**
