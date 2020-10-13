@@ -12,9 +12,13 @@ public class KeyValue implements Comparable<KeyValue> {
     private List<Object> values;
 
     public KeyValue(String key, Object value) {
+        this(key);
+        this.values.add(value);
+    }
+
+    public KeyValue(String key) {
         this.key = key;
         this.values = new ArrayList<>();
-        this.values.add(value);
     }
 
     public KeyValue(KeyValue keyValue) {
