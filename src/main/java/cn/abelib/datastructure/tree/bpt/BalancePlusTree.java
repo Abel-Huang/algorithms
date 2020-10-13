@@ -2,6 +2,7 @@ package cn.abelib.datastructure.tree.bpt;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author abel-huang
@@ -29,6 +30,10 @@ public class BalancePlusTree {
      */
     public int getDegree() {
         return this.degree;
+    }
+
+    public int getCeil() {
+        return (int) Math.ceil(getDegree() / 2.0);
     }
 
     /**
@@ -271,14 +276,6 @@ public class BalancePlusTree {
         int right = keyValues.size() - 1;
         int mid;
         int index = -1;
-        // 如果小于第一个元素，那位置就在第一个位置
-        if (entry.compareTo(keyValues.get(left)) < 0) {
-            return 0;
-        }
-        // 如果大于最后一个元素，那位置就在集合最后一个位置
-        if (entry.compareTo(keyValues.get(right)) >= 0) {
-            return keyValues.size();
-        }
         while (left <= right) {
             mid = left + (right - left) / 2;
             if (entry.compareTo(keyValues.get(mid)) == 0) {
@@ -322,21 +319,7 @@ public class BalancePlusTree {
      * @return
      */
     public boolean contains(String key) {
-        KeyValue searchKey = new KeyValue(key);
-        TreeNode curr = getRoot();
-        while (!curr.getChildren().isEmpty()) {
-            curr = curr.getChildren().get(binarySearchInternalNode(searchKey, curr.getKeyValues()));
-        }
-
-        for (KeyValue kv: curr.getKeyValues()) {
-            if (kv.compareTo(searchKey) == 0) {
-                return true;
-            } else if (kv.compareTo(searchKey) > 0) {
-                break;
-            }
-        }
-
-        return false;
+        return Objects.nonNull(search(key));
     }
 
     /**
@@ -398,15 +381,14 @@ public class BalancePlusTree {
                 curr = curr.getChildren().get(binarySearchInternalNode(searchKey, curr.getKeyValues()));
             }
             int index = binarySearchInternalNode2(searchKey, curr.getKeyValues());
+            // 进行删除操作
+            curr.getKeyValues().remove(index);
             if (index < 0) {
                 return false;
             }
             // 如果删除后的节点 >= (int) (Math.ceil(getDegree() / 2.0) - 1), 删除操作结束，否则需要进行后续合并操作
             if (curr.getKeyValues().size() < (int) Math.ceil(getDegree() / 2.0)) {
-                delete(curr, index);
-            } else {
-                // 进行删除操作
-                curr.getKeyValues().remove(index);
+                delete(curr);
             }
             return true;
         }
@@ -415,7 +397,7 @@ public class BalancePlusTree {
     /**
      * 删除后的合并操作, 只考虑其与左边的兄弟节点之间的关系
      */
-    private void delete(TreeNode curr, int delIdx) {
+    private void delete(TreeNode curr) {
         TreeNode parent = curr.getParentNode();
         // 这种场景应该是不会存在，其父节点必然存在
         if (parent == null) {
@@ -428,12 +410,12 @@ public class BalancePlusTree {
             // 需要获得当前节点的左兄弟节点
             TreeNode leftNode =  parent.getChildren().get(index - 1);
             // 如果兄弟节点过半阈值，则需要借一个key
-            if (leftNode.getKeyValues().size() > (int) (Math.ceil(getDegree() / 2.0) - 1)) {
-                borrow(parent, leftNode, curr, delIdx);
+            if (leftNode.getKeyValues().size() >= (int) (Math.ceil(getDegree() / 2.0) - 1)) {
+                borrow(parent, leftNode, curr);
                 return;
             } else {
                 // 其他情形，无法从兄弟节点借到数据, 则需要将左右节点进行合并
-                merge(parent, leftNode, curr, delIdx);
+                merge(parent, leftNode, curr, index);
             }
         }
         // 被删除的节点位于父节点的第一个子节点, 那么需要考虑与右边节点进行合并
@@ -450,14 +432,17 @@ public class BalancePlusTree {
 
     /**
      *  todo
-     * 合并左右节点，并删除索引中的数据
+     * 合并左右数据节点，并删除索引中的数据
      * @param parent
      * @param leftNode
      * @param rightNode
-     * @param index
      */
-    private void merge(TreeNode parent, TreeNode leftNode, TreeNode rightNode, int index) {
-
+    public void merge(TreeNode parent, TreeNode leftNode, TreeNode rightNode, int index) {
+        leftNode.getKeyValues().addAll(rightNode.getKeyValues());
+        leftNode.setNextNode(rightNode.getNextNode());
+        parent.getChildren().remove(index + 1);
+        parent.getKeyValues().remove(index);
+        rightNode = null;
     }
 
     /**
@@ -475,8 +460,10 @@ public class BalancePlusTree {
      * @param leftNode
      * @param rightNode
      */
-    private void borrow(TreeNode parent, TreeNode leftNode, TreeNode rightNode, int index) {
-
+    public void borrow(TreeNode parent, TreeNode leftNode, TreeNode rightNode) {
+        KeyValue borrowKeyValue = leftNode.getKeyValues().remove(leftNode.getKeyValues().size() - 1);
+        rightNode.getKeyValues().add(0, borrowKeyValue);
+        parent.getKeyValues().set(parent.getKeyValues().size() - 1, borrowKeyValue);
     }
 
     /**
