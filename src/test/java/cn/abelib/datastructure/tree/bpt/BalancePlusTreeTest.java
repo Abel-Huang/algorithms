@@ -54,6 +54,7 @@ public class BalancePlusTreeTest {
         System.out.println(balancePlusTree.binarySearchInternalNode2(new KeyValue("f", "hello"), keyValues));
         System.out.println(balancePlusTree.binarySearchInternalNode2(new KeyValue("b", "hello"), keyValues));
         System.out.println(balancePlusTree.binarySearchInternalNode2(new KeyValue("a", "hello"), keyValues));
+        System.out.println(balancePlusTree.binarySearchInternalNode2(new KeyValue("i", "hello"), keyValues));
     }
 
     @Test
@@ -108,7 +109,7 @@ public class BalancePlusTreeTest {
         leftNode.getKeyValues().add(new KeyValue("8"));
         leftNode.getKeyValues().add(new KeyValue("9"));
 
-        balancePlusTree.borrow(parent, leftNode, rightNode);
+        balancePlusTree.borrowFromLeft(parent, leftNode, rightNode, 0);
     }
 
     @Test
@@ -127,7 +128,7 @@ public class BalancePlusTreeTest {
 
         parent.getChildren().add(leftNode);
         parent.getChildren().add(rightNode);
-        balancePlusTree.merge(parent, leftNode, rightNode, 0);
+        balancePlusTree.mergeExternalNode(parent, leftNode, rightNode, 0);
     }
 
 
@@ -135,4 +136,11 @@ public class BalancePlusTreeTest {
     public void ceilTest() {
         System.err.println((int)Math.ceil(balancePlusTree.getDegree() / 2.0) - 1);
     }
+
+    @Test
+    public void deleteTest() {
+        balancePlusTree.delete("d");
+        System.err.println(balancePlusTree.toList());
+    }
+
 }

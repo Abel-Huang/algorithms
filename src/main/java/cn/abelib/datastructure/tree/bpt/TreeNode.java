@@ -25,12 +25,6 @@ public class TreeNode {
      */
     private TreeNode prevNode;
     /**
-     * 是否是叶节点，叶节点即数据节点，用于存放数据，位于B+树最下面一层，
-     * 非叶子节点为索引节点，存放的是从底层提升上来的索引数据，
-     * 只有叶子节点才有前驱和后继指针
-     */
-    private boolean isLeaf;
-    /**
      * 父节点
      */
     private TreeNode parentNode;
@@ -89,14 +83,6 @@ public class TreeNode {
 
     public void setParentNode(TreeNode parentNode) {
         this.parentNode = parentNode;
-    }
-
-    public boolean isLeaf() {
-        return isLeaf;
-    }
-
-    public void setLeaf(boolean leaf) {
-        isLeaf = leaf;
     }
 
     @Override
